@@ -11714,6 +11714,240 @@ ul.typeahead-list > li > a {
 .ansi-bold { font-weight: bold; }
 
     </style>
+<style type="text/css">
+    /*
+Placeholder for custom user CSS
+
+mainly to be overridden in profile/static/custom/custom.css
+
+This will always be an empty file in IPython
+*/
+
+
+/*@import url('http://fonts.googleapis.com/css?family=Crimson+Text');*/
+@import url('http://fonts.googleapis.com/css?family=Kameron');
+@import url('http://fonts.googleapis.com/css?family=Lato:200,300,400');
+/*@import url('http://fonts.googleapis.com/css?family=Hack');*/
+
+
+/* Change code font */
+.CodeMirror pre {
+    font-family: 'Hack', Consolas, monocco, monospace;
+}
+
+div.input_area {
+    border-color: rgba(0,0,0,0.10);
+    background: rbga(0,0,0,0.5);
+}
+
+div.text_cell {
+    /*max-width: 105ex; */
+    /* instead of 100%, */
+}
+
+div.text_cell_render {
+    /*font-family: "Crimson Text";*/
+    font-size: 12pt;
+    line-height: 145%; /* added for some line spacing of text. */
+}
+
+/*div.text_cell_render h1,
+div.text_cell_render h2,
+div.text_cell_render h3,
+div.text_cell_render h4,
+div.text_cell_render h5,
+*/
+div.text_cell_render h6 {
+    font-family: 'Kameron';
+    font-weight: 300;
+}
+
+div.text_cell_render h1 {
+    font-size: 24pt;
+}
+
+div.text_cell_render h2 {
+    font-size: 18pt;
+}
+
+div.text_cell_render h3 {
+    font-size: 14pt;
+}
+
+.rendered_html pre,
+.rendered_html code {
+    /*font-size: medium;*/
+    font-family: Consolas, monocco, monospace;
+}
+
+.rendered_html ol {
+    list-style:decimal;
+    margin: 1em 2em;
+}
+
+.prompt.input_prompt {
+    color: rgba(0,0,0,0.5);
+}
+
+.cell.command_mode.selected {
+    border-color: rgba(0,0,0,0.1);
+}
+
+.cell.edit_mode.selected {
+    border-color: rgba(0,0,0,0.15);
+    box-shadow: 0px 0px 5px #f0f0f0;
+    -webkit-box-shadow: 0px 0px 5px #f0f0f0;
+}
+
+div.output_scroll {
+    -webkit-box-shadow: inset 0 2px 8px rgba(0,0,0,0.1);
+    box-shadow: inset 0 2px 8px rgba(0,0,0,0.1);
+    border-radious: 2px;
+}
+
+#menubar .navbar-inner {
+    background: #fff;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    border-radius: 0;
+    border: none;
+    font-family: lato;
+    font-weight: 400;
+}
+
+.navbar-fixed-top .navbar-inner,
+.navbar-static-top .navbar-inner {
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    border: none;
+}
+
+div#notebook_panel {
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    border-top: none;
+}
+
+div#notebook {
+    border-top: 1px solid rgba(0,0,0,0.15);
+}
+
+#menubar .navbar .navbar-inner,
+.toolbar-inner {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+#checkpoint_status,
+#autosave_status {
+    color: rgba(0,0,0,0.5);
+}
+
+#header {
+    font-family: lato;
+}
+
+#notebook_name {
+    font-weight: 200;
+}
+
+/*
+    This is a lazy fix, we *should* fix the
+    background for each Bootstrap button type
+*/
+#site * .btn {
+    background: #fafafa;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+/* Pretty Pandas Dataframes */
+.dataframe * {border-color: #c0c0c0 !important;}
+.dataframe th{background: #eee;}
+.dataframe td{
+    background: #fff;
+    text-align: right;
+    min-width:5em;
+}
+
+/* Format summary rows */
+.dataframe-summary-row tr:last-child,
+.dataframe-summary-col td:last-child{
+    background: #eee;
+    font-weight: 500;
+}
+
+/*
+Customize the logo
+ */
+#ipython_notebook img{
+    display:block;
+    background: url(logo.png) no-repeat;
+    background-size: contain;
+    width: 233px;
+    height: 33px;
+    padding-left: 233px;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+#ipython_notebook {
+    height: 40px !important;
+}
+
+
+/*
+    Adapted for jupyter-themer from https://github.com/codemirror
+*/
+
+/*
+  MDN-LIKE Theme - Mozilla
+  Ported to CodeMirror by Peter Kroon <plakroon@gmail.com>
+  Report bugs/issues here: https://github.com/codemirror/CodeMirror/issues
+  GitHub: @peterkroon
+  The mdn-like theme is inspired on the displayed code examples at: https://developer.mozilla.org/en-US/docs/Web/CSS/animation
+*/
+.CodeMirror { color: #444; background-color: #fff; }
+.CodeMirror div.CodeMirror-selected { background: #cfc; }
+.CodeMirror .CodeMirror-line::selection, .CodeMirror .CodeMirror-line > span::selection, .CodeMirror .CodeMirror-line > span > span::selection { background: #cfc; }
+.CodeMirror .CodeMirror-line::-moz-selection, .CodeMirror .CodeMirror-line > span::-moz-selection, .CodeMirror .CodeMirror-line > span > span::-moz-selection { background: #cfc; }
+
+.CodeMirror .CodeMirror-gutters { background: #f8f8f8; border-left: 6px solid rgba(0,83,159,0.65); color: #333; }
+.CodeMirror .CodeMirror-linenumber { color: #aaa; padding-left: 8px; }
+.CodeMirror .CodeMirror-cursor { border-left: 2px solid #333; }
+
+.CodeMirror span.cm-keyword { color: #6262FF; }
+.CodeMirror span.cm-atom { color: #F90; }
+.CodeMirror span.cm-number { color:  #ca7841; }
+.CodeMirror span.cm-def { color: #8DA6CE; }
+.CodeMirror span.cm-variable-2, .CodeMirror span.cm-tag { color: #690; }
+.CodeMirror span.cm-variable-3, .CodeMirror span.cm-def { color: #07a; }
+
+.CodeMirror span.cm-variable { color: #029; }
+.CodeMirror span.cm-property { color: #905; }
+.CodeMirror span.cm-qualifier { color: #690; }
+
+.CodeMirror span.cm-operator { color: #cda869; }
+.CodeMirror span.cm-comment { color:#777; font-weight:normal; }
+/*.CodeMirror span.cm-string { color:#07a; font-style:italic; }*/
+.CodeMirror span.cm-string { color:#07a; font-style:italic; }*/
+.CodeMirror span.cm-string-2 { color:#bd6b18; } /*?*/
+.CodeMirror span.cm-meta { color: #000; } /*?*/
+.CodeMirror span.cm-builtin { color: #9B7536; } /*?*/
+.CodeMirror span.cm-tag { color: #997643; }
+.CodeMirror span.cm-attribute { color: #d6bb6d; } /*?*/
+.CodeMirror span.cm-header { color: #FF6400; }
+.CodeMirror span.cm-hr { color: #AEAEAE; }
+.CodeMirror span.cm-link { color:#ad9361; font-style:italic; text-decoration:none; }
+.CodeMirror span.cm-error { border-bottom: 1px solid red; }
+
+div.CodeMirror .CodeMirror-activeline-background { background: #efefff; }
+div.CodeMirror span.CodeMirror-matchingbracket { outline:1px solid grey; color: inherit; }
+
+.cm-s-mdn-like.CodeMirror { background-image: url(data:image/png;base64,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); }
+
+
+    </style>
 
 
 <style type="text/css">
@@ -11775,15 +12009,15 @@ div#notebook {
 
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">import</span> <span class="nn">sys</span>
 <span class="kn">import</span> <span class="nn">glob</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="o">%</span><span class="k">matplotlib</span> inline
 <span class="o">%</span><span class="k">precision</span> 4
 <span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;ggplot&#39;</span><span class="p">)</span>
@@ -11799,8 +12033,8 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="&#31639;&#27861;&#22797;&#26434;&#24230;&#65288;Algorithmic-complexity&#65289;">&#31639;&#27861;&#22797;&#26434;&#24230;&#65288;Algorithmic complexity&#65289;<a class="anchor-link" href="#&#31639;&#27861;&#22797;&#26434;&#24230;&#65288;Algorithmic-complexity&#65289;">&#182;</a></h2><p>数据结构，顾名思义就是用于存储数据的抽象结构。 咱们已经讲过了几个了，比如Python自带的列表list和字典dict等等。
-算法，则是用于处理各种数据结构的基本<em>配方recipes</em>。 当我们进行更多的计算密集型计算时，就需要更好地理解如何衡量数据结构和算法的性能，以便选择适当策略。</p>
+<h2 id="&#31639;&#27861;&#22797;&#26434;&#24230;&#65288;Algorithmic-complexity&#65289;">&#31639;&#27861;&#22797;&#26434;&#24230;&#65288;Algorithmic complexity&#65289;<a class="anchor-link" href="#&#31639;&#27861;&#22797;&#26434;&#24230;&#65288;Algorithmic-complexity&#65289;">&#182;</a></h2><p>数据结构，顾名思义就是用于存储数据的抽象结构。 咱们已经讲过几个了，比如Python自带的列表list和字典dict等等。
+算法，则是用于处理各种数据结构的基本<em>配方recipes</em>。 当我们进行更多的计算密集型计算时，就需要更好地理解如何衡量数据结构和算法的性能，以便选择适当的策略。</p>
 
 </div>
 </div>
@@ -11817,10 +12051,10 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># 使用 %timeit 来衡量函数调用需要的时间（to measure function calls）</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># 使用 %timeit 来衡量函数执行需要的时间（to measure function calls）</span>
 <span class="k">def</span> <span class="nf">f</span><span class="p">():</span>
     <span class="kn">import</span> <span class="nn">time</span>
     <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
@@ -11829,22 +12063,6 @@ div#notebook {
 </pre></div>
 
 </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-<div class="prompt"></div>
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>1 loop, best of 3: 2 s per loop
-</pre>
-</div>
-</div>
-
 </div>
 </div>
 
@@ -11864,9 +12082,9 @@ div#notebook {
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>然而，上面这种评分的相当一部分是受到本地硬件配置的影响，所以如果换一台其他的电脑，那这种评分对算法的参考意义就不那么可靠了。怎么来建立一个独立于硬件设备的评分测试基准呢？我们要引入一个大O记号（你可能在微积分课程里面已经看到过了）。大O记号在形式上表示的是函数增长速率方面的特征。</p>
-<p>设想你想在一个长度为$ n $的未排序列表中搜索一个项目。一种方法是从开始位置按照顺序对该列表进行扫描，直到找到为止（或者遍历完了也没找到）。 如果要找的这个项确实存在于在列表中，那么平均来看大概就需要扫描其中的（$ n / 2 $）个项来找到目标项。 如果要查找的项不在列表中，就需要扫描所有$ n $个项。 在任何情况下，搜索的复杂性都是随着列表$ n $的长度增长而线性增长。 所以就说这种线性扫描的搜索算法复杂度是$ \ mathcal {O}（n）$。</p>
+<p>设想你要在一个长度为$ n $的未排序列表中搜索一个项目。一种方法是从开始位置按照顺序对该列表进行扫描，直到找到为止（或者遍历完了也没找到）。 如果要找的这个项确实存在于在列表中，那么平均来看大概就需要扫描其中的（$ n / 2 $）个项来找到目标项。 如果要查找的项不在列表中，就需要扫描所有$ n $个项。 在任何情况下，搜索的复杂性都是随着列表$ n $的长度增长而线性增长。 所以就说这种线性扫描的搜索算法复杂度是$ \ mathcal {O}（n）$。</p>
 <p>严格来说，应该说 <em>平均</em> 的复杂度是$ \ mathcal {O}（n）$。然后还可以计算一下最差情况（也就是目标项不在列表的情景），这种情况下的这个搜索示例的平均复杂度也是$ \ mathcal {O}（n）$。 由于最坏情况下可能还需要对输入进行组织（例如，调用一个排序函数来对已排序列表进行排序），因此随机的输入有时就可以到视为平均情况。</p>
-<p>更正式地说，我们有一个比较函数$ g（n）$和另一个函数$ f（n）$ 其返回值是要测试的算法在输入大小为$n$ 中执行的“基本操作”的数量。在这个例子中，基本操作就是对两个项目的比较。这在统计学算法中通常是一次浮点运算（FLOP），和两个浮点数的加法、乘法类似。现在，如果$| f（n）/ g（n）| $的比值在$ n $趋于无穷大的时候收敛于$ M $，我们就说$ f（n）$的复杂度为$ g （n）$。例如，如果$ f（n）= 10n ^ 2 $而$ g（n）= n $，那么没有这样的收敛值$ M $，而$ f（n）$ 也就<strong> 不能表示为 </strong> $ \ mathcal { O}（n）$，但如果$ g（n）= n ^ 2 $，那么$ M = 10 $ ，这样我们就说$ f（n）$的复杂度是$ \ mathcal {O}（n ^ 2） $。所以我们的搜索函数是$ \ mathcal {O}（n）$。正规地说，它实际上也符合$ \ mathcal {O}（n ^ 2）$以及其他的类型等，但是我们通常总是要选择“最简单的”$ g $函数。我们也不那么啰嗦太多的术语和项目，只使用最高次项来表征复杂度 - 所以不说$ \ mathcal {O}（n ^ 3 + n ^ 2 + n）$，而只使用最高的三次方$ \ mathcal {O}（n ^ 3）$。</p>
+<p>更正式地说，我们有一个比较函数$ g（n）$和另一个函数$ f（n）$ 其返回值是我们要测试的算法在给定大小为$n$的输入时所执行的“基本操作”的数量。在这个例子中，基本操作就是对两个项目的比较。这在统计学算法中通常是一次浮点运算（FLOP），和两个浮点数的加法、乘法类似。现在，如果$| f（n）/ g（n）| $的比值在$ n $趋于无穷大的时候收敛于$ M $，我们就说$ f（n）$的复杂度为$ g （n）$。例如，如果$ f（n）= 10n ^ 2 $而$ g（n）= n $，那么没有这样的收敛值$ M $，而$ f（n）$ 也就<strong> 不能表示为 </strong> $ \ mathcal { O}（n）$，但如果$ g（n）= n ^ 2 $，那么$ M = 10 $ ，这样我们就说$ f（n）$的复杂度是$ \ mathcal {O}（n ^ 2） $。所以我们的搜索函数是$ \ mathcal {O}（n）$。正规地说，它实际上也符合$ \ mathcal {O}（n ^ 2）$以及其他的类型等，但是我们通常总是要选择“最简单的”$ g $函数。我们也不那么啰嗦太多的术语和项目，只使用最高次项来表征复杂度 - 所以不说$ \ mathcal {O}（n ^ 3 + n ^ 2 + n）$，而只使用最高的三次方$ \ mathcal {O}（n ^ 3）$。</p>
 <p>请注意，由于常数部分不能用大O记号表示，所以具有相同的大O复杂度的两种算法完全可能具有相差悬殊的性能！ 但大O记号对于理解我们的算法的<em>可扩展性</em>还是很有帮助的。 下面我们将对$ \ mathcal {O}（n ^ 2）$算法（例如起泡法排序）和$ \ mathcal {O}（n \ log {n}）$算法（例如合并排序）进行比较。 其中我们先忽略掉常数因素的差异，因为随着$ n $变大，常数项的影响作用就微不足道了。</p>
 
 </div>
@@ -11877,7 +12095,7 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="k">def</span> <span class="nf">f1</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">k</span><span class="p">):</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">f1</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">k</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">k</span><span class="o">*</span><span class="n">n</span><span class="o">*</span><span class="n">n</span>
 
 <span class="k">def</span> <span class="nf">f2</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">k</span><span class="p">):</span>
@@ -11889,7 +12107,7 @@ div#notebook {
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">f2</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="mi">1000</span><span class="p">),</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Size of input (n)&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Number of operations&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s1">&#39;$\mathcal{O}(n^2)$&#39;</span><span class="p">,</span> <span class="s1">&#39;$\mathcal{O}(n \log n)$&#39;</span><span class="p">],</span> <span class="n">loc</span><span class="o">=</span><span class="s1">&#39;best&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">20</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s1">&#39;$\mathcal</span><span class="si">{O}</span><span class="s1">(n^2)$&#39;</span><span class="p">,</span> <span class="s1">&#39;$\mathcal</span><span class="si">{O}</span><span class="s1">(n \log n)$&#39;</span><span class="p">],</span> <span class="n">loc</span><span class="o">=</span><span class="s1">&#39;best&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">20</span><span class="p">);</span>
 </pre></div>
 
 </div>
@@ -11942,7 +12160,7 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># 在列表 list 中进行搜索的复杂度是 O(n)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># 在列表 list 中进行搜索的复杂度是 O(n)</span>
 
 <span class="n">alist</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1000000</span><span class="p">)</span>
 <span class="n">r</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">100000</span><span class="p">)</span>
@@ -11959,7 +12177,7 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># 在字典 dictionary 中搜索的复杂度是 O(1)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># 在字典 dictionary 中搜索的复杂度是 O(1)</span>
 
 <span class="n">adict</span> <span class="o">=</span> <span class="nb">dict</span><span class="o">.</span><span class="n">fromkeys</span><span class="p">(</span><span class="n">alist</span><span class="p">)</span>
 <span class="o">%</span><span class="k">timeit</span> -n3 r in adict
@@ -11993,10 +12211,10 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># 在 Unix 系统里面使用 %%time 来衡量 cell 的运行时间</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># 在 Unix 系统里面使用 %%time 来衡量 cell 的运行时间</span>
 <span class="o">%</span><span class="k">time</span>
 
 <span class="n">f</span><span class="p">()</span>
@@ -12006,38 +12224,21 @@ div#notebook {
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-<div class="prompt"></div>
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>CPU times: user 1e+03 ns, sys: 0 ns, total: 1e+03 ns
-Wall time: 4.05 µs
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># 这里要注意 Python 当中的不同对象在内存中有多大的开销</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># 这里要注意 Python 当中的不同对象在内存中有多大的开销</span>
 <span class="c1"># 原生的整数（raw integer ）应该是是64位（bit）或8字节（bytes）</span>
 
-<span class="k">print</span> <span class="n">sys</span><span class="o">.</span><span class="n">getsizeof</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-<span class="k">print</span> <span class="n">sys</span><span class="o">.</span><span class="n">getsizeof</span><span class="p">(</span><span class="mi">1234567890123456789012345678901234567890</span><span class="p">)</span>
-<span class="k">print</span> <span class="n">sys</span><span class="o">.</span><span class="n">getsizeof</span><span class="p">(</span><span class="mf">3.14</span><span class="p">)</span>
-<span class="k">print</span> <span class="n">sys</span><span class="o">.</span><span class="n">getsizeof</span><span class="p">(</span><span class="mi">3j</span><span class="p">)</span>
-<span class="k">print</span> <span class="n">sys</span><span class="o">.</span><span class="n">getsizeof</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">)</span>
-<span class="k">print</span> <span class="n">sys</span><span class="o">.</span><span class="n">getsizeof</span><span class="p">(</span><span class="s1">&#39;hello world&#39;</span><span class="p">)</span>
+<span class="nb">print</span> <span class="n">sys</span><span class="o">.</span><span class="n">getsizeof</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="nb">print</span> <span class="n">sys</span><span class="o">.</span><span class="n">getsizeof</span><span class="p">(</span><span class="mi">1234567890123456789012345678901234567890</span><span class="p">)</span>
+<span class="nb">print</span> <span class="n">sys</span><span class="o">.</span><span class="n">getsizeof</span><span class="p">(</span><span class="mf">3.14</span><span class="p">)</span>
+<span class="nb">print</span> <span class="n">sys</span><span class="o">.</span><span class="n">getsizeof</span><span class="p">(</span><span class="mi">3</span><span class="n">j</span><span class="p">)</span>
+<span class="nb">print</span> <span class="n">sys</span><span class="o">.</span><span class="n">getsizeof</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">)</span>
+<span class="nb">print</span> <span class="n">sys</span><span class="o">.</span><span class="n">getsizeof</span><span class="p">(</span><span class="s1">&#39;hello world&#39;</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -12050,12 +12251,12 @@ Wall time: 4.05 µs
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="k">print</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">100</span><span class="p">,</span><span class="mi">100</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;byte&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">nbytes</span>
-<span class="k">print</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">100</span><span class="p">,</span><span class="mi">100</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;i2&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">nbytes</span>
-<span class="k">print</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">100</span><span class="p">,</span><span class="mi">100</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;int&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">nbytes</span> <span class="c1"># default is 64 bits or 8 bytes</span>
-<span class="k">print</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">100</span><span class="p">,</span><span class="mi">100</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;f4&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">nbytes</span>
-<span class="k">print</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">100</span><span class="p">,</span><span class="mi">100</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;float&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">nbytes</span> <span class="c1"># default is 64 bits or 8 bytes</span>
-<span class="k">print</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">100</span><span class="p">,</span><span class="mi">100</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;complex&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">nbytes</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">100</span><span class="p">,</span><span class="mi">100</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;byte&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">nbytes</span>
+<span class="nb">print</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">100</span><span class="p">,</span><span class="mi">100</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;i2&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">nbytes</span>
+<span class="nb">print</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">100</span><span class="p">,</span><span class="mi">100</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;int&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">nbytes</span> <span class="c1"># default is 64 bits or 8 bytes</span>
+<span class="nb">print</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">100</span><span class="p">,</span><span class="mi">100</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;f4&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">nbytes</span>
+<span class="nb">print</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">100</span><span class="p">,</span><span class="mi">100</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;float&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">nbytes</span> <span class="c1"># default is 64 bits or 8 bytes</span>
+<span class="nb">print</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">100</span><span class="p">,</span><span class="mi">100</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;complex&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">nbytes</span>
 </pre></div>
 
 </div>
