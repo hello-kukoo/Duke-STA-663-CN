@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head><meta charset="utf-8" />
-<title>IntroductionToPython</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>LinearAlgebraMatrixDecomp</title>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
 <style type="text/css">
@@ -11,8 +13,8 @@
 *
 */
 /*!
- * Bootstrap v3.3.7 (http://getbootstrap.com)
- * Copyright 2011-2016 Twitter, Inc.
+ * Bootstrap v3.3.6 (http://getbootstrap.com)
+ * Copyright 2011-2015 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
@@ -1107,6 +1109,7 @@ a:focus {
   text-decoration: underline;
 }
 a:focus {
+  outline: thin dotted;
   outline: 5px auto -webkit-focus-ring-color;
   outline-offset: -2px;
 }
@@ -2535,6 +2538,7 @@ select[size] {
 input[type="file"]:focus,
 input[type="radio"]:focus,
 input[type="checkbox"]:focus {
+  outline: thin dotted;
   outline: 5px auto -webkit-focus-ring-color;
   outline-offset: -2px;
 }
@@ -3025,6 +3029,7 @@ select[multiple].input-lg {
 .btn.focus,
 .btn:active.focus,
 .btn.active.focus {
+  outline: thin dotted;
   outline: 5px auto -webkit-focus-ring-color;
   outline-offset: -2px;
 }
@@ -8755,9 +8760,6 @@ body > #header .header-bar {
     margin-left: 10px;
   }
 }
-[dir="rtl"] #ipython_notebook {
-  float: right !important;
-}
 #noscript {
   width: auto;
   padding-top: 16px;
@@ -8960,14 +8962,8 @@ span#login_widget > .button .badge,
  *
  * Author: Jupyter Development Team
  */
-[dir="rtl"] #tabs li {
-  float: right;
-}
 ul#tabs {
   margin-bottom: 4px;
-}
-[dir="rtl"] ul#tabs {
-  margin-right: 0px;
 }
 ul#tabs a {
   padding-top: 6px;
@@ -8990,16 +8986,6 @@ ul.breadcrumb span {
 }
 .list_toolbar .tree-buttons {
   padding-top: 1px;
-}
-[dir="rtl"] .list_toolbar .tree-buttons {
-  float: left !important;
-}
-[dir="rtl"] .list_toolbar .pull-right {
-  padding-top: 1px;
-  float: left !important;
-}
-[dir="rtl"] .list_toolbar .pull-left {
-  float: right !important;
 }
 .dynamic-buttons {
   padding-top: 3px;
@@ -9136,9 +9122,6 @@ ul.breadcrumb span {
 #tree-selector {
   padding-right: 0px;
 }
-[dir="rtl"] #tree-selector a {
-  float: right;
-}
 #button-select-all {
   min-width: 50px;
 }
@@ -9228,9 +9211,6 @@ ul#new-menu {
   left: auto;
   right: 0;
 }
-[dir="rtl"] #new-menu {
-  text-align: right;
-}
 .kernel-menu-icon {
   padding-right: 12px;
   width: 24px;
@@ -9275,9 +9255,6 @@ ul#new-menu {
 }
 #running .panel-group .panel .panel-body .list_container .list_item:last-child {
   border-bottom: 0px;
-}
-[dir="rtl"] #running .col-sm-8 {
-  float: right !important;
 }
 .delete-button {
   display: none;
@@ -9574,7 +9551,6 @@ div.cell.selected.jupyter-soft-selected {
   }
 }
 div.inner_cell {
-  min-width: 0;
   /* Old browsers */
   display: -webkit-box;
   -webkit-box-orient: vertical;
@@ -9595,6 +9571,11 @@ div.inner_cell {
   box-flex: 1;
   /* Modern browsers */
   flex: 1;
+}
+@-moz-document url-prefix() {
+  div.inner_cell {
+    overflow-x: hidden;
+  }
 }
 /* input_area and input_prompt must match in top border and margin for alignment */
 div.input_area {
@@ -11265,7 +11246,7 @@ div#pager .ui-resizable-handle::after {
 }
 .shortcut_key {
   display: inline-block;
-  width: 21ex;
+  width: 20ex;
   text-align: right;
   font-family: monospace;
 }
@@ -11577,7 +11558,6 @@ ul.typeahead-list > li > a {
   box-shadow: 0px 0px 12px 1px rgba(87, 87, 87, 0.2);
 }
 .terminal-app .terminal {
-  width: 100%;
   float: left;
   font-family: monospace;
   color: white;
@@ -11591,9 +11571,6 @@ ul.typeahead-list > li > a {
 .terminal-app .terminal dummy-screen {
   line-height: 1em;
   font-size: 14px;
-}
-.terminal-app .terminal .xterm-rows {
-  padding: 10px;
 }
 .terminal-app .terminal-cursor {
   color: black;
@@ -11654,10 +11631,8 @@ ul.typeahead-list > li > a {
 .highlight .mh { color: #666666 } /* Literal.Number.Hex */
 .highlight .mi { color: #666666 } /* Literal.Number.Integer */
 .highlight .mo { color: #666666 } /* Literal.Number.Oct */
-.highlight .sa { color: #BA2121 } /* Literal.String.Affix */
 .highlight .sb { color: #BA2121 } /* Literal.String.Backtick */
 .highlight .sc { color: #BA2121 } /* Literal.String.Char */
-.highlight .dl { color: #BA2121 } /* Literal.String.Delimiter */
 .highlight .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
 .highlight .s2 { color: #BA2121 } /* Literal.String.Double */
 .highlight .se { color: #BB6622; font-weight: bold } /* Literal.String.Escape */
@@ -11668,11 +11643,9 @@ ul.typeahead-list > li > a {
 .highlight .s1 { color: #BA2121 } /* Literal.String.Single */
 .highlight .ss { color: #19177C } /* Literal.String.Symbol */
 .highlight .bp { color: #008000 } /* Name.Builtin.Pseudo */
-.highlight .fm { color: #0000FF } /* Name.Function.Magic */
 .highlight .vc { color: #19177C } /* Name.Variable.Class */
 .highlight .vg { color: #19177C } /* Name.Variable.Global */
 .highlight .vi { color: #19177C } /* Name.Variable.Instance */
-.highlight .vm { color: #19177C } /* Name.Variable.Magic */
 .highlight .il { color: #666666 } /* Literal.Number.Integer.Long */
     </style>
 <style type="text/css">
@@ -11773,21 +11746,34 @@ div#notebook {
   <div tabindex="-1" id="notebook" class="border-box-sizing">
     <div class="container" id="notebook-container">
 
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">glob</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="o">%</span><span class="k">precision</span> 4
+<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;ggplot&#39;</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Python-&#31616;&#20171;">Python &#31616;&#20171;<a class="anchor-link" href="#Python-&#31616;&#20171;">&#182;</a></h1>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>本章节内容基本上是参考了下面这个编程指南: <a href="http://www.afterhoursprogramming.com/tutorial/Python/Introduction/">http://www.afterhoursprogramming.com/tutorial/Python/Introduction/</a></p>
+<p><strong>参考</strong></p>
+<p><a href="http://docs.scipy.org/doc/scipy/reference/tutorial/linalg.html">SciPy 官方教程 -- 线性代数</a></p>
 
 </div>
 </div>
@@ -11797,7 +11783,16 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>本课程中相当一大部分内容都需要使用 Python。Python 是一门高级的脚本语言，提供了一个交互式的开发环境。 我们假设大家已经有了一定的编程经验，所以本章节主要讲的也就是 Python 的一些特性。</p>
+<h1 id="&#22823;&#22411;&#32447;&#24615;&#31995;&#32479;">&#22823;&#22411;&#32447;&#24615;&#31995;&#32479;<a class="anchor-link" href="#&#22823;&#22411;&#32447;&#24615;&#31995;&#32479;">&#182;</a></h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>这是大数据的时代。每一天的每一秒，全世界无数系统中的数据都会被记录。我们的购物习惯、书籍和电影的喜好、键入电子邮件信息的关键字、药品记录、拨打电话的 NSA 记录、基因数据 -- 并且不经过分析它们就毫无用处。</p>
 
 </div>
 </div>
@@ -11807,7 +11802,7 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>编程语言一般都要有下面这些常见的组成部分：变量、运算、迭代、条件判断、函数（内置函数或者用户自定义函数），以及一些更高级的数据结构。本章我们关注的就是 Python 中的这些内容，然后尤其会着重介绍 Python 这门语言独有的一些特性。</p>
+<p>海量的数据集在处理中会有巨大的挑战。求解 $10$ 个未知数的 $10$ 个方程组很简单，并且我们不需要关心什么方式。但是随着系统规模的增长，算法复杂度和效率就变得十分重要了。</p>
 
 </div>
 </div>
@@ -11817,7 +11812,7 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="&#21464;&#37327;">&#21464;&#37327;<a class="anchor-link" href="#&#21464;&#37327;">&#182;</a></h2>
+<h2 id="&#31034;&#20363;&#65306;Netflix-&#31454;&#36187;&#65288;&#32422;-2006-~-2009&#65289;">&#31034;&#20363;&#65306;Netflix &#31454;&#36187;&#65288;&#32422; 2006 ~ 2009&#65289;<a class="anchor-link" href="#&#31034;&#20363;&#65306;Netflix-&#31454;&#36187;&#65288;&#32422;-2006-~-2009&#65289;">&#182;</a></h2>
 </div>
 </div>
 </div>
@@ -11826,7 +11821,20 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Pythong 中的变量在你设定一个值给他的时候就被定义和给定类型了。</p>
+<p>更加详细的描述：</p>
+<p><a href="http://en.wikipedia.org/wiki/Netflix_Prize">http://en.wikipedia.org/wiki/Netflix_Prize</a></p>
+<p>完整的技术故事：</p>
+<p><a href="http://www.stat.osu.edu/~dmsl/GrandPrize2009_BPC_BigChaos.pdf">http://www.stat.osu.edu/~dmsl/GrandPrize2009_BPC_BigChaos.pdf</a></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>2006 年，Netflix 举办了一场竞赛，其中它提供了 $18,000$ 个电影的多于 $400,000$ 个评分。目标是预测用户对一个电影的评分，基于之前的评分<em>和</em>“相似”用户的评分。这个任务总需要分析 $400,000\times 18,000$ 个矩阵。上面的维基百科链接描述了这个竞赛，第二个链接是该方法的非常详细的描述（它考虑到了用户的重要特征，例如用户的口味如何随时间改变）。这个分析部分和矩阵分解相关 -- 我们不会深入获胜算法的细节，但是我们会在基本的矩阵分解上花一些时间。</p>
 
 </div>
 </div>
@@ -11836,39 +11844,10 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">my_variable</span> <span class="o">=</span> <span class="mi">2</span> 
-<span class="k">print</span><span class="p">(</span><span class="n">my_variable</span><span class="p">)</span>
-<span class="nb">type</span><span class="p">(</span><span class="n">my_variable</span><span class="p">)</span>
+<div class=" highlight hl-ipython2"><pre><span></span> 
 </pre></div>
 
 </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-<div class="prompt"></div>
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>2
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-<div class="prompt output_prompt">Out[3]:</div>
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>int</pre>
-</div>
-
-</div>
-
 </div>
 </div>
 
@@ -11878,7 +11857,129 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>这就让变量定义对开发者来说变得很简单。不过当然了，所谓能力越大责任越大，还是要多小心仔细。比如下面这个情况：</p>
+<h1 id="&#30697;&#38453;&#20998;&#35299;">&#30697;&#38453;&#20998;&#35299;<a class="anchor-link" href="#&#30697;&#38453;&#20998;&#35299;">&#182;</a></h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>在使用计算高效方式求解线性方程组时，矩阵分解是个重要的步骤。</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="LU-&#20998;&#35299;&#21644;&#39640;&#26031;&#28040;&#20803;">LU &#20998;&#35299;&#21644;&#39640;&#26031;&#28040;&#20803;<a class="anchor-link" href="#LU-&#20998;&#35299;&#21644;&#39640;&#26031;&#28040;&#20803;">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>LU 表示 'Lower Upper'，所以矩阵 $A$ 的 LU 分解是这样的分解：
+$$A= LU$$
+其中 $L$ 是下三角矩阵，$U$ 是上三角矩阵。</p>
+<p>现在， LU 分解本质上是高斯消元，但是我们我们只处理矩阵 $A$（而不是增广矩阵）。</p>
+<p>让我们回顾高斯消元（GE）如何工作。出于简洁性，我们会处理 $3\times 3$ 的方程组，但是这里的任何东西都可以推广到 $n\times n$ 的情况。考虑下面的方程组：</p>
+$$\left(\begin{matrix}a_{11}&a_{12} & a_{13}\\a_{21}&a_{22}&a_{23}\\a_{31}&a_{32}&a_{33}\end{matrix}\right)\left(\begin{matrix}x_1\\x_2\\x_3\end{matrix}\right) = \left(\begin{matrix}b_1\\b_2\\b_3\end{matrix}\right)$$<p>出于简洁性，让我们假设最左侧的矩阵 $A$ 是非奇异的。为了使用 GE 求解这个方程组，我们从“增广矩阵”开始：</p>
+$$\left(\begin{array}{ccc|c}a_{11}&a_{12} & a_{13}& b_1 \\a_{21}&a_{22}&a_{23}&b_2\\a_{31}&a_{32}&a_{33}&b_3\end{array}\right)$$<p>我们从第一个元素 $a_{11}$ 开始。如果 $a_{11} \neq 0$，我们将第一行除以 $a_{11}$，之后从其它每一行减去第一行的适当倍数，使所有行的第一个元素变为零。（如果 $a_{11}$ 是零，我们需要交换行。我们不会在这里深入这个细节。）结果是这样：</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+$$\left(\begin{array}{ccc|c}
+1 & \frac{a_{12}}{a_{11}} & \frac{a_{13}}{a_{11}} & \frac{b_1}{a_{11}} \\
+0 & a_{22} - a_{21}\frac{a_{12}}{a_{11}} & a_{23} - a_{21}\frac{a_{13}}{a_{11}}  & b_2 - a_{21}\frac{b_1}{a_{11}}\\
+0&a_{32}-a_{31}\frac{a_{12}}{a_{11}} & a_{33} - a_{31}\frac{a_{13}}{a_{11}}  &b_3- a_{31}\frac{b_1}{a_{11}}\end{array}\right)$$
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>我们对第二行重复这个过程，首先除以开头的元素，之后从第三行和第一行减去结果的适当倍数，使第三行和第一行的第二个元素为零。我们继续这个过程，直到左边成为单位矩阵。这时，我们就可以“读出”解了：也就是，右侧的向量 $x$ 就是产生的列向量。通常，停在<em>简化的行阶梯形</em>（上三角，对角线上元素为一）更加有效，之后<em>回代</em>来获得最终结果。</p>
+<p>要注意有些时候，交换行来获得简化的行阶梯性非常必要。这就叫做<em>部分主元消去</em>。如果我们也操作列，就叫<em>完全主元消去</em>。</p>
+<p>需要提及的是，我们可以使用 GE 获得矩阵的逆，通过将单元矩阵作为增广部分，并将矩阵 $A$ 化简为单位矩阵。（译者注，也就是 $(A|I) \sim (I|A^{-1})$。）</p>
+<p>现在，当我们一次求解一个方程组，并且结果 $b$ 只有一个时，非常有效。许多应用涉及到求解多个问题，其中我们左侧的矩阵方程不变，但是结果向量 $b$ 有很多个。这里，<em>分解</em> $A$ 会更加高效。</p>
+<p>首先，我们以 GE 开始，但是我们保留消元所需的不同倍数的“踪迹”。例如，考虑这个矩阵</p>
+$$A = \left(\begin{matrix} 1 & 3 & 4 \\
+                           2& 1& 3\\
+                           4&1&2
+                           \end{matrix}\right)$$
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>我们需要将第二行减去第一行的两倍，来消去第二行的第一个元素。之后将第三行减去第一行的四倍。我们不把第二行和第三行的第一个元素变为零，而是记录消元所需的倍数，所以：</p>
+$$\left(\begin{matrix} 1 & 3 & 4 \\
+                           (2)& -5 & -5\\
+                           (4)&-11&-14
+                           \end{matrix}\right)$$
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>之后我们消去第三行的第二个元素：</p>
+$$\left(\begin{matrix} 1 & 3 & 4 \\
+                           (2)& -5 & -5\\
+                           (4)&(\frac{-11}{5})&-3
+                           \end{matrix}\right)$$<p>现在我们就完成了分解：
+$$L= \left(\begin{matrix} 1 & 0 & 0 \\
+                           2& 1 & 0\\
+                           4&\frac{-11}5&1
+                           \end{matrix}\right)
+                          U = \left(\begin{matrix} 1 & 3 & 4 \\
+                           0& -5 & -5\\
+                           0&0&-3
+                           \end{matrix}\right)$$</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>我们可以通过求解两个回代问题来求解方程组：</p>
+$$Ly = b$$
+<pre><code>and
+</code></pre>
+$$Ux=y$$<p>这些都是 $O(n^2)$ 的，所以当有多个结果需要求解时，分解会更加高效。</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>让我们使用 NumPy 来实现：</p>
 
 </div>
 </div>
@@ -11888,8 +11989,21 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">my_varible</span> <span class="o">=</span> <span class="n">my_variable</span><span class="o">+</span><span class="mi">1</span>
-<span class="k">print</span> <span class="p">(</span><span class="n">my_variable</span><span class="p">)</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">scipy.linalg</span> <span class="kn">as</span> <span class="nn">la</span>
+<span class="n">np</span><span class="o">.</span><span class="n">set_printoptions</span><span class="p">(</span><span class="n">suppress</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span> 
+
+<span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">],[</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">],[</span><span class="mi">4</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]])</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+
+<span class="n">P</span><span class="p">,</span> <span class="n">L</span><span class="p">,</span> <span class="n">U</span> <span class="o">=</span> <span class="n">la</span><span class="o">.</span><span class="n">lu</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">P</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">A</span><span class="p">))</span>
+<span class="k">print</span>
+<span class="k">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="n">U</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="n">P</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">L</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">U</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -11900,11 +12014,27 @@ div#notebook {
 <div class="output">
 
 
-<div class="output_area">
-<div class="prompt"></div>
-
+<div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>2
+<pre>[[1 3 4]
+ [2 1 3]
+ [4 1 2]]
+[[ 4.  1.  2.]
+ [ 1.  3.  4.]
+ [ 2.  1.  3.]]
+
+[[ 4.  1.  2.]
+ [ 1.  3.  4.]
+ [ 2.  1.  3.]]
+[[ 0.  1.  0.]
+ [ 0.  0.  1.]
+ [ 1.  0.  0.]]
+[[ 1.      0.      0.    ]
+ [ 0.25    1.      0.    ]
+ [ 0.5     0.1818  1.    ]]
+[[ 4.      1.      2.    ]
+ [ 0.      2.75    3.5   ]
+ [ 0.      0.      1.3636]]
 </pre>
 </div>
 </div>
@@ -11918,7 +12048,7 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>如果你缺了单词，拼写检查是不能帮你补上的。"If you leave out word, spell-check will not put the word in you" -- Taylor Mali, <em>The the impotence of proofreading</em></p>
+<p>要注意 NumPy 使用<em>部分主元消去</em>来实现分解（使用最大的主元来交换矩阵的行）。这是由于较小主元可能导致数值不稳定。这也是应该尽可能使用库函数的另一个原因。</p>
 
 </div>
 </div>
@@ -11928,7 +12058,29 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>如果你偶然地弄错了一个变量的类型，Python 也不会帮你记着之前的正确类型。这种情况容易引起一些特别难发现问题原因的 bug，所以一定要谨慎小心处理变量类型。</p>
+<h2 id="Cholesky-&#20998;&#35299;">Cholesky &#20998;&#35299;<a class="anchor-link" href="#Cholesky-&#20998;&#35299;">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>回忆一下，如果对于任何非零 n 维向量 $u$，</p>
+$$u^TA u > 0$$<p>则方阵 $A$ 是正定的，</p>
+<p>并且，对称的正定阵 $A$ 是个正定阵，满足：</p>
+$$A = A^T$$
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>假设 $A$ 是个对称的正定阵。存在这样的唯一分解：</p>
+$$A = L L^T$$<p>其中 $L$ 是下三角矩阵，对角线元素为正，$L^T$ 是它的转置。这个分解称为 Cholesky 分解，$L$ 可以解释为 $A$ 的“平方根”。</p>
 
 </div>
 </div>
@@ -11938,7 +12090,7 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="&#31867;&#22411;&#21644;&#36716;&#25442;-Types-and-Typecasting">&#31867;&#22411;&#21644;&#36716;&#25442; Types and Typecasting<a class="anchor-link" href="#&#31867;&#22411;&#21644;&#36716;&#25442;-Types-and-Typecasting">&#182;</a></h3>
+<h3 id="&#31639;&#27861;&#65306;">&#31639;&#27861;&#65306;<a class="anchor-link" href="#&#31639;&#27861;&#65306;">&#182;</a></h3>
 </div>
 </div>
 </div>
@@ -11947,19 +12099,84 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Python 中可以进行各种常见的类型转换，所以可以把字符串转换成整形或者浮点数，还可以吧浮点数转换成整数等等。语法上面和 C 语言稍微不太一样：</p>
+<p>假设 $A$ 是 $n\times n$ 的矩阵。我们使用下面的迭代过程来寻找矩阵 $L$：</p>
+$$A = \left(\begin{matrix}a_{11}&A_{12}\\A_{12}&A_{22}\end{matrix}\right) =
+\left(\begin{matrix}\ell_{11}&0\\
+L_{12}&L_{22}\end{matrix}\right)
+\left(\begin{matrix}\ell_{11}&L_{12}\\0&L_{22}\end{matrix}\right)
+$$
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>1.) 令 $\ell_{11} = \sqrt{a_{11}}$</p>
+<p>2.) $L_{12} = \frac{1}{\ell_{11}}A_{12}$</p>
+<p>3.) 求解 $A_{22} - L_{12}L_{12}^T = L_{22}L_{22}^T$ 中的 $L_{22}$</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Example:">Example:<a class="anchor-link" href="#Example:">&#182;</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+$$A = \left(\begin{matrix}1&3&5\\3&13&23\\5&23&42\end{matrix}\right)$$
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+$$\ell_{11} = \sqrt{a_{11}} = 1$$$$L_{12} = \frac{1}{\ell_{11}} A_{12} = A_{12}$$<p>$\begin{eqnarray*}
+A_22 - L_{12}L_{12}^T &=& \left(\begin{matrix}13&23\\23&42\end{matrix}\right) - \left(\begin{matrix}9&15\\15&25\end{matrix}\right)\\
+&=& \left(\begin{matrix}4&8\\8&17\end{matrix}\right)\\
+&=& \left(\begin{matrix}2&0\\4&\ell_{33}\end{matrix}\right) \left(\begin{matrix}2&4\\0&\ell_{33}\end{matrix}\right)\\
+&=& \left(\begin{matrix}4&8\\8&16+\ell_{33}^2\end{matrix}\right)
+\end{eqnarray*}$</p>
+<p>所以我们可以推出 $\ell_{33}=1$。</p>
+<p>这就产生了分解：</p>
+$$\left(\begin{matrix}1&3&5\\3&13&23\\5&23&42\end{matrix}\right) = 
+\left(\begin{matrix}1&0&0\\3&2&0\\5&4&1\end{matrix}\right)\left(\begin{matrix}1&3&5\\0&2&4\\0&0&1\end{matrix}\right)$$
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>现在使用 NumPy：</p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="s2">&quot;1&quot;</span>
-<span class="n">b</span> <span class="o">=</span> <span class="mi">5</span> 
-<span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="o">+</span><span class="n">b</span><span class="p">)</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">],[</span><span class="mi">3</span><span class="p">,</span><span class="mi">13</span><span class="p">,</span><span class="mi">23</span><span class="p">],[</span><span class="mi">5</span><span class="p">,</span><span class="mi">23</span><span class="p">,</span><span class="mi">42</span><span class="p">]])</span>
+<span class="n">L</span> <span class="o">=</span> <span class="n">la</span><span class="o">.</span><span class="n">cholesky</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">L</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">L</span><span class="p">))</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">L</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -11970,19 +12187,187 @@ div#notebook {
 <div class="output">
 
 
-<div class="output_area">
-<div class="prompt"></div>
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[[  1.   3.   5.]
+ [  3.  13.  23.]
+ [  5.  23.  42.]]
+[[ 1.  3.  5.]
+ [ 0.  2.  4.]
+ [ 0.  0.  1.]]
+[[ 1  3  5]
+ [ 3 13 23]
+ [ 5 23 42]]
+</pre>
+</div>
+</div>
 
-<div class="output_subarea output_text output_error">
-<pre>
-<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">TypeError</span>                                 Traceback (most recent call last)
-<span class="ansi-green-fg">&lt;ipython-input-7-bf1e73fdfc72&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
-<span class="ansi-green-intense-fg ansi-bold">      1</span> a<span class="ansi-blue-fg">=</span><span class="ansi-blue-fg">&#34;1&#34;</span>
-<span class="ansi-green-intense-fg ansi-bold">      2</span> b<span class="ansi-blue-fg">=</span><span class="ansi-cyan-fg">5</span>
-<span class="ansi-green-fg">----&gt; 3</span><span class="ansi-red-fg"> </span><span class="ansi-green-fg">print</span><span class="ansi-blue-fg">(</span>a<span class="ansi-blue-fg">+</span>b<span class="ansi-blue-fg">)</span>
+</div>
+</div>
 
-<span class="ansi-red-fg">TypeError</span>: cannot concatenate &#39;str&#39; and &#39;int&#39; objects</pre>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Cholesky 分解的速度大约是 LU 分解的两倍（虽然二者的复杂度都是 $n^3$）。</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="&#29992;&#20110;-PCA-&#21644;&#26368;&#23567;&#20108;&#20056;&#27861;&#30340;&#30697;&#38453;&#20998;&#35299;">&#29992;&#20110; PCA &#21644;&#26368;&#23567;&#20108;&#20056;&#27861;&#30340;&#30697;&#38453;&#20998;&#35299;<a class="anchor-link" href="#&#29992;&#20110;-PCA-&#21644;&#26368;&#23567;&#20108;&#20056;&#27861;&#30340;&#30697;&#38453;&#20998;&#35299;">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="&#29305;&#24449;&#20540;&#20998;&#35299;">&#29305;&#24449;&#20540;&#20998;&#35299;<a class="anchor-link" href="#&#29305;&#24449;&#20540;&#20998;&#35299;">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="&#29305;&#24449;&#21521;&#37327;&#21644;&#29305;&#24449;&#20540;">&#29305;&#24449;&#21521;&#37327;&#21644;&#29305;&#24449;&#20540;<a class="anchor-link" href="#&#29305;&#24449;&#21521;&#37327;&#21644;&#29305;&#24449;&#20540;">&#182;</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>首先回忆，矩阵 $A$ 的<em>特征向量</em>是一个非零向量 $v$，对于一些标量 $\lambda$，满足：</p>
+$$Av = \lambda v$$<p>值 $\lambda$ 就叫做 $A$ 的<em>特征值</em>。</p>
+<p>如果 $n\times n$ 的矩阵 $A$ 拥有 $n$ 个线性无关的特征向量，那么 $A$ 就可以用这种方式分解：</p>
+$$A = B\Lambda B^{-1}$$<p>其中 $\Lambda$ 是一个对角矩阵，对角线上的元素是 $A$ 的特征值，$B$ 的列向量是 $A$ 的对应特征向量。</p>
+<p>定理：</p>
+<ul>
+<li>$n\times n$ 的矩阵是可对角化的 $\iff$ 它有 $n$ 个线性无关的特征向量。</li>
+<li>对称的正定阵只拥有正的特征值，并且它的特征值分解
+$$A=B\Lambda B^{-1}$$</li>
+</ul>
+<p>通过正交变换 $B$ 来实现。（也就是，它的特征向量是标准正交集）</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="&#35745;&#31639;&#29305;&#24449;&#20540;">&#35745;&#31639;&#29305;&#24449;&#20540;<a class="anchor-link" href="#&#35745;&#31639;&#29305;&#24449;&#20540;">&#182;</a></h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>从定义中很容易看出，如果 $v$ 是 $n\times n$ 矩阵 $A$ 的特征向量，拥有特征值 $\lambda$，那么</p>
+$$(A - \lambda I)v = \bf{0}$$<p>其中 $I$ 是 $n$ 维单位矩阵，$\bf{0}$ 是 n 维零向量。因此，$A$ 的特征值满足：</p>
+$$\det\left(A-\lambda I\right)=0$$<p>上式的左边是 $\lambda$ 的多项式，叫做 $A$ 的<em>特征多项式</em>。所以，为了找到 $A$ 的特征值，我们需要找到特征多项式的根。</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>但是，从计算上来说，计算特征多项式以及求解根，是极其复杂的。因此，在实践中，会使用数值方法 -- 来找到特征值以及相应的特征向量。我们不会陷入用于计算特征值的算法细节，这里是个 NumPy 的示例：</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">]])</span>
+
+<span class="n">u</span><span class="p">,</span> <span class="n">V</span> <span class="o">=</span> <span class="n">la</span><span class="o">.</span><span class="n">eig</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">V</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="n">u</span><span class="p">),</span> <span class="n">la</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">V</span><span class="p">))))</span>
+<span class="k">print</span><span class="p">(</span><span class="n">u</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[[-0.+0.j  1.+0.j  1.+0.j]
+ [ 2.+0.j  1.+0.j  0.+0.j]
+ [ 3.+0.j  4.+0.j  5.+0.j]]
+[ 5.8541+0.j -0.8541+0.j  1.0000+0.j]
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>注意：</strong> 许多矩阵<em>无法</em>对角化，许多矩阵拥有<em>复数</em>特征值（即使所有元素都是实数）。</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[15]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]])</span>
+<span class="k">print</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+
+<span class="n">u</span><span class="p">,</span> <span class="n">V</span> <span class="o">=</span> <span class="n">la</span><span class="o">.</span><span class="n">eig</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">V</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="n">u</span><span class="p">),</span> <span class="n">la</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">V</span><span class="p">))))</span>
+<span class="k">print</span><span class="p">(</span><span class="n">u</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[[ 0  1]
+ [-1  0]]
+[[ 0.+0.j  1.+0.j]
+ [-1.+0.j  0.+0.j]]
+[ 0.+1.j  0.-1.j]
+[ 0.+1.j  0.-1.j]
+</pre>
 </div>
 </div>
 
@@ -11995,9 +12380,14 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[8]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="s2">&quot;1&quot;</span>
-<span class="n">b</span> <span class="o">=</span> <span class="mi">5</span>
-<span class="k">print</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="o">+</span><span class="n">b</span><span class="p">)</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># If you know the eigenvalues must be reeal </span>
+<span class="c1"># because A is a positive definite (e.g. covariance) matrix </span>
+<span class="c1"># use real_if_close</span>
+
+<span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">]])</span>
+<span class="n">u</span><span class="p">,</span> <span class="n">V</span> <span class="o">=</span> <span class="n">la</span><span class="o">.</span><span class="n">eig</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">u</span><span class="p">)</span>
+<span class="k">print</span> <span class="n">np</span><span class="o">.</span><span class="n">real_if_close</span><span class="p">(</span><span class="n">u</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -12008,11 +12398,10 @@ div#notebook {
 <div class="output">
 
 
-<div class="output_area">
-<div class="prompt"></div>
-
+<div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>6
+<pre>[ 5.8541+0.j -0.8541+0.j  1.0000+0.j]
+[ 5.8541 -0.8541  1.    ]
 </pre>
 </div>
 </div>
@@ -12026,22 +12415,127 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>一定要注意类型是 <em>动态变化的</em>。也就是说，只要重新赋值一下，就可以把一个变量立即从整形编程其他类型，比如浮点数或者字符串等等都可以。</p>
+<h4 id="&#22855;&#24322;&#20540;">&#22855;&#24322;&#20540;<a class="anchor-link" href="#&#22855;&#24322;&#20540;">&#182;</a></h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>对于任何 $m\times n$ 的矩阵 $A$，我们将它的<em>奇异值</em>定义为 $A^TA$ 特征值的平方根。这是一个良好的定义，因为 $A^TA$ 永远是对称，并且正定的，所以它的特征值都是正实数。奇异值是矩阵的非常重要的属性。几何上，矩阵 $A$ 将 $\mathbb{R}^n$ 中的单位球映射为椭圆。 奇异值是半轴的长度。</p>
+<p>奇异值也提供了矩阵<em>稳定性</em>的度量。我们会在这篇文章末尾再次看到它。</p>
 
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="QR-&#20998;&#35299;">QR &#20998;&#35299;<a class="anchor-link" href="#QR-&#20998;&#35299;">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>就像上一个分解那样，$QR$ 分解是一种方式，将矩阵 $A$ 写成两个形式更简单的矩阵乘积。这里，我们希望：</p>
+$$ A= QR$$<p>其中 $Q$ 是 $m\times n$ 的矩阵，满足 $Q Q^T = I$（即 $Q$ 是正交的），并且 $R$ 是 $n\times n$ 的上三角矩阵。</p>
+<p>这实际上是 $A$ 的列向量的 Gram-Schmidt 正交化的矩阵形式。G-S 算法本身是不稳定的，所以有多种其它算法被开发出来，来计算 QR 分解。我们不会详细涉及它们，因为它们有些超出我们的范围。</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>$Q$ 的前 $k$ 列 是 $A$ 的前 $k$ 列列空间的标准正交基。</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>可迭代的 QR 分解通常用于计算特征值。</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="&#22855;&#24322;&#20540;&#20998;&#35299;">&#22855;&#24322;&#20540;&#20998;&#35299;<a class="anchor-link" href="#&#22855;&#24322;&#20540;&#20998;&#35299;">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>另一种重要的矩阵分解是奇异值分解（SVD）。对于任何 $m\times n$ 的矩阵 $A$，我们可以写出：</p>
+$$A= UDV$$<p>其中 $U$ 是 $m\times m$ 的酉矩阵（实数情况下正交），$D$ 是 $m\times n$ 的对角长方阵，其对角线上的元素 $d_1,...,d_m$ 都是非负的。 $V$ 是 $n\times n$ 的酉矩阵（正交）。SVD 用于主成分分析，以及 Moore-Penrose 广义逆矩阵的计算。</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="&#31283;&#23450;&#24615;&#21644;&#26465;&#20214;&#25968;">&#31283;&#23450;&#24615;&#21644;&#26465;&#20214;&#25968;<a class="anchor-link" href="#&#31283;&#23450;&#24615;&#21644;&#26465;&#20214;&#25968;">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>数值算法是<em>稳定的</em>和<em>高效的</em>十分重要。效率是算法的一个属性，但是稳定性是系统自身的一个属性。</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="&#31034;&#20363;">&#31034;&#20363;<a class="anchor-link" href="#&#31034;&#20363;">&#182;</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+$$\left(\begin{matrix}8&6&4&1\\1&4&5&1\\8&4&1&1\\1&4&3&6\end{matrix}\right)x = \left(\begin{matrix}19\\11\\14\\14\end{matrix}\right)$$
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[15]:</div>
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="s2">&quot;1&quot;</span>
-<span class="nb">type</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">a</span><span class="p">))</span>
-
-<span class="n">a</span> <span class="o">=</span> <span class="mf">1.0</span>
-<span class="k">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">a</span><span class="p">))</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">8</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">8</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">6</span><span class="p">]])</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">19</span><span class="p">,</span><span class="mi">11</span><span class="p">,</span><span class="mi">14</span><span class="p">,</span><span class="mi">14</span><span class="p">])</span>
+<span class="n">la</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">b</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -12052,789 +12546,11 @@ div#notebook {
 <div class="output">
 
 
-<div class="output_area">
-<div class="prompt"></div>
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>&lt;type &#39;str&#39;&gt;
-&lt;type &#39;float&#39;&gt;
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Python 还有一些其他的特别的数据类型，比如列表、元组和字典等等，后面会提到的。</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="&#36816;&#31639;-Operators">&#36816;&#31639; Operators<a class="anchor-link" href="#&#36816;&#31639;-Operators">&#182;</a></h2>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Python 支持常见的各种运算，比如 +,-,/,*,=,&gt;,&lt;,==,!=,&amp;,|, 
-(求和, 做差, 相除, 乘积, 赋值, 大于, 小于, 双等号表示判断相等关系, 等号前面加叹号表示不等于, 并且（表示两个条件都要满足） , 或者（表示两个条件满足其一即可).<br>
-此外还有%,// 以及 ** (相除取余数, 地板除法，以及乘方运算')。 注意一些细节:</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[23]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="k">print</span><span class="p">(</span><span class="mi">3</span><span class="o">/</span><span class="mi">4</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="mf">3.0</span> <span class="o">/</span> <span class="mf">4.0</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="mi">3</span><span class="o">%</span><span class="k">4</span>)
-<span class="k">print</span><span class="p">(</span><span class="mi">3</span><span class="o">//</span><span class="mi">4</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="mi">3</span><span class="o">**</span><span class="mi">4</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-<div class="prompt"></div>
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>0
-0.75
-3
-0
-81
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>注意一下这里对整形值的除法！这个运算和其他强类型语言比如 C/C++ 很相似。整数除法的运算结果和地板除法 // 是一样的。所以如果你要想得到一个浮点数的结果，那用于进行除法运算的参数也都必须是浮点数（或者你要转换他们成浮点数）。</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[21]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">3</span>
-<span class="n">b</span> <span class="o">=</span> <span class="mi">4</span>
-<span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="o">/</span><span class="n">b</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="o">/</span><span class="nb">float</span><span class="p">(</span><span class="n">b</span><span class="p">))</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-<div class="prompt"></div>
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>0
-0.75
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="&#24490;&#29615;">&#24490;&#29615;<a class="anchor-link" href="#&#24490;&#29615;">&#182;</a></h2>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Python 支持各种常见的循环，while , for, 以及其他的一些结构等等，后面再细说。下面是一些样例：</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[29]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">10</span><span class="p">):</span>
-     <span class="k">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-<div class="prompt"></div>
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>这里一定要注意，在上面的这个循环里面，range 函数给出的值不包含右端的设定终点的值。也就是 range(1,10) 其实是从 1 到 9 ，以此类推，range(m,m+n)其实也就是从 m 到 m+n-1，而不是到 m+n。</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[34]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">i</span> <span class="o">=</span> <span class="mi">1</span>
-<span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">:</span>
-    <span class="k">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
-    <span class="n">i</span><span class="o">+=</span><span class="mi">1</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-<div class="prompt"></div>
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>这个 while 循环 就简单的不得了了，没啥可额外讲解的。</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="&#26465;&#20214;&#35821;&#21477;">&#26465;&#20214;&#35821;&#21477;<a class="anchor-link" href="#&#26465;&#20214;&#35821;&#21477;">&#182;</a></h2>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[37]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">20</span>
-<span class="k">if</span> <span class="n">a</span> <span class="o">&gt;=</span> <span class="mi">22</span><span class="p">:</span>
-   <span class="k">print</span><span class="p">(</span><span class="s2">&quot;if&quot;</span><span class="p">)</span>
-<span class="k">elif</span> <span class="n">a</span> <span class="o">&gt;=</span> <span class="mi">21</span><span class="p">:</span>
-    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;elif&quot;</span><span class="p">)</span>
-<span class="k">else</span><span class="p">:</span>
-    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;else&quot;</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-<div class="prompt"></div>
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>else
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>这里也很简单，没啥可说的，就注意一下语法格式就行了。另外这里我们要说下空格。Python对缩进有严格的要求：在每个条件分支语句之后，必须新起一行（上面的循环其实也是这样），然后每一个条件语句都要和同层次的条件语句有一样的缩进，这些缩进的空格数必须都是一样的。</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[42]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">23</span>
-<span class="k">if</span> <span class="n">a</span> <span class="o">&gt;=</span> <span class="mi">22</span><span class="p">:</span>
-   <span class="k">print</span><span class="p">(</span><span class="s2">&quot;if&quot;</span><span class="p">)</span>
-    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;greater than or equal 22&quot;</span><span class="p">)</span>
-<span class="k">elif</span> <span class="n">a</span> <span class="o">&gt;=</span> <span class="mi">21</span><span class="p">:</span>
-    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;elif&quot;</span><span class="p">)</span>
-<span class="k">else</span><span class="p">:</span>
-    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;else&quot;</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-<div class="prompt"></div>
-
-<div class="output_subarea output_text output_error">
-<pre>
-<span class="ansi-red-fg">IndentationError</span><span class="ansi-red-fg">:</span> unexpected indent
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[43]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">23</span>
-<span class="k">if</span> <span class="n">a</span> <span class="o">&gt;=</span> <span class="mi">22</span><span class="p">:</span>
-   <span class="k">print</span><span class="p">(</span><span class="s2">&quot;if&quot;</span><span class="p">)</span>
-   <span class="k">print</span><span class="p">(</span><span class="s2">&quot;greater than or equal 22&quot;</span><span class="p">)</span>
-<span class="k">elif</span> <span class="n">a</span> <span class="o">&gt;=</span> <span class="mi">21</span><span class="p">:</span>
-    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;elif&quot;</span><span class="p">)</span>
-<span class="k">else</span><span class="p">:</span>
-    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;else&quot;</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-<div class="prompt"></div>
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>if
-greater than or equal 22
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>一般情况大家都是用四个空格作为一层缩进，当然你也可以自己随便设置自己喜欢的。但一定要保持某一种风格，不要乱改，要不然你前后缩进千奇百怪就会各种报错各种狗带，你说悲催不？</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="&#24322;&#24120;&#22788;&#29702;-Exceptions">&#24322;&#24120;&#22788;&#29702; Exceptions<a class="anchor-link" href="#&#24322;&#24120;&#22788;&#29702;-Exceptions">&#182;</a></h4>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Python 还有另一个功能，也是关于条件处理的，这个功能超级有用。加入你的程序正在处理用户输入的数据或者从文件读取数据。你不一定能保证每次程序接收到的输入是什么，这有时候就会导致一些问题。所以这时候就可以用 'try/except' 语句来搞定这个问题：</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[47]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="s2">&quot;1&quot;</span>
-
-<span class="k">try</span><span class="p">:</span>
-  <span class="n">b</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="mi">2</span> 
-<span class="k">except</span><span class="p">:</span>
-  <span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="s2">&quot; is not a number&quot;</span><span class="p">)</span> 
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-<div class="prompt"></div>
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>(&#39;1&#39;, &#39; is not a number&#39;)
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>上面这个代码里面，就是尝试给字符串 a 加上一个数值。这就会产生一个异常，不过我们已经捕获了这个异常了，希望通知用户这个问题产生的原因。这个就比下面这种程序莫名其妙反正就是崩溃要好得多：</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[49]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="s2">&quot;1&quot;</span>
-<span class="n">b</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="mi">2</span> 
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-<div class="prompt"></div>
-
-<div class="output_subarea output_text output_error">
-<pre>
-<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">TypeError</span>                                 Traceback (most recent call last)
-<span class="ansi-green-fg">&lt;ipython-input-49-1b1ef016a6b2&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
-<span class="ansi-green-intense-fg ansi-bold">      1</span> a <span class="ansi-blue-fg">=</span> <span class="ansi-blue-fg">&#34;1&#34;</span>
-<span class="ansi-green-fg">----&gt; 2</span><span class="ansi-red-fg"> </span>b <span class="ansi-blue-fg">=</span> a <span class="ansi-blue-fg">+</span> <span class="ansi-cyan-fg">2</span>
-
-<span class="ansi-red-fg">TypeError</span>: cannot concatenate &#39;str&#39; and &#39;int&#39; objects</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="&#20989;&#25968;">&#20989;&#25968;<a class="anchor-link" href="#&#20989;&#25968;">&#182;</a></h2>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[55]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="k">def</span> <span class="nf">Division</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
-    <span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="o">/</span><span class="n">b</span><span class="p">)</span>
-<span class="n">Division</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
-<span class="n">Division</span><span class="p">(</span><span class="mf">3.0</span><span class="p">,</span><span class="mf">4.0</span><span class="p">)</span>
-<span class="n">Division</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mf">4.0</span><span class="p">)</span>
-<span class="n">Division</span><span class="p">(</span><span class="mf">3.0</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-<div class="prompt"></div>
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>0
-0.75
-0.75
-0.75
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>要注意刚刚上面那个函数并没有指定变量类型，所以上面输入的几种类型都可以。不过这个是好用却也挺危险的。比如下面这个情况：</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[56]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="k">def</span> <span class="nf">Division</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
-    <span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="o">/</span><span class="n">b</span><span class="p">)</span>
-<span class="n">Division</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="s2">&quot;2&quot;</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-<div class="prompt"></div>
-
-<div class="output_subarea output_text output_error">
-<pre>
-<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">TypeError</span>                                 Traceback (most recent call last)
-<span class="ansi-green-fg">&lt;ipython-input-56-663c15047357&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
-<span class="ansi-green-intense-fg ansi-bold">      1</span> <span class="ansi-green-fg">def</span> Division<span class="ansi-blue-fg">(</span>a<span class="ansi-blue-fg">,</span> b<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
-<span class="ansi-green-intense-fg ansi-bold">      2</span>     <span class="ansi-green-fg">print</span><span class="ansi-blue-fg">(</span>a<span class="ansi-blue-fg">/</span>b<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-fg">----&gt; 3</span><span class="ansi-red-fg"> </span>Division<span class="ansi-blue-fg">(</span><span class="ansi-cyan-fg">2</span><span class="ansi-blue-fg">,</span><span class="ansi-blue-fg">&#34;2&#34;</span><span class="ansi-blue-fg">)</span>
-
-<span class="ansi-green-fg">&lt;ipython-input-56-663c15047357&gt;</span> in <span class="ansi-cyan-fg">Division</span><span class="ansi-blue-fg">(a, b)</span>
-<span class="ansi-green-intense-fg ansi-bold">      1</span> <span class="ansi-green-fg">def</span> Division<span class="ansi-blue-fg">(</span>a<span class="ansi-blue-fg">,</span> b<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
-<span class="ansi-green-fg">----&gt; 2</span><span class="ansi-red-fg">     </span><span class="ansi-green-fg">print</span><span class="ansi-blue-fg">(</span>a<span class="ansi-blue-fg">/</span>b<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">      3</span> Division<span class="ansi-blue-fg">(</span><span class="ansi-cyan-fg">2</span><span class="ansi-blue-fg">,</span><span class="ansi-blue-fg">&#34;2&#34;</span><span class="ansi-blue-fg">)</span>
-
-<span class="ansi-red-fg">TypeError</span>: unsupported operand type(s) for /: &#39;int&#39; and &#39;str&#39;</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>在固定类型的编程语言中，程序员就必须要指定每个变量的类型，比如上面例子中的 a 和 b，要指定他们是浮点数还是整数等等，然后编译器在编译的时候就会提示说传入函数的变量类型不正确。在 Python 里，就不会这样，所以我们需要使用刚刚提到的 'try/except' 语句来处理异常。</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[58]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="k">def</span> <span class="nf">Division</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
-    <span class="k">try</span><span class="p">:</span>
-        <span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="o">/</span><span class="n">b</span><span class="p">)</span>
-    <span class="k">except</span><span class="p">:</span>
-        <span class="k">if</span> <span class="n">b</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-           <span class="k">print</span><span class="p">(</span><span class="s2">&quot;cannot divide by zero&quot;</span><span class="p">)</span>
-        <span class="k">else</span><span class="p">:</span>
-           <span class="k">print</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="o">/</span><span class="nb">float</span><span class="p">(</span><span class="n">b</span><span class="p">))</span>
-<span class="n">Division</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="s2">&quot;2&quot;</span><span class="p">)</span>
-<span class="n">Division</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-<div class="prompt"></div>
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>1.0
-cannot divide by zero
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="&#23383;&#31526;&#20018;&#21644;&#23383;&#31526;&#20018;&#30340;&#22788;&#29702;">&#23383;&#31526;&#20018;&#21644;&#23383;&#31526;&#20018;&#30340;&#22788;&#29702;<a class="anchor-link" href="#&#23383;&#31526;&#20018;&#21644;&#23383;&#31526;&#20018;&#30340;&#22788;&#29702;">&#182;</a></h1>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Python 最重要的一个特征就是对字符串的处理，既功能强大，有非常简单。在 Python 里面，定义字符串就和其他大多属于盐一样简单。但 Python 更厉害的是对字符串的查找、替换、大小写转换、缩减以及读取字符串元素。本小节只会涉及其中的一小部分。更多完整的与字符串相关的 Python 功能，可以参考 <a href="http://www.tutorialspoint.com/python/python_strings.htm">http://www.tutorialspoint.com/python/python_strings.htm</a></p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[60]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="s2">&quot;A string of characters, with newline </span><span class="se">\n</span><span class="s2"> CAPITALS, etc.&quot;</span>
-<span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
-<span class="n">b</span><span class="o">=</span><span class="mf">5.0</span>
-<span class="n">newstring</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2"> We can format strings for printing </span><span class="si">%.2f</span><span class="s2">&quot;</span>
-<span class="k">print</span><span class="p">(</span><span class="n">newstring</span> <span class="o">%</span><span class="k">b</span>)
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-<div class="prompt"></div>
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>A string of characters, with newline 
- CAPITALS, etc.
-A string of characters, with newline 
- CAPITALS, etc.
- We can format strings for printing 5.00
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>接下来试试其他的字符串操作吧：</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[2]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="s2">&quot;ABC DEFG&quot;</span>
-<span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">])</span>
-<span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">5</span><span class="p">])</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-<div class="prompt"></div>
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>BC
-ABC D
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>上面这写代码中有好几处需要学习。首先， Python 给字符串设定了一个索引。其次，就是这个索引是从 0 开始数的。最后，右侧的值依然是不包含终点。（a[0:5] 包含了元素从 0 到4，不包含 5，也就是 0,1,2,3,4，可以理解成一个左闭右开区间。</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[72]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="s2">&quot;ABC defg&quot;</span>
-<span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">lower</span><span class="p">())</span>
-<span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">upper</span><span class="p">())</span>
-<span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;d&#39;</span><span class="p">))</span>
-<span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;de&#39;</span><span class="p">,</span><span class="s1">&#39;a&#39;</span><span class="p">))</span>
-<span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
-<span class="n">b</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;def&#39;</span><span class="p">,</span><span class="s1">&#39;aaa&#39;</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
-<span class="n">b</span> <span class="o">=</span> <span class="n">b</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="s1">&#39;c&#39;</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
-<span class="n">b</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s1">&#39;c&#39;</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-<div class="prompt"></div>
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>abc defg
-ABC DEFG
-4
-ABC afg
-ABC defg
-ABC aaag
-ABC cccg
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-<div class="prompt output_prompt">Out[72]:</div>
-
+<div class="output_area"><div class="prompt output_prompt">Out[9]:</div>
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>3</pre>
+<pre>array([ 1.,  1.,  1.,  1.])</pre>
 </div>
 
 </div>
@@ -12842,54 +12558,14 @@ ABC cccg
 </div>
 </div>
 
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>是不是挺有意思的？用 Python 还能对字符串进行哪些操作呢？你可以发挥想象力然后动手试试，挺有意思的！</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="&#21015;&#34920;-Lists,-&#20803;&#32452;-Tuples,-&#23383;&#20856;-Dictionaries">&#21015;&#34920; Lists, &#20803;&#32452; Tuples, &#23383;&#20856; Dictionaries<a class="anchor-link" href="#&#21015;&#34920;-Lists,-&#20803;&#32452;-Tuples,-&#23383;&#20856;-Dictionaries">&#182;</a></h1>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="&#21015;&#34920;-Lists">&#21015;&#34920; Lists<a class="anchor-link" href="#&#21015;&#34920;-Lists">&#182;</a></h2>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>列表 list 这个就跟他的名字的意思一样，就是一个列元素组成的表。他是由对象组成的列表。作为列表的元素，这些对象可以是任何的数据类型（也包括列表本身），而且在列表中是可以使用各种不同的元素类型来作为列表元素的。所以这就比数组要灵活多了。对列表还可以进行很多操作，比如增加元素、删除元素、插入元素，以及查元素个数和排序反转等等。</p>
-
-</div>
-</div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[76]:</div>
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">a_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="s2">&quot;this is a string&quot;</span><span class="p">,</span><span class="mf">5.3</span><span class="p">]</span>
-<span class="n">b_list</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;A&quot;</span><span class="p">,</span><span class="s2">&quot;B&quot;</span><span class="p">,</span><span class="s2">&quot;F&quot;</span><span class="p">,</span><span class="s2">&quot;G&quot;</span><span class="p">,</span><span class="s2">&quot;d&quot;</span><span class="p">,</span><span class="s2">&quot;x&quot;</span><span class="p">,</span><span class="s2">&quot;c&quot;</span><span class="p">,</span><span class="n">Alist</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
-<span class="k">print</span><span class="p">(</span><span class="n">b_list</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">b_list</span><span class="p">[</span><span class="mi">7</span><span class="p">:</span><span class="mi">9</span><span class="p">])</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">19.01</span><span class="p">,</span><span class="mf">11.05</span><span class="p">,</span><span class="mf">14.07</span><span class="p">,</span><span class="mf">14.05</span><span class="p">])</span>
+<span class="n">la</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">b</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -12900,63 +12576,13 @@ ABC cccg
 <div class="output">
 
 
-<div class="output_area">
-<div class="prompt"></div>
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>[&#39;A&#39;, &#39;B&#39;, &#39;F&#39;, &#39;G&#39;, &#39;d&#39;, &#39;x&#39;, &#39;c&#39;, [1, 2, 3, &#39;this is a string&#39;, 5.3], 3]
-[[1, 2, 3, &#39;this is a string&#39;, 5.3], 3]
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[92]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">]</span>
-<span class="n">a</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
-<span class="n">a</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
-<span class="n">a</span><span class="o">.</span><span class="n">reverse</span><span class="p">()</span>
-<span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
-<span class="n">a</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
-<span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
-<span class="n">a</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
-<span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
-<span class="n">a</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
-<span class="n">a</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="mi">4</span><span class="p">])</span>
-<span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
+<div class="output_area"><div class="prompt output_prompt">Out[10]:</div>
 
 
-<div class="output_area">
-<div class="prompt"></div>
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>[0, 1, 2, 3, 4, 5, 6, 7]
-[0, 1, 2, 3, 4, 5, 6, 7, 8]
-[8, 7, 6, 5, 4, 3, 2, 1, 0]
-[0, 1, 2, 3, 4, 5, 6, 7, 8]
-[0, 1, 2, 3, 4, 5, 6, 7]
-[0, 1, 2, 4, 5, 6, 7]
-[0, 1, 2, 4, 6, 7]
-</pre>
+<div class="output_text output_subarea output_execute_result">
+<pre>array([-2.34 ,  9.745, -4.85 , -1.34 ])</pre>
 </div>
+
 </div>
 
 </div>
@@ -12968,7 +12594,7 @@ ABC cccg
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>跟字符串一样，列表元素的索引也是从 0 开始的。（译者注：实际上这个在大多数编程语言里都是这样，数组、字符串、列表的索引都是从0开始，所以有人说程序员查数都是从 0 开始数。</p>
+<p>要注意向量 $b$ 中的<em>微小</em>波动，会造成解中的非常大的差异！这种情况发生时，我们就说矩阵 $A$ 是病态的。当矩阵非常接近于奇异矩阵（也就是不可逆）时，会发生这种情况。</p>
 
 </div>
 </div>
@@ -12978,88 +12604,19 @@ ABC cccg
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>列表可以用在 for 语句或者其他的一些条件判断语句中。这些也叫做列表表达式。例如下面这个：</p>
-
+<h3 id="&#26465;&#20214;&#25968;">&#26465;&#20214;&#25968;<a class="anchor-link" href="#&#26465;&#20214;&#25968;">&#182;</a></h3>
 </div>
 </div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[22]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">even_numbers</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span> <span class="k">if</span> <span class="n">x</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">]</span>
-<span class="k">print</span><span class="p">(</span><span class="n">even_numbers</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-<div class="prompt"></div>
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>[0, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52, 54, 56, 58, 60, 62, 64, 66, 68, 70, 72, 74, 76, 78, 80, 82, 84, 86, 88, 90, 92, 94, 96, 98]
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
 </div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>实际上列表表达式也可以用于字符串：</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[26]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">first_sentence</span> <span class="o">=</span> <span class="s2">&quot;It was a dark and stormy night.&quot;</span>
-<span class="n">characters</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">first_sentence</span><span class="p">]</span>
-<span class="k">print</span><span class="p">(</span><span class="n">characters</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-<div class="prompt"></div>
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>[&#39;I&#39;, &#39;t&#39;, &#39; &#39;, &#39;w&#39;, &#39;a&#39;, &#39;s&#39;, &#39; &#39;, &#39;a&#39;, &#39; &#39;, &#39;d&#39;, &#39;a&#39;, &#39;r&#39;, &#39;k&#39;, &#39; &#39;, &#39;a&#39;, &#39;n&#39;, &#39;d&#39;, &#39; &#39;, &#39;s&#39;, &#39;t&#39;, &#39;o&#39;, &#39;r&#39;, &#39;m&#39;, &#39;y&#39;, &#39; &#39;, &#39;n&#39;, &#39;i&#39;, &#39;g&#39;, &#39;h&#39;, &#39;t&#39;, &#39;.&#39;]
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>关于列表表达式的更多内容可以参考官方文档:  <a href="https://docs.python.org/3/tutorial/datastructures.html?highlight=comprehensions">https://docs.python.org/3/tutorial/datastructures.html?highlight=comprehensions</a></p>
+<p>这种行为的一个度量叫做<em>条件数</em>。它定义为：</p>
+$$ cond(A) = ||A||\cdot ||A^{-1}|| $$<p>通常，它比较难以计算。</p>
+<p>定理：</p>
+$$cond(A) = \frac{\lambda_1}{\lambda_n}$$<p>其中 $\lambda_1$ 是 $A$ 的最大奇异值，$\lambda_n$ 是最小奇异值。条件数越大，系统越不稳定。通常，如果最小值和最大值之间的差距很大，条件数就很大。</p>
 
 </div>
 </div>
@@ -13069,343 +12626,7 @@ ABC cccg
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>另外一个类似的功能是 'map' 映射。Map 是对一个列表进行一个函数操作。语法是map(aFunction, aSequence)。例如下面的例子：</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[30]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="k">def</span> <span class="nf">sqr</span><span class="p">(</span><span class="n">x</span><span class="p">):</span> <span class="k">return</span> <span class="n">x</span> <span class="o">**</span> <span class="mi">2</span>
-<span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]</span>
-<span class="n">b</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
-<span class="n">c</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="n">sqr</span><span class="p">,</span><span class="n">a</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
-<span class="n">d</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="nb">pow</span><span class="p">,</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-<div class="prompt"></div>
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>[4, 9, 16]
-[1024, 243, 64]
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>要注意，用 map 通常要比使用列表表达式或者循环语句要更高效。</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="&#20803;&#32452;-Tuples">&#20803;&#32452; Tuples<a class="anchor-link" href="#&#20803;&#32452;-Tuples">&#182;</a></h3>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>元组跟列表在各方面都基本是一样的，除了一点特别不一样：元组不能被修改。</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[94]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
-<span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-<div class="prompt"></div>
-
-<div class="output_subarea output_text output_error">
-<pre>
-<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">TypeError</span>                                 Traceback (most recent call last)
-<span class="ansi-green-fg">&lt;ipython-input-94-3f7ee3924a64&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
-<span class="ansi-green-intense-fg ansi-bold">      1</span> a<span class="ansi-blue-fg">=</span><span class="ansi-blue-fg">(</span><span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">,</span><span class="ansi-cyan-fg">2</span><span class="ansi-blue-fg">,</span><span class="ansi-cyan-fg">3</span><span class="ansi-blue-fg">,</span><span class="ansi-cyan-fg">4</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">      2</span> <span class="ansi-green-fg">print</span><span class="ansi-blue-fg">(</span>a<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-fg">----&gt; 3</span><span class="ansi-red-fg"> </span>a<span class="ansi-blue-fg">[</span><span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">=</span><span class="ansi-cyan-fg">2</span>
-
-<span class="ansi-red-fg">TypeError</span>: &#39;tuple&#39; object does not support item assignment</pre>
-</div>
-</div>
-
-<div class="output_area">
-<div class="prompt"></div>
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>(1, 2, 3, 4)
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[96]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="s2">&quot;string in a tuple&quot;</span><span class="p">,</span><span class="mf">5.3</span><span class="p">)</span>
-<span class="n">b</span> <span class="o">=</span> <span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-<div class="prompt"></div>
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>(1, &#39;string in a tuple&#39;, 5.3)
-((1, &#39;string in a tuple&#39;, 5.3), 1, 2, 3)
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>看，上面的代码就很明显了把，所有列表的灵活性都还保留了，又不会被改变。所以当你不希望一个列表被修改的时候，就可以使用元组了。</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>元组有另一个吊炸天的功能，就是 元组拆包（'tuple unpacking'）。这个可以用来把一个列表中的一系列值作为值来赋值给另一序列的变量名，例如下面的例子：</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[19]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">my_pets</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;Chestnut&quot;</span><span class="p">,</span> <span class="s2">&quot;Tibbs&quot;</span><span class="p">,</span> <span class="s2">&quot;Dash&quot;</span><span class="p">,</span> <span class="s2">&quot;Bast&quot;</span><span class="p">)</span>
-<span class="p">(</span><span class="n">aussie</span><span class="p">,</span><span class="n">b_collie</span><span class="p">,</span><span class="n">indoor_cat</span><span class="p">,</span><span class="n">outdoor_cat</span><span class="p">)</span> <span class="o">=</span> <span class="n">my_pets</span>
-<span class="k">print</span><span class="p">(</span><span class="n">aussie</span><span class="p">)</span>
-<span class="n">cats</span><span class="o">=</span><span class="p">(</span><span class="n">indoor_cat</span><span class="p">,</span><span class="n">outdoor_cat</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">cats</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-<div class="prompt"></div>
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Chestnut
-(&#39;Dash&#39;, &#39;Bast&#39;)
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="&#23383;&#20856;-Dictionaries">&#23383;&#20856; Dictionaries<a class="anchor-link" href="#&#23383;&#20856;-Dictionaries">&#182;</a></h2>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>字典本来是无序的，但是自从 Python 3.6 开始，字典也是有序的了。本来字典可以当做无序的由键和值组成的。在字典中，可以用键来进行索引。</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[99]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;A&quot;</span><span class="p">,</span><span class="s2">&quot;B&quot;</span><span class="p">,</span><span class="s2">&quot;C&quot;</span><span class="p">,</span><span class="s2">&quot;D&quot;</span><span class="p">]</span> <span class="c1">#list example</span>
-<span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-<div class="prompt"></div>
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>B
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;anItem&#39;</span><span class="p">:</span> <span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="s1">&#39;anotherItem&#39;</span><span class="p">:</span> <span class="s2">&quot;B&quot;</span><span class="p">,</span><span class="s1">&#39;athirdItem&#39;</span><span class="p">:</span><span class="s2">&quot;C&quot;</span><span class="p">,</span><span class="s1">&#39;afourthItem&#39;</span><span class="p">:</span><span class="s2">&quot;D&quot;</span><span class="p">}</span> <span class="c1"># dictionary example</span>
-<span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-<div class="prompt"></div>
-
-<div class="output_subarea output_text output_error">
-<pre>
-<span class="ansi-red-intense-fg ansi-bold">---------------------------------------------------------------------------</span>
-<span class="ansi-red-intense-fg ansi-bold">KeyError</span>                                  Traceback (most recent call last)
-<span class="ansi-green-intense-fg ansi-bold">&lt;ipython-input-3-d314b6c47c6e&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-intense-fg ansi-bold">()</span>
-<span class="ansi-green-fg">      1</span> a <span class="ansi-yellow-intense-fg ansi-bold">=</span> <span class="ansi-yellow-intense-fg ansi-bold">{</span><span class="ansi-blue-intense-fg ansi-bold">&#39;anItem&#39;</span><span class="ansi-yellow-intense-fg ansi-bold">:</span> <span class="ansi-blue-intense-fg ansi-bold">&#34;A&#34;</span><span class="ansi-yellow-intense-fg ansi-bold">,</span> <span class="ansi-blue-intense-fg ansi-bold">&#39;anotherItem&#39;</span><span class="ansi-yellow-intense-fg ansi-bold">:</span> <span class="ansi-blue-intense-fg ansi-bold">&#34;B&#34;</span><span class="ansi-yellow-intense-fg ansi-bold">,</span><span class="ansi-blue-intense-fg ansi-bold">&#39;athirdItem&#39;</span><span class="ansi-yellow-intense-fg ansi-bold">:</span><span class="ansi-blue-intense-fg ansi-bold">&#34;C&#34;</span><span class="ansi-yellow-intense-fg ansi-bold">,</span><span class="ansi-blue-intense-fg ansi-bold">&#39;afourthItem&#39;</span><span class="ansi-yellow-intense-fg ansi-bold">:</span><span class="ansi-blue-intense-fg ansi-bold">&#34;D&#34;</span><span class="ansi-yellow-intense-fg ansi-bold">}</span> <span class="ansi-red-intense-fg ansi-bold"># dictionary example</span>
-<span class="ansi-green-intense-fg ansi-bold">----&gt; 2</span><span class="ansi-yellow-intense-fg ansi-bold"> </span><span class="ansi-green-intense-fg ansi-bold">print</span><span class="ansi-yellow-intense-fg ansi-bold">(</span>a<span class="ansi-yellow-intense-fg ansi-bold">[</span><span class="ansi-cyan-intense-fg ansi-bold">1</span><span class="ansi-yellow-intense-fg ansi-bold">]</span><span class="ansi-yellow-intense-fg ansi-bold">)</span>
-
-<span class="ansi-red-intense-fg ansi-bold">KeyError</span>: 1</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[104]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;anItem&#39;</span><span class="p">:</span> <span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="s1">&#39;anotherItem&#39;</span><span class="p">:</span> <span class="s2">&quot;B&quot;</span><span class="p">,</span><span class="s1">&#39;athirdItem&#39;</span><span class="p">:</span><span class="s2">&quot;C&quot;</span><span class="p">,</span><span class="s1">&#39;afourthItem&#39;</span><span class="p">:</span><span class="s2">&quot;D&quot;</span><span class="p">}</span> <span class="c1"># dictionary example</span>
-<span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="s1">&#39;anItem&#39;</span><span class="p">])</span>
-<span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-<div class="prompt"></div>
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>A
-{&#39;athirdItem&#39;: &#39;C&#39;, &#39;afourthItem&#39;: &#39;D&#39;, &#39;anItem&#39;: &#39;A&#39;, &#39;anotherItem&#39;: &#39;B&#39;}
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>在 3.6 之前的 Python 中，字典不具有排序性，所以不对字典元素进行排列，所以你不能按照某个顺序来读取（也就是不能顺序来索引），所以早先的版本中你只能靠 key（键）来读取元素。
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="&#38598;&#21512;-Sets">&#38598;&#21512; Sets<a class="anchor-link" href="#&#38598;&#21512;-Sets">&#182;</a></h3>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>集合是无序的，对一系列'不重复'的元素的集合。集合支持的运算有交集、并集以及集合对比（Intersections, unions and set differences ）。所以可以用集合来移除一个数据集中的重复元素，或者测试某个元素是否属于某个集合。例如下面的代码：</p>
-
+<h4 id="&#31034;&#20363;">&#31034;&#20363;<a class="anchor-link" href="#&#31034;&#20363;">&#182;</a></h4>
 </div>
 </div>
 </div>
@@ -13414,17 +12635,9 @@ ABC cccg
 <div class="prompt input_prompt">In&nbsp;[11]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="kn">from</span> <span class="nn">sets</span> <span class="kn">import</span> <span class="n">Set</span>
-<span class="n">fruits</span> <span class="o">=</span> <span class="n">Set</span><span class="p">([</span><span class="s2">&quot;apples&quot;</span><span class="p">,</span><span class="s2">&quot;oranges&quot;</span><span class="p">,</span><span class="s2">&quot;grapes&quot;</span><span class="p">,</span><span class="s2">&quot;bananas&quot;</span><span class="p">])</span>
-<span class="n">citrus</span> <span class="o">=</span> <span class="n">Set</span><span class="p">([</span><span class="s2">&quot;lemons&quot;</span><span class="p">,</span><span class="s2">&quot;oranges&quot;</span><span class="p">,</span><span class="s2">&quot;limes&quot;</span><span class="p">,</span><span class="s2">&quot;grapefruits&quot;</span><span class="p">,</span><span class="s2">&quot;clementines&quot;</span><span class="p">])</span>
-<span class="n">citrus_in_fruits</span> <span class="o">=</span> <span class="n">fruits</span> <span class="o">&amp;</span> <span class="n">citrus</span>   <span class="c1">#intersection</span>
-<span class="k">print</span><span class="p">(</span><span class="n">citrus_in_fruits</span><span class="p">)</span>
-<span class="n">diff_fruits</span> <span class="o">=</span> <span class="n">fruits</span> <span class="o">-</span> <span class="n">citrus</span>        <span class="c1"># set difference</span>
-<span class="k">print</span><span class="p">(</span><span class="n">diff_fruits</span><span class="p">)</span>
-<span class="n">diff_fruits_reverse</span> <span class="o">=</span> <span class="n">citrus</span> <span class="o">-</span> <span class="n">fruits</span>  <span class="c1"># set difference</span>
-<span class="k">print</span><span class="p">(</span><span class="n">diff_fruits_reverse</span><span class="p">)</span>
-<span class="n">citrus_or_fruits</span> <span class="o">=</span> <span class="n">citrus</span> <span class="o">|</span> <span class="n">fruits</span>     <span class="c1"># set union</span>
-<span class="k">print</span><span class="p">(</span><span class="n">citrus_or_fruits</span><span class="p">)</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">U</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">V</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">svd</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="n">s</span><span class="p">)</span><span class="o">/</span><span class="nb">min</span><span class="p">(</span><span class="n">s</span><span class="p">))</span>
 </pre></div>
 
 </div>
@@ -13435,50 +12648,10 @@ ABC cccg
 <div class="output">
 
 
-<div class="output_area">
-<div class="prompt"></div>
-
+<div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Set([&#39;oranges&#39;])
-Set([&#39;apples&#39;, &#39;grapes&#39;, &#39;bananas&#39;])
-Set([&#39;grapefruits&#39;, &#39;clementines&#39;, &#39;lemons&#39;, &#39;limes&#39;])
-Set([&#39;clementines&#39;, &#39;grapes&#39;, &#39;limes&#39;, &#39;oranges&#39;, &#39;grapefruits&#39;, &#39;apples&#39;, &#39;lemons&#39;, &#39;bananas&#39;])
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[15]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">a_list</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;a&quot;</span><span class="p">,</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="s2">&quot;d&quot;</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span>
-<span class="k">print</span><span class="p">(</span><span class="n">a_list</span><span class="p">)</span>
-<span class="n">a_set</span> <span class="o">=</span> <span class="n">Set</span><span class="p">(</span><span class="n">a_list</span><span class="p">)</span>  <span class="c1"># Convert list to set</span>
-<span class="k">print</span><span class="p">(</span><span class="n">a_set</span><span class="p">)</span>         <span class="c1"># Creates a set with unique elements</span>
-<span class="n">new_list</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">a_set</span><span class="p">)</span> <span class="c1"># Convert set to list</span>
-<span class="k">print</span><span class="p">(</span><span class="n">new_list</span><span class="p">)</span>        <span class="c1"># Obtain a list with unique elements </span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-<div class="prompt"></div>
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>[&#39;a&#39;, &#39;a&#39;, &#39;a&#39;, &#39;b&#39;, 1, 2, 3, &#39;d&#39;, 1]
-Set([&#39;a&#39;, 1, 2, &#39;b&#39;, &#39;d&#39;, 3])
-[&#39;a&#39;, 1, 2, &#39;b&#39;, &#39;d&#39;, 3]
+<pre>[ 15.5457   6.9002   3.8363   0.0049]
+3198.6725812
 </pre>
 </div>
 </div>
@@ -13492,7 +12665,21 @@ Set([&#39;a&#39;, 1, 2, &#39;b&#39;, &#39;d&#39;, 3])
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>更多样例以及详细的关于集合的内容可以参考官方文档：<a href="https://docs.python.org/3/library/sets.html">https://docs.python.org/3/library/sets.html</a></p>
+<h4 id="&#39044;&#22788;&#29702;">&#39044;&#22788;&#29702;<a class="anchor-link" href="#&#39044;&#22788;&#29702;">&#182;</a></h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>我们有时可以通过“预处理”来改善这个行为。我们不求解
+$$Ax=b$$
+而是求解
+$$D^{-1}Ax=D^{-1}b$$
+其中 $D^{-1}A$ 的条件数比 $A$ 本身要小。</p>
+<p>预处理是个<em>非常</em>难懂的话题，超出了这个课程的范围。这里提及它，只是为了让你意识到这样的东西存在，你应该曾经碰到过病态问题。</p>
 
 </div>
 </div>
@@ -13502,9 +12689,7 @@ Set([&#39;a&#39;, 1, 2, &#39;b&#39;, &#39;d&#39;, 3])
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="&#31867;-Classes">&#31867; Classes<a class="anchor-link" href="#&#31867;-Classes">&#182;</a></h2><p>类（或者类的对象）是对一系列数据（作为类的属性 attribute ）和函数（作为类的方法 method ）的打包。可以用'.'这个点号来读取类中的属性或者使用类的方法。例如，当我们调用<code>'hello'.upper()</code>的时候，就是用到了<code>'hello'</code>这个属于字符串 <code>string</code>类的实例的 <code>upper</code> 方法。</p>
-<p>本章节不会涉及关于自定义累的创建等更多内容。</p>
-
+<h2 id="&lt;font-color=red&gt;&#32451;&#20064;&lt;/font&gt;">&lt;font color=red&gt;&#32451;&#20064;&lt;/font&gt;<a class="anchor-link" href="#&lt;font-color=red&gt;&#32451;&#20064;&lt;/font&gt;">&#182;</a></h2>
 </div>
 </div>
 </div>
@@ -13513,339 +12698,71 @@ Set([&#39;a&#39;, 1, 2, &#39;b&#39;, &#39;d&#39;, 3])
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="&#27169;&#22359;-Modules">&#27169;&#22359; Modules<a class="anchor-link" href="#&#27169;&#22359;-Modules">&#182;</a></h2><p>随着代码规模越来越大，就应该把代码拆分成多个 <em>module</em> 模块或者包，这样组织起来也更方便。最简单的情况下，模块可以就是普通的 python 文件。我们常常要先用 <code>import</code> 导入模块，然后在后面的代码中就能使用这些模块中的内容：</p>
-<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span> <span class="c1"># 这是设置用 np 作为别名</span>
-<span class="kn">import</span> <span class="nn">numpy.linalg</span> <span class="kn">as</span> <span class="nn">la</span> <span class="c1"># 模块下面还可以有子模块</span>
-<span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">sin</span><span class="p">,</span> <span class="n">cos</span><span class="p">,</span> <span class="n">tan</span> <span class="c1"># 这里是把三角函数的名字引入到了全局的命名空间，这样就不用加模块名前缀了</span>
-<span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="o">*</span> <span class="c1"># 尽量别这么做，因为这样可能就污染了命名空间</span>
+<p><strong>1</strong>. 手动并使用 NumPy 计算下列矩阵的 LU 分解</p>
+$$\left(\begin{matrix}1&2&3\\2&-4&6\\3&-9&-3\end{matrix}\right)$$
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[12]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Your code here</span>
 </pre></div>
 
 </div>
 </div>
 </div>
+
+</div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="&#26631;&#20934;&#24211;-The-standard-library">&#26631;&#20934;&#24211; The standard library<a class="anchor-link" href="#&#26631;&#20934;&#24211;-The-standard-library">&#182;</a></h2><p>Python 已经自带了很赞的一些标准库，其中有各种各样的函数都包含在了标准库中。</p>
-<p><strong>参考</strong></p>
+<p><strong>2</strong>. 手动并使用 NumPy 计算下列矩阵的 Cholesky</p>
+$$\left(\begin{matrix}1&2&3\\2&-4&6\\3&6&-3\end{matrix}\right)$$
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[13]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Your code here</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>3</strong>. 使用 Python 编写函数，使用 SVD 分解来求解方程组</p>
+$$Ax = b$$<p>你的函数应该接受 $A$ and $b$ 作为输入，并返回 $x$。</p>
+<p>你的函数应包含下列操作：</p>
 <ul>
-<li><a href="https://docs.python.org/3/library/">Python 官方标准库文档</a></li>
-<li><a href="http://pymotw.com/3/contents.html">Python 模块示例</a> 给出了各种对标准库进行使用的样例。</li>
+<li>首先，检查 $A$ 是否可逆 - 不是的话返回错误信息</li>
+<li>使用 SVD 对 $A$ 求逆，并求解方程组</li>
+<li>返回 $x$</li>
 </ul>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="&#23433;&#35013;&#39069;&#22806;&#30340;&#27169;&#22359;">&#23433;&#35013;&#39069;&#22806;&#30340;&#27169;&#22359;<a class="anchor-link" href="#&#23433;&#35013;&#39069;&#22806;&#30340;&#27169;&#22359;">&#182;</a></h3><p>多数情况下，咱们都要用<code>pip</code>这个包管理器来安装或者卸载模块。实际上，只要输入命令就可以了：</p>
-<div class="highlight"><pre><span></span>pip install &lt;要安装的包的名字&gt;
-</pre></div>
-<p>在命令行中或者在 IPython notebook 中输入：</p>
-<div class="highlight"><pre><span></span><span class="err">!</span> <span class="n">pip</span> <span class="n">install</span> <span class="o">&lt;</span><span class="err">要安装的包的名字</span><span class="o">&gt;</span>
-</pre></div>
-<p>有哪些包能用 <code>pip</code>安装呢？可以参考<a href="https://pypi.python.org/pypi">Python Package Index (PyPI)</a>。</p>
-<p>Pip 的官方文档在 <a href="https://pip.pypa.io/en/latest/">https://pip.pypa.io/en/latest/</a>.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="&#26356;&#26032;-Anaconda-&#21457;&#34892;&#29256;&#21040;&#26368;&#26032;&#30340;&#29256;&#26412;">&#26356;&#26032; Anaconda &#21457;&#34892;&#29256;&#21040;&#26368;&#26032;&#30340;&#29256;&#26412;<a class="anchor-link" href="#&#26356;&#26032;-Anaconda-&#21457;&#34892;&#29256;&#21040;&#26368;&#26032;&#30340;&#29256;&#26412;">&#182;</a></h2><p>在命令行中输入下面的命令就行了：</p>
-<div class="highlight"><pre><span></span>conda update conda
-conda update anaconda
-</pre></div>
-<p>这里要注意， <code>conda</code> 能做的事情还有 <a href="http://conda.pydata.org/docs/index.html">很多很多哦</a>.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="&lt;font-color=red&gt;&#32451;&#20064;-Exercises&lt;/font&gt;">&lt;font color=red&gt;&#32451;&#20064; Exercises&lt;/font&gt;<a class="anchor-link" href="#&lt;font-color=red&gt;&#32451;&#20064;-Exercises&lt;/font&gt;">&#182;</a></h2>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>1</strong>. 解决 FizzBuzz 问题</p>
-<p>写一个程序，输出从 1 到 100 的数字。但当数字是 3 的倍数的时候，就不输出数字，而是输出'Fizz';当数字是 5 的倍数的时候，就不输出数字，而是输出'Buzz'；当数字同时是 3 和 5 的倍数的时候，就不输出数字，而是输出'FizzBuzz';</p>
+<p>测试你的函数的正确性。</p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[14]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># YOUR CODE HERE</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>2</strong>. 给定 x=3 y=4，交换两个变量的值</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">3</span>
-<span class="n">y</span> <span class="o">=</span> <span class="mi">4</span>
-<span class="c1"># YOUR CODE HERE</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>3</strong>. 写一个程序，在平面直角坐标系中计算并返回两个点的距离，假设两个点为 $u$ 和 $v$, 这两个都是一个含有两个元素的元组，各自都有自己的坐标值 $(x, y)$。例如, 假如 $u = (3,0)$ 然后 $v = (0,4)$， 函数就会计算并返回这两个点的距离 $5$.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># YOUR CODE HERE</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>使用字典，来写一个程序，计算每个字母在给定字符串 s 中出现的次数。忽略大小写。例如 'a' 和 'A' 就都当作同样的一个键。下面的这个 s 中， a 就似乎是出现了 7 次。</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[6]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">s</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
-<span class="s2">Write a program that prints the numbers from 1 to 100. </span>
-<span class="s2">But for multiples of three print &#39;Fizz&#39; instead of the number and f</span>
-<span class="s2">or the multiples of five print &#39;Buzz&#39;. For numbers which are </span>
-<span class="s2">multiples of both three and five print &#39;FizzBuzz&#39;</span>
-<span class="s2">&quot;&quot;&quot;</span>
-
-<span class="c1"># YOUR CODE HERE</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>5</strong>. Write a program that finds the percentage of sliding windows of length 5 for the sentence s that contain at least one 'a'. Ignore case, spaces and punctuation. For example, the first sliding window is 'write' which contains 0 'a's, and the second is 'ritea' which contains 1 'a'.</p>
-<p>写一个程序，在一段句子中，找出长度为 5 的子串且至少含有一个字母 'a' 的比例。忽略大小写、空格以及标点符号。例如下面这个字符串 s 中， 'write' 就包含了 0 个 'a'，第二个就是'ritea' 包含了一个 'a'。（这个我翻译得很差，所以提供了原文作为对比。）</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">s</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
-<span class="s2">Write a program that prints the numbers from 1 to 100. </span>
-<span class="s2">But for multiples of three print &#39;Fizz&#39; instead of the number and f</span>
-<span class="s2">or the multiples of five print &#39;Buzz&#39;. For numbers which are </span>
-<span class="s2">multiples of both three and five print &#39;FizzBuzz&#39;</span>
-<span class="s2">&quot;&quot;&quot;</span>
-
-<span class="c1"># YOUR CODE HERE</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>6</strong>. 从下面的列表中查找只出现过一次的数字：</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[15]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">36</span><span class="p">,</span> <span class="mi">45</span><span class="p">,</span> <span class="mi">58</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">74</span><span class="p">,</span> <span class="mi">96</span><span class="p">,</span> <span class="mi">64</span><span class="p">,</span> <span class="mi">45</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">19</span><span class="p">,</span> <span class="mi">33</span><span class="p">,</span> <span class="mi">86</span><span class="p">,</span> <span class="mi">99</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="mi">63</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="mi">85</span><span class="p">,</span>
- <span class="mi">85</span><span class="p">,</span> <span class="mi">63</span><span class="p">,</span> <span class="mi">47</span><span class="p">,</span> <span class="mi">56</span><span class="p">,</span> <span class="mi">42</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="mi">84</span><span class="p">,</span> <span class="mi">88</span><span class="p">,</span> <span class="mi">55</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">54</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">56</span><span class="p">,</span> <span class="mi">51</span><span class="p">,</span> <span class="mi">79</span><span class="p">,</span> <span class="mi">81</span><span class="p">,</span> <span class="mi">57</span><span class="p">,</span> <span class="mi">37</span><span class="p">,</span> <span class="mi">91</span><span class="p">,</span>
- <span class="mi">1</span><span class="p">,</span> <span class="mi">84</span><span class="p">,</span> <span class="mi">84</span><span class="p">,</span> <span class="mi">36</span><span class="p">,</span> <span class="mi">66</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">89</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">42</span><span class="p">,</span> <span class="mi">91</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">95</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="mi">98</span><span class="p">,</span> <span class="mi">39</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">82</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="mi">92</span><span class="p">,</span> <span class="mi">41</span><span class="p">,</span>
- <span class="mi">45</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">66</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="mi">34</span><span class="p">,</span> <span class="mi">85</span><span class="p">,</span> <span class="mi">94</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">36</span><span class="p">,</span> <span class="mi">72</span><span class="p">,</span> <span class="mi">91</span><span class="p">,</span> <span class="mi">84</span><span class="p">,</span> <span class="mi">34</span><span class="p">,</span> <span class="mi">87</span><span class="p">,</span> <span class="mi">75</span><span class="p">,</span> <span class="mi">53</span><span class="p">,</span> <span class="mi">51</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">89</span><span class="p">,</span> <span class="mi">51</span><span class="p">,</span> <span class="mi">20</span><span class="p">]</span>
-
-<span class="c1"># YOUR CODE HERE</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>7</strong>. 写两个函数，一个返回一个数值的平方，另一返回立方。然后利用这两个函数再来写第三个函数，来求一个数值的 $6^{th}$ ，即六次方。</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[16]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># YOUR CODE HERE</span>
-
-<span class="k">def</span> <span class="nf">square</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-    <span class="k">pass</span>
-
-<span class="k">def</span> <span class="nf">cube</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-    <span class="k">pass</span>
-
-<span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-    <span class="k">pass</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>8</strong>. 创建一个新列表，列表内容是 x for x in [0, 10] 的立方，分别使用以下方法：</p>
-<ul>
-<li>for 循环</li>
-<li>列表表达式推导</li>
-<li>map 函数</li>
-</ul>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># YOUR CODE HERE</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>9</strong>. 毕达哥拉斯三角（Pythagorean triple），也就是中国的勾股定理啦，$a^2 + b^2 = c^2$，比如第一组就是(3,4,5)，写个程序找出来 100 以内的所有符合勾股定理的三角形组合吧。</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># YOUR CODE HERE</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>10</strong>. 解决下面这个函数的 bug，这个函数式接收一个数值列表，然后返回归一化的列表（a list of normalized numbers）。</p>
-<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">xs</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Retrun normalized list summing to 1.&quot;&quot;&quot;</span>
-    <span class="n">s</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">xs</span><span class="p">:</span>
-        <span class="n">s</span> <span class="o">+=</span> <span class="n">x</span>
-    <span class="k">return</span> <span class="p">[</span><span class="n">x</span><span class="o">/</span><span class="n">s</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">xs</span><span class="p">]</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[2]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># YOUR CODE HERE</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Your code here</span>
 </pre></div>
 
 </div>
@@ -13855,7 +12772,7 @@ conda update anaconda
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[14]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span> 
@@ -13869,8 +12786,4 @@ conda update anaconda
     </div>
   </div>
 </body>
-
- 
-
-
 </html>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head><meta charset="utf-8" />
-<title>IntroductionToPython</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>UsingPandas</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
 <style type="text/css">
@@ -11714,6 +11714,240 @@ ul.typeahead-list > li > a {
 .ansi-bold { font-weight: bold; }
 
     </style>
+<style type="text/css">
+    /*
+Placeholder for custom user CSS
+
+mainly to be overridden in profile/static/custom/custom.css
+
+This will always be an empty file in IPython
+*/
+
+
+/*@import url('http://fonts.googleapis.com/css?family=Crimson+Text');*/
+@import url('http://fonts.googleapis.com/css?family=Kameron');
+@import url('http://fonts.googleapis.com/css?family=Lato:200,300,400');
+/*@import url('http://fonts.googleapis.com/css?family=Hack');*/
+
+
+/* Change code font */
+.CodeMirror pre {
+    font-family: 'Hack', Consolas, monocco, monospace;
+}
+
+div.input_area {
+    border-color: rgba(0,0,0,0.10);
+    background: rbga(0,0,0,0.5);
+}
+
+div.text_cell {
+    /*max-width: 105ex; */
+    /* instead of 100%, */
+}
+
+div.text_cell_render {
+    /*font-family: "Crimson Text";*/
+    font-size: 12pt;
+    line-height: 145%; /* added for some line spacing of text. */
+}
+
+/*div.text_cell_render h1,
+div.text_cell_render h2,
+div.text_cell_render h3,
+div.text_cell_render h4,
+div.text_cell_render h5,
+*/
+div.text_cell_render h6 {
+    font-family: 'Kameron';
+    font-weight: 300;
+}
+
+div.text_cell_render h1 {
+    font-size: 24pt;
+}
+
+div.text_cell_render h2 {
+    font-size: 18pt;
+}
+
+div.text_cell_render h3 {
+    font-size: 14pt;
+}
+
+.rendered_html pre,
+.rendered_html code {
+    /*font-size: medium;*/
+    font-family: Consolas, monocco, monospace;
+}
+
+.rendered_html ol {
+    list-style:decimal;
+    margin: 1em 2em;
+}
+
+.prompt.input_prompt {
+    color: rgba(0,0,0,0.5);
+}
+
+.cell.command_mode.selected {
+    border-color: rgba(0,0,0,0.1);
+}
+
+.cell.edit_mode.selected {
+    border-color: rgba(0,0,0,0.15);
+    box-shadow: 0px 0px 5px #f0f0f0;
+    -webkit-box-shadow: 0px 0px 5px #f0f0f0;
+}
+
+div.output_scroll {
+    -webkit-box-shadow: inset 0 2px 8px rgba(0,0,0,0.1);
+    box-shadow: inset 0 2px 8px rgba(0,0,0,0.1);
+    border-radious: 2px;
+}
+
+#menubar .navbar-inner {
+    background: #fff;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    border-radius: 0;
+    border: none;
+    font-family: lato;
+    font-weight: 400;
+}
+
+.navbar-fixed-top .navbar-inner,
+.navbar-static-top .navbar-inner {
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    border: none;
+}
+
+div#notebook_panel {
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    border-top: none;
+}
+
+div#notebook {
+    border-top: 1px solid rgba(0,0,0,0.15);
+}
+
+#menubar .navbar .navbar-inner,
+.toolbar-inner {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+#checkpoint_status,
+#autosave_status {
+    color: rgba(0,0,0,0.5);
+}
+
+#header {
+    font-family: lato;
+}
+
+#notebook_name {
+    font-weight: 200;
+}
+
+/*
+    This is a lazy fix, we *should* fix the
+    background for each Bootstrap button type
+*/
+#site * .btn {
+    background: #fafafa;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+/* Pretty Pandas Dataframes */
+.dataframe * {border-color: #c0c0c0 !important;}
+.dataframe th{background: #eee;}
+.dataframe td{
+    background: #fff;
+    text-align: right;
+    min-width:5em;
+}
+
+/* Format summary rows */
+.dataframe-summary-row tr:last-child,
+.dataframe-summary-col td:last-child{
+    background: #eee;
+    font-weight: 500;
+}
+
+/*
+Customize the logo
+ */
+#ipython_notebook img{
+    display:block;
+    background: url(logo.png) no-repeat;
+    background-size: contain;
+    width: 233px;
+    height: 33px;
+    padding-left: 233px;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+#ipython_notebook {
+    height: 40px !important;
+}
+
+
+/*
+    Adapted for jupyter-themer from https://github.com/codemirror
+*/
+
+/*
+  MDN-LIKE Theme - Mozilla
+  Ported to CodeMirror by Peter Kroon <plakroon@gmail.com>
+  Report bugs/issues here: https://github.com/codemirror/CodeMirror/issues
+  GitHub: @peterkroon
+  The mdn-like theme is inspired on the displayed code examples at: https://developer.mozilla.org/en-US/docs/Web/CSS/animation
+*/
+.CodeMirror { color: #444; background-color: #fff; }
+.CodeMirror div.CodeMirror-selected { background: #cfc; }
+.CodeMirror .CodeMirror-line::selection, .CodeMirror .CodeMirror-line > span::selection, .CodeMirror .CodeMirror-line > span > span::selection { background: #cfc; }
+.CodeMirror .CodeMirror-line::-moz-selection, .CodeMirror .CodeMirror-line > span::-moz-selection, .CodeMirror .CodeMirror-line > span > span::-moz-selection { background: #cfc; }
+
+.CodeMirror .CodeMirror-gutters { background: #f8f8f8; border-left: 6px solid rgba(0,83,159,0.65); color: #333; }
+.CodeMirror .CodeMirror-linenumber { color: #aaa; padding-left: 8px; }
+.CodeMirror .CodeMirror-cursor { border-left: 2px solid #333; }
+
+.CodeMirror span.cm-keyword { color: #6262FF; }
+.CodeMirror span.cm-atom { color: #F90; }
+.CodeMirror span.cm-number { color:  #ca7841; }
+.CodeMirror span.cm-def { color: #8DA6CE; }
+.CodeMirror span.cm-variable-2, .CodeMirror span.cm-tag { color: #690; }
+.CodeMirror span.cm-variable-3, .CodeMirror span.cm-def { color: #07a; }
+
+.CodeMirror span.cm-variable { color: #029; }
+.CodeMirror span.cm-property { color: #905; }
+.CodeMirror span.cm-qualifier { color: #690; }
+
+.CodeMirror span.cm-operator { color: #cda869; }
+.CodeMirror span.cm-comment { color:#777; font-weight:normal; }
+/*.CodeMirror span.cm-string { color:#07a; font-style:italic; }*/
+.CodeMirror span.cm-string { color:#07a; font-style:italic; }*/
+.CodeMirror span.cm-string-2 { color:#bd6b18; } /*?*/
+.CodeMirror span.cm-meta { color: #000; } /*?*/
+.CodeMirror span.cm-builtin { color: #9B7536; } /*?*/
+.CodeMirror span.cm-tag { color: #997643; }
+.CodeMirror span.cm-attribute { color: #d6bb6d; } /*?*/
+.CodeMirror span.cm-header { color: #FF6400; }
+.CodeMirror span.cm-hr { color: #AEAEAE; }
+.CodeMirror span.cm-link { color:#ad9361; font-style:italic; text-decoration:none; }
+.CodeMirror span.cm-error { border-bottom: 1px solid red; }
+
+div.CodeMirror .CodeMirror-activeline-background { background: #efefff; }
+div.CodeMirror span.CodeMirror-matchingbracket { outline:1px solid grey; color: inherit; }
+
+.cm-s-mdn-like.CodeMirror { background-image: url(data:image/png;base64,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); }
+
+
+    </style>
 
 
 <style type="text/css">
@@ -11773,102 +12007,31 @@ div#notebook {
   <div tabindex="-1" id="notebook" class="border-box-sizing">
     <div class="container" id="notebook-container">
 
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Python-&#31616;&#20171;">Python &#31616;&#20171;<a class="anchor-link" href="#Python-&#31616;&#20171;">&#182;</a></h1>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>本章节内容基本上是参考了下面这个编程指南: <a href="http://www.afterhoursprogramming.com/tutorial/Python/Introduction/">http://www.afterhoursprogramming.com/tutorial/Python/Introduction/</a></p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>本课程中相当一大部分内容都需要使用 Python。Python 是一门高级的脚本语言，提供了一个交互式的开发环境。 我们假设大家已经有了一定的编程经验，所以本章节主要讲的也就是 Python 的一些特性。</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>编程语言一般都要有下面这些常见的组成部分：变量、运算、迭代、条件判断、函数（内置函数或者用户自定义函数），以及一些更高级的数据结构。本章我们关注的就是 Python 中的这些内容，然后尤其会着重介绍 Python 这门语言独有的一些特性。</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="&#21464;&#37327;">&#21464;&#37327;<a class="anchor-link" href="#&#21464;&#37327;">&#182;</a></h2>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Pythong 中的变量在你设定一个值给他的时候就被定义和给定类型了。</p>
-
-</div>
-</div>
-</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">my_variable</span> <span class="o">=</span> <span class="mi">2</span> 
-<span class="k">print</span><span class="p">(</span><span class="n">my_variable</span><span class="p">)</span>
-<span class="nb">type</span><span class="p">(</span><span class="n">my_variable</span><span class="p">)</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
 </pre></div>
 
 </div>
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-<div class="prompt"></div>
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>2
-</pre>
 </div>
-</div>
-
-<div class="output_area">
-<div class="prompt output_prompt">Out[3]:</div>
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>int</pre>
-</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="kn">import</span> <span class="nn">warnings</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s2">&quot;ignore&quot;</span><span class="p">)</span>
+</pre></div>
 
 </div>
-
 </div>
 </div>
 
@@ -11878,7 +12041,7 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>这就让变量定义对开发者来说变得很简单。不过当然了，所谓能力越大责任越大，还是要多小心仔细。比如下面这个情况：</p>
+<h2 id="&#20351;&#29992;-Pandas">&#20351;&#29992; Pandas<a class="anchor-link" href="#&#20351;&#29992;-Pandas">&#182;</a></h2><p><code>numpy</code> 模块是用于处理数值计算的优秀工具，但当数据有缺失或者数组里面混合了多种类型的值等等，就比较麻烦了。而<code>pandas</code>这个模块就适合这些情况，该模块提供了类似 R 语言的数据结构 dataframe，此外还有很多各种常用的统计分析工具。<code>pandas</code>模块还提供了个很多方法能用来导入和操作数据，本节就讲一下这方面的用法。</p>
 
 </div>
 </div>
@@ -11888,8 +12051,42 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">my_varible</span> <span class="o">=</span> <span class="n">my_variable</span><span class="o">+</span><span class="mi">1</span>
-<span class="k">print</span> <span class="p">(</span><span class="n">my_variable</span><span class="p">)</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="kn">as</span> <span class="nn">sm</span>
+<span class="kn">from</span> <span class="nn">pandas</span> <span class="kn">import</span> <span class="n">Series</span><span class="p">,</span> <span class="n">DataFrame</span><span class="p">,</span> <span class="n">Panel</span>
+<span class="kn">from</span> <span class="nn">string</span> <span class="kn">import</span> <span class="n">ascii_lowercase</span> <span class="k">as</span> <span class="n">letters</span>
+<span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">chisqprob</span>
+<span class="kn">import</span> <span class="nn">pymc</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="&#24207;&#21015;-Series">&#24207;&#21015; Series<a class="anchor-link" href="#&#24207;&#21015;-Series">&#182;</a></h3><p>Series 是一个一维的数组，带有数轴标签（axis labels）。</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># 创建一个 series 然后提取元素</span>
+
+<span class="n">xs</span> <span class="o">=</span> <span class="n">Series</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">10</span><span class="p">),</span> <span class="n">index</span><span class="o">=</span><span class="nb">tuple</span><span class="p">(</span><span class="n">letters</span><span class="p">[:</span><span class="mi">10</span><span class="p">]))</span>
+<span class="k">print</span> <span class="n">xs</span><span class="p">[:</span><span class="mi">3</span><span class="p">],</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span>
+<span class="k">print</span> <span class="n">xs</span><span class="p">[</span><span class="mi">7</span><span class="p">:],</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span>
+<span class="k">print</span> <span class="n">xs</span><span class="p">[::</span><span class="mi">3</span><span class="p">],</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span>
+<span class="k">print</span> <span class="n">xs</span><span class="p">[[</span><span class="s1">&#39;d&#39;</span><span class="p">,</span> <span class="s1">&#39;f&#39;</span><span class="p">,</span> <span class="s1">&#39;h&#39;</span><span class="p">]],</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span>
+<span class="k">print</span> <span class="n">xs</span><span class="o">.</span><span class="n">d</span><span class="p">,</span> <span class="n">xs</span><span class="o">.</span><span class="n">f</span><span class="p">,</span> <span class="n">xs</span><span class="o">.</span><span class="n">h</span>
 </pre></div>
 
 </div>
@@ -11904,7 +12101,28 @@ div#notebook {
 <div class="prompt"></div>
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>2
+<pre>a    0
+b    1
+c    2
+dtype: int64 
+
+h    7
+i    8
+j    9
+dtype: int64 
+
+a    0
+d    3
+g    6
+j    9
+dtype: int64 
+
+d    3
+f    5
+h    7
+dtype: int64 
+
+3 5 7
 </pre>
 </div>
 </div>
@@ -11913,53 +12131,15 @@ div#notebook {
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>如果你缺了单词，拼写检查是不能帮你补上的。"If you leave out word, spell-check will not put the word in you" -- Taylor Mali, <em>The the impotence of proofreading</em></p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>如果你偶然地弄错了一个变量的类型，Python 也不会帮你记着之前的正确类型。这种情况容易引起一些特别难发现问题原因的 bug，所以一定要谨慎小心处理变量类型。</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="&#31867;&#22411;&#21644;&#36716;&#25442;-Types-and-Typecasting">&#31867;&#22411;&#21644;&#36716;&#25442; Types and Typecasting<a class="anchor-link" href="#&#31867;&#22411;&#21644;&#36716;&#25442;-Types-and-Typecasting">&#182;</a></h3>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Python 中可以进行各种常见的类型转换，所以可以把字符串转换成整形或者浮点数，还可以吧浮点数转换成整数等等。语法上面和 C 语言稍微不太一样：</p>
-
-</div>
-</div>
-</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[7]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="s2">&quot;1&quot;</span>
-<span class="n">b</span> <span class="o">=</span> <span class="mi">5</span> 
-<span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="o">+</span><span class="n">b</span><span class="p">)</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># 所有的 numpy 函数都可以用来处理 Series 对象，然后返回一个新的 Series</span>
+
+<span class="n">y1</span><span class="p">,</span> <span class="n">y2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">xs</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">var</span><span class="p">(</span><span class="n">xs</span><span class="p">)</span>
+<span class="n">y1</span><span class="p">,</span> <span class="n">y2</span>
 </pre></div>
 
 </div>
@@ -11971,19 +12151,14 @@ div#notebook {
 
 
 <div class="output_area">
-<div class="prompt"></div>
+<div class="prompt output_prompt">Out[7]:</div>
 
-<div class="output_subarea output_text output_error">
-<pre>
-<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">TypeError</span>                                 Traceback (most recent call last)
-<span class="ansi-green-fg">&lt;ipython-input-7-bf1e73fdfc72&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
-<span class="ansi-green-intense-fg ansi-bold">      1</span> a<span class="ansi-blue-fg">=</span><span class="ansi-blue-fg">&#34;1&#34;</span>
-<span class="ansi-green-intense-fg ansi-bold">      2</span> b<span class="ansi-blue-fg">=</span><span class="ansi-cyan-fg">5</span>
-<span class="ansi-green-fg">----&gt; 3</span><span class="ansi-red-fg"> </span><span class="ansi-green-fg">print</span><span class="ansi-blue-fg">(</span>a<span class="ansi-blue-fg">+</span>b<span class="ansi-blue-fg">)</span>
 
-<span class="ansi-red-fg">TypeError</span>: cannot concatenate &#39;str&#39; and &#39;int&#39; objects</pre>
+
+<div class="output_text output_subarea output_execute_result">
+<pre>(4.5, 8.25)</pre>
 </div>
+
 </div>
 
 </div>
@@ -11995,9 +12170,329 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[8]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="s2">&quot;1&quot;</span>
-<span class="n">b</span> <span class="o">=</span> <span class="mi">5</span>
-<span class="k">print</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="o">+</span><span class="n">b</span><span class="p">)</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Matplotlib 也可以用于 Series 对象</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xs</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">xs</span><span class="p">),</span> <span class="s1">&#39;r-o&#39;</span><span class="p">,</span> <span class="n">xs</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">xs</span><span class="p">),</span> <span class="s1">&#39;b-x&#39;</span><span class="p">);</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+
+
+
+<div class="output_png output_subarea ">
+<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAXoAAAEACAYAAAC9Gb03AAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
+AAALEgAACxIB0t1+/AAAIABJREFUeJztnXd4FFXbh++Q0FUQUFREQbBhpymigAqEjkhHBbErQnyt
+SEBQDJ8VpamAoII0EaUFaUIIIlVAkFCkSrHQgrQEkpzvjyeBEDbJJrszZ3bm3NeVK8lmduaXZPeZ
+c54KBoPBYDAYDAaDwWAwGAwGg8FgMBgMBoPBYDAYDAaDwWAwGAyGIDMa+AdYn8Mxg4E/gN+AO+wQ
+ZTAYDIbgcS9ivLMz9E2AWelf3wkss0OUwWAwGIJLBbI39J8D7TN9vwkoa7Ugg8FgMAgFbLhGOWB3
+pu/3AFfacF2DwWAwYI+hBwjL8r2y6boGg8HgeSJsuMZeoHym769MfywLlRRss0GOwWAwuIptQOWc
+DrBjRT8d6Jz+9V1AIpKlk4VtXHWV4uBBhVLO+Ojbt692DUaTu3Q5RdPMmYrDh8/VdPiwPK5bm5P+
+Tn3r1kUhLoi+6Z8VyOMO0KeUAqiUmxEOhqGfAPwCXI/44h8Hnkn/AMm42Q5sBYYDz2d3ojJloEUL
+SEwMgiqDwZAttWtDdPTZ91pionxfu7ZeXU4j5dQpn4+nFilis5LACIbrpqMfx7zgz4kmT4YaNWDM
+GOjRI0BVBoMhW0qWhJgYePppKFhQjHxMjDxuSGfNGhomJBBdtiwx/5x1QvQqXZpG3btrFJZ37ArG
++sU118CQITBsGBw7plsN1KtXT7eE8zCa/MeJupyk6YILYMUKGD++HidPQgEHWQPtf6fVq6FRI+qM
+Hk3kqFH0iYxk52230eeee2iUnEydatX06ssjWbNhdKLS/U089hiEh8OoUXoFGQxuZvhweOstmDkT
+Hn4YjhyBwYOhdWsIc5JlsJvVq6FxY/j8c2jV6vyfv/oqHDrkGAMVJv+sHP9jTvp3njH0R49C1arw
+zjvQvn0uzzIYDHnm4EGoXBm++gpathQffdeusHEjVKoEQ4dCxYq6VWogNyMPcke84QaYMQOqV7dX
+nw9C1tAD/Pqr/L1XrIAKFfSJcgrxsbHMHTyYiORkUgoXpmGPHtRp2lS3LEOI8tprsGgRLFt2dvWe
+mAhxcWLsP/oIXnkFXnoJChXSKtU+fv0VmjTJ2chn8MUXcpdcvFj79scfQ+8kVFY+/FCpWrWUOn36
+vB95ikUzZ6pelSopBWc+elWqpBbNnKlbmiEESU1VqkoVpWbPzv6YbduUatxYqZtuUio+3j5t2li5
+UqlLL1Xqhx/8Oz4lRak77lBqwgRrdfkBIVaAet4vkJqqVMOGSvXureGv5xQSE1V09ernGPmMj96R
+kbrVGUKQb79VqmZNpdLScj4uLU2pyZOVKldOqccfV+rAAXv02U6GkZ86NW/Pi49Xqnx5pY4ft0aX
+n+CHoXdQnP18ChSAr7+WmEdcnG41NnDsmGwFP/5YomPXXw9XXknEli0+Dw9PSrJZoCHUSUuD/v3h
+zTdz9ziEhUGbNpCQABdeCDfdJN4KFVLrx1xYtQqaNoURIyRYkRfuvRfuvhvef98abUHE0YYe4LLL
+YPRoePRRCSC5hhMnYOlSySft0kXeRWXLSkR/+3Zo2BC+/x4SE0m56y6fpwi1og2DfqZNE597kyb+
+P+eii+CTTyA2VlKf69UTP37Is3KlGPmRI/Nu5DN4/315D//5Z3C1uZgctycvvaRUy5a5bzcdSVKS
+UitWKPXpp7IHvvVWpYoWVapaNaWeeUapkSOVWrNGqVOnfD7dl4/+jWuuMT56Q55IS1Pq9tuVmjYt
+/+dISVFqyBClypRRqlcvpU6cCJ4+W1m+XKlLLlFq+vTAz9W3r1Lt2wd+nnyCH64bJ0Vq0zX7JjlZ
+dklPPAHPZ9tEwQGcPg0bNsiWMOMjIQGuu05SsTI+brkFChf2+7TxsbHMGzKE8JMnSV27lgZRUdR5
++20LfxGD25gxA/r0gTVrAk8U2bdPMnJWrpRVfqNGwdFoCytWQLNm4hNu3jzw8504IemW48aJO8dm
+Qjq90hdbtkgvjgULxE5ahd+pjKmpsofNbNTXr5d80MxG/fbboWjR4AkcO1aCF/PnB++cBlejFNSs
+CW+8AQ89FLzzzp4N3brJy/zjj+GKK4J3bkvIMPKjR8vnYDFhAnzwgdz5wsODd14/CPn0Sl98+aWk
+fFm1Zcw2lXH6dKU2blRq7FiloqKUql1bqeLFlbruOqU6dVJq4ECJwh89ao2wzCQlKXXZZUqtX2/9
+tQyuYNYspW6+WTLZgs2JE0pFR4s7Z/Bgce84kmXLxF0zY0bwz52WJjbhiy+Cf+5cINTTK32RlqZU
+x45KPfecNX+06IYNfacyhocrVbGiUm3bKvXee0otWKBUYqI1IvzhrbeUeuopfdc3hAxpaUrdeadS
+kyZZe52EBKXq1pXQ06pV1l4rzyxdKkbeyrjWqlWyALPZLuBGQ6+U/B0rVlTq+++D/0frW7euT0Pf
+9+67g3+xQPj7b6VKlnRxcrMhWMyZo9SNN9qz0k5LU+qrr5QqW1apHj2UOnLE+mvmSoaRj421/lqP
+P67UK69Yf51MEOp59NlRogSMHw/PPgu7d+d+fF5IySZAmnrhhcG9UKCULSspYSNH6lZicDBKSeOy
+3r3tcR2HhUm28IYNEqOsUkXaj2vLvV+2TIZcfPVV3nJK80tMDHz5pQQUDT7J851swACl6tQJ7kpl
+0cyZqtfFF5+byujUdgOrVyt15ZXZpmUaDD/9JGEkXX7zxYslpta4sbRVsJVffrFvJZ+Z995Tqlkz
+2y6Hm9IrfZGaCg0awH33SdpYUEhNJb5sWeZdfz3hBQuSWqQIDbp3d24DsTp14IUXoF073UoMDqRe
+PUlJfvRRfRpOnZKMnA8+gJdflg/LG6UtXSo73q+/lu6IdpKcLAWQw4ZBZKTll3Nl1k1W9uwRf+DP
+Pwfp9jhzpjQCCRW++04pp8UPDI4gLk6pSpWc0xRwxw6lmjaVeMGiRRZeaMkSWcn/+KOFF8mFadPk
+F7Vht41bg7FZmT5dqauvVurw4SD81Vq2lErVUOH0aaWuukoqbw2GTDzwgFKjR+tWcS5paUpNmSIe
+x65dldq/P8gXcIKRV0p+0QYNlBo0yPJL4dZgbFaaN5ePp58OMOizbx/Ex0OHDkHTZjkREeK6GTRI
+txKDg1iyBLZtg0ce0a3kXMLCpGArIUGSKm66SWKXQQnWLlkCDz4oBYW6S3XDwsRf1b8/HDigVwvO
+8uuk35zyR1KSVP5FRYlPMl/ExEhzouHD861DC4cPy8DdhAS4/HLdagwOIDJSOk8+9ZRuJTmzZg08
+8wwUKSLrq06dzh1Qnpgo9jvXENmSJTIsZOxYW/ziftOjB6SkwKefWnYJT/joM7Nhg1TnJSTk48mp
+qUpVqODASg8/efZZpfr00a3C4ACWLhVvXnKybiX+kZKi1LBhSpUqpVTVqkrt3SuPHz6s1PPP++GS
+XbxY3DVz5liuNc8cPCja1q2z7BJ4xUefmeHDlbrtNqVOnszjE+fMkYkxoUpCggxPyPMvbnAbTZoo
+9dlnulXknX37lHroIaUuvFCGo4S8kc9g6FCl7rvPsta7eNHQp6Up1bq1tKPJE23aSBvhUCYyUpoB
+GTzLypUS6ExK0q0k/3z8sZSw7NiRy4Hx8bKFnzvXDln55/RpKSawopRfedTQK6XUoUOydfW7ximj
+nYDO3jXBYNYsaTgekk37DcGgRQvpFx+qHD4sfawuv1ypdu1yWNHHx8tKft48W/Xlm/nzpW+LBTtu
+vJJ1k5WLL4ZvvoEnn4S//vLjCV9/LYGcEiUs12YpkZFSd754sW4lBg2sWSOdsp98UreS/JGYCNHR
+MGAAdO0KpUvL94mJWQ6Mj5fUnfHjoX59LVrzzAMPwG23SSaOxwn6na5vX8klzrE1a1qaUpUrSwTL
+DQwdKo5Og+do1UrcHqHKzJlnV/CbNkkh5P79WXbmixaJuyZUVvKZ2bpVqdKlz0abgwRub4GQGykp
+0h6hWTN4/fVsDlq4UFKg1q0LfOyOEzh2DK6+Gn79VQagGDzBunWyodu2DYoV060mONSqJc3YzqRW
+xsdLzuiECbJCDkV69oS//5Yma0HCn/RKV7puMoiIkOleAwfKYBmfjBghycZuMPIAF1wAjz0mfTYM
+nuGdd+CVV9xj5EG6YH79dfo3ixaJkZ84MXSNPIgvau7cHAySNTjJugV9RZ/BlCnw2mviw7zookw/
+OHAAKleG7duhVClLrq2FHTugRg3YuVMMv8HVbNgA998vL+PixXWrCR6HD0PFirBj7M9c/HgrmDRJ
+ftFQ56uv4PPP4ZdfoEDga23Pr+gzaN1aYjbnDRUfO1Z6J7jJyIO8O+69F8aM0a3EYAMxMTKo201G
+HiSpouHt/zKp41T3GHmAzp2l9e748bZd0hMrepBklOrVZTjyo48izTWqVBHXjYbJ7ZYTFyeTWRIS
+grJqMDiTTZukU/W2beC02Tj5IT42lrmDBxORnEzK8eNcuKECUyt+wdINIZ4Rl5WlS6FtW/kHBrjr
+9mdFHxHQFUKIYsXOuvdq1YLKfy+RH9xzj15hVlG3LhQuLP5A3Q2eDJYxYID0d3KLkZ8TFUXMtm1n
+Hnvj8n/Ysq8wmzfD9ddrFBdsatWSYQHvvisBFovxzIo+g6FDJcCz5LquFKp6s0xBcCtffgnffgs/
+/qhbicEC/vgD7r4btm4N/RIQgN6Rkbwzd+55j9919RQeePghYmI0iLKSPXsktz7ADDnjo/dBt25w
+eZlT9P7udgnru5mOHWH1atkeGlzHgAHSodoNRh4gIjnZ5+O3l4ll7FhIS7NZkNVceSW8+CK8+qrl
+l/KcoQ8Lg9F1xzA+/BHmri6jW461FCkiTfqHDNGtxBBktm+HGTPEbeMWUgoX9vn4JWX2UqqUhJ1c
+xyuvwMqVlv9ynjP0KEWZ8YMZ0/9PunaFf//VLchinntOovvn1ZEbQpn/+z/JIsvcuz3UadijB9Fl
+y57zWK9KlWjQvfu5OfVuomhRGaYbFSWZOBbhOR89y5fDww/Dli306l2AtWth5kyXJ6Y8/DBUreru
+eISH2LVL/p1//OG+zOD4GjWYl5xMeKlSpBYpQoPu3anTtCn//CPB2D17XFgaopQEZjt1kiksecQf
+H733DP0TT8C110LPnpw+LZmVHTqIq8y1rFgB7dtL1C48XLcaQ4A895zkmA8YoFtJkNm/X96b2Vjz
+5s2lONaVobW1ayU7btOmPG/TjKHPyn//SR+YjRvhsssAKSK9806YPVtWSa6lVi0pD27VSrcSQwDs
+3i2JGlu2QBm3hZiGDZNq0XHjfP74u+9kIt+CBTbrsounn5Yb3MCBeXqaybrJyoQJUl2XbuRBikgH
+DZIElWPHNGqzmqgoM0DcBbz3nrQhdp2RB+kt/vDD2f64eXP47TdxXbmSd96Ran0LsuS8taKvVk32
+uz6GB3ftKn76UaOslaCN06flrjZzJtx+u241hnywdy/ccotsSLPELEOfbdtk17l3LxQsmO1hzz0H
+5cpJV0tXMnAgzJ8Ps2b5/RSzos/Mr7/CwYPQoIHPHw8ZAj//LNWzrqRgQUnTMKv6kOWDD2RB4joj
+D5IZ1q5djkYexD8/ZozEL13JCy/ITS8Pht4fvLOif/ZZKVDIYSmwerXEQ5Yvl8Wv6zhwQIJdmzfD
+pZfqVmPIA3//La2ZNmyAyy/XrSbIKAU33ihdHe+6K9dDb7hBDq1VyxZ19jNrFvzvf7B+PRQqlOvh
+ZkWfwbFj0gqga9ccD6taFVq0kIXF6dNnH09MhNhYizXaQZkykrYwfLhuJYY88uGH0ozPdUYeZIWV
+kiJZEbkQFoZ7c+ozaNIEKlWSfi1Bwhsr+tGjYepUmD4910MPHRIXdrt28ubKmGMZE+OS4pT16yVG
+sXOnX6sFg37+/VdWsevXi3/adbz0kmSbvP22X4fv3i3v0b17pfjblWzaJLnfGzbkuvs2K/oMRoyQ
+1CU/KFVKYiGffSbpXK4y8iDRvBtvhMmTdSsx+MlHH0lWmCuNfGqqBMZyyLbJSvnycMcdfq3bQpcb
+boBHHoE+fXQrOUMjYBPwB+BrMms94AiwJv0jOyd5UAfmnuG335QqV06p06fz9LT+/ZUCpXbssEaW
+VqZNU6pGDRmMbnA0+/crdfHFSu3apVuJRcydq1S1anl+2pgxSjVpYoEeJ3HokFKXXqrUmjU5HoYf
+w8EDXdGHA0MRY18F6Ajc6OO4RcAd6R/WN1/OzMiRUg0b4X/r/cREaRp14YWSjem6NjFNm0oG0rJl
+upUYcuHjj2U+xVVX6VZiEePG5Wk1n8FDD8GSJRKkdi0XXyzurKiogNOMAjX0NYGtwE7gNDARaOnj
+OD2xgJMnJW3r8cf9fkqGT37gQJlJUrOmfO8qYx8eDt27m1RLh3PokIwWfeMN3Uos4uRJmDZNepDk
+keLF4cEHsy2idQ9PPinG57vvAjpNoIa+HLA70/d70h/LjALuBn4DZiErf3v47jux1Fdf7fdTliw5
+65Pv2FH8gDEx8rir6NpVpk/t2aNbiSEbBg2SjhUBzKRwNjNmyHzPfKYSZeTUu5rwcHkhvPqq3Bjz
+SaCjBP3ZT6wGygMngMbAVOA6Xwf269fvzNf16tWjXr16gakbMUIi+nmgadOzXz/4oNQvpKWd+7gr
+KFFCgj2ffurC7lihT2KitH5Zvly3EgsZN05eg/mkbl04ckT6gbm62LtePbkhfvQR9O5NXFwccXns
+Xx+oS+UuoB/iowd4A0gD3svhOTuAasChLI+nxxWCxMaN0tfmzz9zrbbLiXbtpJj2qaeCJ80xZMyi
+27VLhuoaHEP//lIg+dVXupVYxKFDcM018v686KJ8n6ZPHymT+fjjIGpzIjt2iLH/7Tcp/MyEHemV
+q4BrgQpAIaA9kDXpqWwmETXTv85q5IPPyJHingjAyIO4byZMCJImp3HttVKk4npHZ2jx338weDD0
+6qVbiYVMniz1HAEYeYDOnSUMl7nA0ZVUrCiNfnr2zNfTAzX0KcALwBwgAZgEbASeSf8AaAOsB9YC
+nwB5j7zkleRk6QL3xBMBn6pxY9ka7tsXBF1OJKOrpWubh4QeQ4eKDbzOp4PTJeQz2yYr114LlStL
+m3HX07OnjBz85Zc8P9WdlbETJ8IXX0jlUxDo2hVuvVXaT7gOpeDmm2UJ+cADutV4nqNHpfp90SKp
+a3Mlu3ZJJ9l9+4JSnT1ihOQVBJiYEhp8840szJYvPzMWz7uVsXmohPWHTp1c7L4JCzO96h3EZ5/J
+/da1Rh7E19KmTdBacLRrB/Pmidvf9XTqJDVBY8fm6WnuW9H/8QfUri0NMbKZKp9XUlIk/vHzz7JN
+dB0nTkgK6rJlspw0aOH4cfnz//QT3HSTbjUWoZS04fjsM+nlEiTat5csnOefD9opncuKFZJ3u2kT
+XHihR1f0X3whCbZBMvIgN9C2bV3cq75YMYlnDBmiW4mnGT5cbJ9rjTzAunXin6pdO6indX1Hy8zU
+rAn16xP/+OP09jFEyRfuWtGfOiW14osWycj4IPLLL1KktmGDeDtcR8Yw0p07A86EMOSdkycl23D2
+bPk3uJbXXpOVU5BrN1JSpNnZwoXSD8ztxI8Zw5yuXYlJS8sw4h5a0U+fLgY+yEYeZMjBiROyIHEl
+5ctD/fouTtx2NiNGyMwNVxv5tDQJdgUh2yYrERFyWtdXyqYzd9w4YtLS/D7eXYZ+5MigBmEzExbm
+8px6kKDskCHyhjTYRlISvP++ozrSWkN8PJQubZlvqksXiVGmplpyekcRkZycp+PdY+h37JC5sK1b
+W3aJjh3FT+/alPO775bWCEGeV2nImVGjZLpZ1aq6lVhMkHLns+OWW+CSS8R943ZS8hiDdI+hHzVK
++mZYOHLmlluka97SpZZdQi8ZqZaffKJbiWdIToZ334U339StxGKSkmDKFFktWYhXgrINe/QgOg8Z
+cu4w9Ckp8OWXljekyXDfjB9v6WX00q6dRJx//123Ek/w1VeygKhRQ7cSi5k1SwIQWfq0BJuOHaUp
+5tGjll5GO3WaNiVy0CD6eCrrZto0cXLa0Et461bJDNu7N0+zTEKLt96SX3DECN1KXM2pU9LmYMIE
+Cfa7mtatpZ/Ik09afqkWLSTNvGtXyy/lCLyTRz9ypG3tJStXlv7gCxbYcjk9PPusNJ06eFC3Elcz
+dqwYetcb+cREaUfSpo0tl/OK+yYvhL6h371bktzbtrXtkq7PvilbFlq2lBuowRJOn5aBNq73zYP4
+5uvXl2k+NtCsmXged+605XIhQegb+tGjxfIWL27bJdu1E29RUpJtl7SfqCiZfOH6/q96GDdOdob3
+3KNbiQ1YnG2TlcKFpSVCHtvBuJrQNvSpqZJtY/NUkCuukIk2rs5CvOMO6YH9ww+6lbiOlBQPreb3
+7JFhGU2a2HrZjDGDrk2FziOhbejnzIHLLtMyR8zVHS0zMF0tLWHiRFksBDopMySYMEEioxamPfui
+Rg1JlshH63ZXEtqG3sYgbFZat5Ye2P/9p+Xy9tCypazIVq3SrcQ1pKbCO+94ZDUPtrttMggLM0HZ
+zISuof/rL5m20sH6gVW+uPhiaYs6bZqWy9tDRIRMRzer+qAxebJ0Abj/ft1KbGDDBjhwQN4oGnjk
+ERlGcvKklss7itA19F9+KZk2F16oTYLrs29A8p5nzpQbqyFfxMZKhmFamgz9fvNNOHJEHnc148bJ
+m6SAHjNz5ZUyyMrVizE/CU1Dn5Ymfec1uW0yaNFCfID792uVYS0XXyy7ps8/160kZKldG6KjJTh4
+wQXSTjw6Ougt2Z1FWpqUkGtw22TGuG+E0KyMnTdP+lqvXq29OXynTjIs4rnntMqwlo0bJXK4a5ft
+QTW3kJgoxVEDBsCaNZJ1Y1NauR5+/lkK79av1/oePX5cVvYJCXD55dpkWIp7K2MzgrAOmADiCffN
+jTdKZpNrR2xZz99/y8v1qafg1VddbuThbBBW83u0eHFJ+hk3TqsM7YSeof/3X0l30bwlzCAyUlYL
+u3frVmIxL74oQVmTmJwvRo2SFeWOHfDBB7LCdy2nTknUuVMn3UqAs+4bL790Q8/Qf/213KJLlNCt
+BJBB9q1aeWCxGxkpI7YWL9atJOQ4fFjmwQ4aJNWwMTHio3etsZ89W3aBV1+tWwkgrtVjx8Rl5lVC
+y9ArpTV3Pjs8UTxVoAD06GFSLfPBqFFS11enjnxfsqQYexuarepBU+58dhQoAJ07ezsoq9/JfZbc
+g7FxcZLXrTnAk5XUVJlJvmCBJeNqncOxY7JK+/VXWZoa/KJbN6mEjY7WrcQG/vtP5g9v3y4FAw5h
+2zbpErpnj+zC3YT7grEOCsJmJjxcGp25flV/wQXw2GPS7MzgF6dPO8pdbT0//CAFUg4y8gCVKknW
+048/6laih9Ax9AcPSoXJo4/qVuKTjOwb1wd8XnhBitWOH9etJCSYOxeuvVb6w3kCh7ltMuPlnPrQ
+MfRjx0qj6VKldCvxSY0a4sJZvVq3EoupWFGiW2PG6FYSEjjY7gWfv/+GlSuheXPdSnzSrh389JM3
+5+mEhqF3aBA2MxnzZF3vvgHpajl4sFQ/GrLl2DFpZd2unW4lNjFxojTCK1ZMtxKflCgh3ZJdnyHn
+g9Aw9L/8Ik28M9IWHErHjjBpkgfsX926EtGaN0+3EkczdaoMFilTRrcSmwiB7YtX3TehYegdGoTN
+SpUq4ln6+WfdSiwmLExW9Z98oluJowkBuxc8Nm+WlBaHt+Vs0EBkbtyoW4m9ON/QJybK0qhLF91K
+/KJjR+nl5Ho6dZKAxKZNupU4kn//hWXLpPGdJxg3TprfhYfrVpIj4eHSvthrq3onLZF959EPGwbx
+8eITCQF27pTA7L59ULCgbjXWEt+hA3N/+YWIa64hpXBhGvboQZ2mTXXLcgRDhsCKFR6ZW6oUVK4s
+79Hq1XWryZXff4dGjaRHn8PvS37hTx59hD1S8olSMGIEfPSRbiV+U6GC5OvOm2f7mExbiY+NZc6y
+ZcTs3n2m0U/0tm0AxtgjC9x+/XSrsInly2VITbVqupX4xc03Q9mykoHTsKFuNfbgbNfNypWSuuBw
+v19WvJB9M3fwYGJ27TrnsZht25g3ZIgmRc5h61ZpXla/vm4lNuGQTpV5wWtBWWcb+pEjZcKRpgk1
++aVtWxnKdOKEbiXWEZGc7PPx8KQkm5U4j/HjoX17WeS6ntOn4dtvQy7q3LGjvEddPfM5E861oEeP
+ysDHrl11K8kzZcuKn37mTN1KrCOlcGGfj6d6fDCJUh7Ltpk/H665RnoMhBCXXAL33Scmxgs419BP
+mCD/icsu060kX7i9o2XDHj2IzvLm7lWpEg26d9ekyBn8+qtUSNesqVuJTXzzTcje1bzkvnGSU+3c
+rJsaNeDtt6FxY32KAuDIEelouWuXe6cJxcfGMm/IEMKPHCF11SoaTJxIndatdcvSyv/+BxddBG+9
+pVuJDRw7JnP6tmyBSy/VrSbPnDoF5cpJdlQo9yIK3aybNWskETmEQ+IlSsADD0gzvxD0PvlFnaZN
+z2bYNGoE2fjtvUJqqpTXL1qkW4lNTJsGd98dkkYepLi7Qwdp29S3r2411uJM183IkfDEEyGf5OqF
+7JszeGkfnA0LFsgC97rrdCuxCRcEI7p0EUPv9q6zznPdHD8ugwvWrZN3TQhz8qQMnNi4MWRDDf5z
+8qTsg9evl88e5LHHZIb6iy/qVmID//4rd7Q9e2ROQYiiFNx0k4x6vPde3WryR2gOHvn2W6hdO+SN
+PEDRotKxdfJk3UpsoGhRaN1agnMe5ORJ8WR06KBbiU18+y00bRrSRh4k9d8Lm1HnGXqHtyPOK550
+37h9H+yDGTMkf8D1O7cMxo2TpjEu4JFHYMoUd9e9OMvQ//67pKm4qHdA/fpnKyVdT+3aksqwcqVu
+JbbjAne1/2zbJjNhGzTQrSQolCsn6bDTpulWYh3OMvQjR8Ljj7uqpLBgQfFoeGLYQVgYdO7s/n1w
+Fg4elEzpHW8GAAAfWUlEQVSbVq10K7GJceNkmoqL3qdud984KxhbujSsWiWdwVzE4sXQrZvEl13P
+zp3SwXDvXsimetZtfP45LFwYMg1WA0MpuOEGsYp33aVbTdA4cULCgr//LgkUoYRdwdhGwCbgD+D1
+bI4ZnP7z34A7sj1T9equM/IgHo3Dh2HDBt1KbKBCBWkP6Ob+D1nwlNsmo/T3zjt1KwkqxYrBQw+5
+N5cgUEMfDgxFjH0VoCNwY5ZjmgCVgWuBp4HPsjtZ77//Jj42NkBJzqNAAcnG8FxQ1gPs2iXps40a
+6VZiE+PGSX+PEOpU6S9uziUI1NDXBLYCO4HTwESgZZZjWgAZ7/rlQEmgrK+TvfPbb8yJinKlsc/I
+vnHji+g82rSRYTH//qtbieWMHy+/bqFCupXYQEbpr0u3L7VrS5rsr7/qVhJ8AjX05YDdmb7fk/5Y
+bsdkmyTv1p7md9whgdkVK3QrsYELL5QZei6fqei5TpULFkiKyvXX61ZiCQUKuDeXINCwub/r06z7
+PJ/P65f+efGmTcTFxVGvXr18ynIeYWFnV/Uuc2/6pksXeOUVV5eJrlsn3bRr19atxCZclDufHZ07
+y/vzo4+cu0uLi4sjLi4uT88J1NF2F2KfMzyUbwBpwHuZjvkciEPcOiCB27rAP1nOdcar0Scykv6z
+ZwcozXls2QL16snkvRBv45M7aWkSmJ05E269VbcaS3jtNckwHDBAtxIbOHFCVvMe6OdRpw689BI8
++KBuJf5hR9bNKiTIWgEoBLQHpmc5ZjrQOf3ru4BEzjfyZ3BzT/PrroPLL/dId8MCBeDRR925D0bu
+YxMmeMht46HSXzfmEgRq6FOAF4A5QAIwCdgIPJP+ATAL2I4EbYcDz2d3sj6RkTQaNMjVw6U91RKh
+c2fZ7qek6FYSdOLjoXRpaYjlCTwUjGjbVuoiDhzQrSR4OClH6tzBIy5lzx647TbYt88j9US1akHv
+3tIAy0U89ZTs0F59VbcSGzh4UMYF7t4tU1U8wMMPSz1YKDgXQrN7pcu58kqpJ5ozR7cSm3DhPjg5
+Gb7/XnZnnmDyZCkU8IiRB/e9bI2h14Cn3Dft28PcuVIa7BJmzZL4sgs6afuHh9w2GTzwAPz1l3uq
+2Y2h10CbNvDjjzJy0/VcfLGMhHRRIxhP2T3Plf4K4eGSSeqWVb0x9BooU0Zyr6dnzU9yKy7aBx85
+AvPmyc3aE4wfL9FJpyaVW0iXLtL7xg25BMbQa8JT7pvISGnIv3mzbiUBM2WKbOtLltStxAaUEkvn
+me3LuVSpIqUD8+frVhI4xtBromVLSdE7dEi3EhuIiBBjMWaMbiUB4ym3zW+/yQznu+/WrUQbGcPD
+Qx2TXqmRdu1kSI+LJidmz7p10KyZ9KsvEJrri7174ZZbJDW2SBHdamzg1VelQZMnSn99c/AgVKok
+oYoSJXSr8Y1Jr3Q4nnLf3HqrVBgtXKhbSb6ZOFGmSHnCyKemeqz01zelS8P990uGaShjDL1GGjeG
+tWtlpegJQjwo6ym3TXy8ZA14pvTXN7GxMgo088s2MVEeDyWModdIkSLSOOnbb3UrsYlOnSTV6OhR
+3UryzMaN8M8/ULeubiU24am7WvbUri2jQBMSZCZ6YiJER4dex1Ljo9fMvHnywvFEn3qQPvUPPQSP
+PaZbSZ7o3RuSkuDDD3UrsYGkJBmcum6dh6rCsicxUTpa3nefpFrGxDgr68r46EOA++6DP/+ErVt1
+K7GJEHTfKCXp5J5Z4M6aBbffbox8OiVLSjx68GD43/+cZeT9xRh6zURESPaNZ4KyzZrB+vWSfRMi
+LF0qbrbbb9etxCY8nDvvi8REqWSvWhVeeEG+DzWMoXcAnponW7iw9L8ZO1a3Er/JsHsunId9PocP
+w08/SQTScMYnHxMDr78uldHR0aFn7J300vWkjx7EwF9zDUydKi2MXc+KFWI5t2xxvPU8fVrc1StW
+QMWKutXYwBdfyPJ1yhTdShxBbKwEXkuWFP/8NdfIGuXYMed03jY++hAhLAw6dPCQ+6ZGDfFZ/fKL
+biW5MmeO9J33hJEHk22ThaZNz/rkIyKgWzcYPdo5Rt5fnLSc8uyKHiTBoUUL2L49ZAtH88a778ov
+O2KEbiU50rEj3HsvPJ/tXDQXsWePFLZ5pvQ37xw6JJWyThqda1b0IcQtt8AFF0jgzxM88gh89x2c
+PKlbSbYcPSoJKO3a6VZiExMmSOqrMfLZUqqUhJg+/1y3krxhDL1DCAvzWEuEK6+E6tVh2jTdSrJl
+6lRZzZcpo1uJTRi3jV/06CGGPjlZtxL/MYbeQXToID013ND/2i8cnlPvKbv3++/Swcszpb/5p0oV
+SZqYOFG3Ev8xht5BVKoEFSrAggW6ldhEq1awbJn4hB3GP/+ItBYtdCuxiXHjZEvpiQBR4ERFwSef
+hE5KtPmvOoxOnTzkvilWTHzC48bpVnIekyZB8+ZQvLhuJTaQluax0t/AadQITpyQPjihgDH0DqNd
+O3FbJyXpVmITjz0m7huHLY085bZZsgQuvFAybgx+UaCA+Oo/+US3Ev8wht5hXH453HGHZHt4gnvu
+kcyb1at1KznDH39Ih4b69XUrsZb42Fh6R0bSr317eicnE++ZF11w6NIFFi0KjW4extA7EE9l34SF
+QefO8NVXupWcYfx4CYxHROhWYh3xsbHMiYrinblz6ffXX7yzdStzoqKID7VG6xq54ALo2hWGDtWt
+JHdMwZQDOXxYgrK7d8NFF+lWYwM7dkDNmjKBpVAhrVKUguuvl/42NWtqlWIpvSMjeWfu3PMe7xMZ
+Sf/ZszUoCk127oRq1WTU4AUX6NFgCqZClIsvhnr1JI/bE1SsKDlrDlhNrlolxr5GDd1KrCUimyTw
+cM8Eh4JDhQryXnVwljBgDL1j8ZT7BhyTU58RhHV4r7WASSlc2OfjqaYqNs+8+CIMGiTJS07FGHqH
+0ry5tEPYv1+3Epto0wbi4rT+wikpklbphWybhj16EJ0ld7RXpUo06N5dk6LQ5Z57xG3jZI+XMfQO
+pXhxaNJE2sF4gosukqEkGrcxCxZA+fJw7bXaJNhGnfLliSxYkD7169Ovbl36REbSaNAg6oRaW0YH
+EBYmq3onp1o6aYNqgrFZmDEDPvgA4uN1K7GJefOgZ0/49Vctl+/SRaYIRUVpuby9tGsHd94JL7+s
+W4krSE4Wf/38+XDTTfZe259grDH0DubUKRl6sXo1XHWVbjU2kJoKV18te+Cbb7b10idOQLlyzmo/
+axkJCTKsePt2j5T+2sNbb0k3j+HD7b2uyboJcQoVkg4BkybpVmIT4eHw6KNagrIzZkg6peuNPMhc
+vP/9zxj5IPPss/Dtt9IbzmkYQ+9wPJl9M26c7S08PdPyYPNmcZF166ZbiesoW1aa4I0cqVvJ+RhD
+73Dq1JFOips26VZiEzfcIBHRefNsu+TBgxIHadXKtkvqY8AA6N5detsYgk5UFAwbJrOGnYQx9A4n
+PFwm2nhuVW+j+2byZOlG6Hrbt22bFKWZFErLqFpV6v9++EG3knMxhj4EyHDfeCZW3aGDBGQTE225
+3DffeMRt83//J8NvM6ZdGyzBiamWxtCHANWrS9Wdgxo8WkupUtI68ttvLb/Uzp3ito6MtPxSetm1
+S5aZL76oW4nradlSsm9WrNCt5CzG0IcAnpsnC7a5b8aPl6Jczb3UrOfdd+Hpp+UmarCU8HDxjg0a
+pFvJWUwefQgQGwulS4tB+vNPGXqQmCjzIlxbyHj6tAwQ//lny0pVlZJ0/eHDpYzdtezZI0NFNm+G
+Sy7RrcYTJCaKr37DBqmFsRKTR+8SateGsWOlq+XixfIiio6Wx11LwYIyV3HMGMsu8dtvcPw43H23
+ZZdwBu+/D088YYy8jZQsKXGfTz/VrUQwK/oQITFRet9cdplMoYqJ8UBMbe1acXju2GHJ0OpXX5X7
+yYABQT+1c/jrL6nJT0jwSDWYc9i8Ge69V8IjRYtadx2zoncRJUvC559LPK1RIw8YeYDbb5dfdNGi
+oJ86NVViHq7PtvnwQ5ngZYy87Vx/vcw1GD9etxJj6EOGxETxJWfE1A4f1q3IJiwKysbHQ5ky9jeg
+spV//4Uvv5Sti0ELUVESlNXtrDCGPgTI8MnHxMh7tmxZaT5oU5q5Xh5+GKZNg2PHgnpaT7Q8GDhQ
+0rXKldOtxLM0aCDdPOLi9Oowhj4EWLLkrE++QAEpsU5IgJ9+0q3MBsqWlajz998H7ZRJSXK6jh2D
+dkrncfCgNF15/XXdSjxNWJis6nUXUBlDHwI0bXquT752bZlTuXatNkn2EmT3zaxZcNttkr3pWj75
+BFq39kh/a2fz6KPwyy/SgUIXgWTdlAImAVcDO4F2gC9nwk7gPyAVOA3UzOZ8JusmD+zZI7HKlSsl
+X9fVJCWJ+2HNmqAYrtatoXFjePLJIGhzIocPS+2BJ14coUHPnvIytmJlb/XgkfeBA+mfXwcuBnr6
+OG4HUA04lMv5jKHPI++8I7ZvyhTdSmzguedkCR4dHdBpEhNltsmuXS7OXHrrLent8OWXupUY0tm9
+W3aRO3fK1MxgYnV6ZQsgYz/9NfBgTloCuI4hG15+WfrfLFigW4kNZLhvAlwMTJkCDzzgYiP/338w
+dCj06qVbiSET5ctLYFbXvTcQQ18W+Cf963/Sv/eFAuYDq4CnArieIQtFi8JHH0mwx+Y5HfZz550S
+2Vq2LKDTuD7bZuhQ6dDmhQnnIUZUFAwZIjUcdhORy8/nAb4qLbLun1X6hy9qA38Bl6SfbxOw2NeB
+/fr1O/N1vXr1qFevXi7yDK1aSRbO8OEuHxoUFgaPPSar+lq18nWKvXslgO3a/kDHjknStu5cPoNP
+atWSnnKxsTKJKr/ExcURl8f/cSAulU1APeBv4HJgIXBDLs/pCxwDPvLxM+Ojzyfr14s7YuNGaX7m
+WvbsEUfn3r1QpEien/7hhzKp64svLNDmBD74AFat8tCQ4dBj3DgYPTq4qdFW++inA13Sv+4CTPVx
+TDEgY25PcaAhsD6Aaxp8cMstUkDVt69uJRZz5ZUywmf69Hw93dVumxMnxI/Xu7duJYYcaNtWFhvr
+bbaCgRj6d4EGwBbg/vTvAa4AYtO/vgxx06wFlgMzgbkBXNOQDW+/LXM67H4B2U4+c+oTEmD/fqhb
+1wJNTmDECCmwuOUW3UoMOVCokCSQ2d2r3knZMMZ1EyDDhklWyU8/iUvblRw/Liv7jRvz1KgrOhpO
+nRLvhutISoJKlWDmTLjjDt1qDLmwfz9cdx1s2RKcztGme6XHeOYZOHAgqN0CnEfx4hKBHjfO76co
+JR0EXeu2GTUKqlUzRj5EuOQSeOgh2YTZhZPWfWZFHwQWLJAZEwkJ1vbA1sqiRTKr7bff/Nq6LFki
+HT9//92FO53kZKhcWe7uNWroVmPwk3XrpDp7x47Ax1iaFb0Huf9+iVd+5CuvyS3cey8cPep3s5+M
+IKzrjDxIvOLmm42RDzFuvVX61X/3nT3Xc9JL36zog8SOHVC9uix4Xdu4q29f6WeQS1Tr1Clpk7Ny
+JVSoYI802zh9Wgqjxo/3wDxE9zFtmnSlXb48sEWIWdF7lIoV4fnnXd6htnNnGRF16lSOh82ZIysn
+1xl5kEHClSsbIx+iNGsm3aQDLPb2C2PoXUrPnjJFackS3UosolIlseA//pjjYa7NnU9JkWG3b76p
+W4khn4SHS6jJjlRLY+hdSvHi8N570KOHnt4atpBLTv3Ro3IfaNvWRk12MWGC+KTq1NGtxBAAjz8O
+c+dKd0srMYbexXTsKJk3ru1W27atpBkdPOjzxz/8IHawTBmbdVlNaqo4d81qPuS56CIZTPLpp9Ze
+xxh6FxMWJtvC3r3hyBHdaiygRAlo0kRWtz5wrdtm8mTpjnX//bqVGIJA9+7Sf+nECeuuYQy9y6lW
+TYI+b7+tW4lFZHHfxMZKMs7ff0s2Q4sW8n1sbA7nCCXS0mTizJtvujRf1HtUriydLb/5xrprGEPv
+AQYMgDFjpJmS66hfH/btkwoxpN1LdLS4q1q0kKSc6Gh53BX88IP44yIjdSsxBJEXX5Tdt1UZ5k5a
+Epg8egsZOBDmzZPB2K5bCGbkkb73HiAjU6+/XvrarFgh7mxXTJRSStoc9O8PzZvrVmMIIkpJEdXA
+gTKJKi+YPHrDGV54QQqpZs3SrcQCunSRfW9qKkrJDubSS2VOyauvusTIA8yYIXfpZs10KzEEmbCw
+s6t6KzCG3iMUKgQffwz/+1+uNUahR5UqcMUVqHnz6dkTZs+WyYM7dsiqPjFRt8AgoJQEWvr0ceGW
+zADQqZPsQLdsCf65jaH3EI0bS3tUu3th24Hq3IXol5OYNQtq1pRePxUqiNsmOtoFxn72bGlg9uCD
+upUYLKJoUXjqKZkrG2yctDQwPnob2LJFKuZ//z1P7dwdjVLQ55UTTP9kBz1HVKRJ62LnuGsSE6VC
+OGRnxSol/7QXX4T27XWrMVjI3r0yO2b7dv9djsZHbziP666Drl2hVy/dSoJHv34wbW4xfmr0AZ3U
++PPeICVLhrCRB5kkk5gIbdroVmKwmHLloFEjmSsbTMyK3oP89x/ccIN0zwv17rZvvSUjFBcuhEuX
+TpMJ4IsX65YVPJSS8t5nnoFHHtGtxmADK1bIxm3rVumHkxtmRW/wyUUXie+6Rw+pvwlV+veHSZOk
+C8KllyJBiM2bYds23dKCx6JFUv3VoYNuJQabqFlT3KrTpwfvnMbQe5QuXaQB4vjxupXkj5gY0b5g
+AZQtm/5goULS4GfMGK3agkr//hJNjojQrcRgI8FOtTSuGw+zdKn0Bdu0CS64QLca//m//5OuBwsX
+wuWXZ/nh6tXQurWs6guE+DpmyRLpeLV5MxQsqFuNwUZOn4ZrrpHSidtvz/lYf1w3xtB7nEcfhfLl
+pcgoFHj/fWkAFRcHV1zh4wCliK9YkbmXXkpEsWKkFC5Mwx49qBOK0dhGjeSm9dRTupUYNPDuu3KP
+z637rDH0hlzZu1dKr1eulBWEk/nwQxg+XIx8uXK+j4mPjWVOly7EZGpdHF2pEpGDBoWWsV++XLZb
+W7cGPj3aEJIcPCgNzzZtyuSe9IEJxhpypVw5ePll+XAyAwfC55+LuyY7Iw8wd/Dgc4w8QMy2bcyz
+ogrFSvr3lzFhxsh7ltKloV07WdwEijH0Bl56Cdatg/nzdSvxzSefwLBhYuRzG3YekZzs8/HwpCQL
+lFnE6tWwdq2MHzJ4mh494LPPpCg6EIyhN1CkiLQMiIqSIJCTGDIEBg8WI1++fO7HpxQu7PPx1N27
+rZ3sEEz695dubEWK6FZi0MxNN0ml7LffBnYeY+gNALRsKRksn3+uW8lZhg0Tl83ChXDVVf49p2GP
+HkRXqnTOY72uvpoG5crJu2bGDAuUBpF162DZMhOANZwhKkp2tYGEME0w1nCGDRvgvvtkhofuOauf
+fSbt5RcuhIoV8/bc+NhY5g0ZQnhSEqlFitCge3cJxM6fD926SVnwoEHS9cxptGsnFTOvvKJbicEh
+pKXJS3b0aLjnnvN/brJuDHmmRw9x33z2mT4Nw4dLuufChRZkAiUni59q4EDp2fzKK5CNu8d2EhLk
+TrttW2gVNhgsZ+hQKZKePPn8nxlDb8gzhw/L6mHuXLjtNvuvP3KkuKgXLoQsHpjgsnOn7Ik3bZJ3
+UV7H+ljBww/DzTfDG2/oVmJwGEePygZ09Wq4+upzf2YMvSFffPaZ9JBZuNDeGRejRkknyoULJX/Y
+FmbMkG1MzZqyys8pd9NKtmyRwbbbtkkzIoMhCy+/LE3O3n//3MdNHr0hXzz9tKzsv/vOvmt++SX0
+7Su9a2wz8iCzVzdskP7Nt90mbh0dqUcDBsgNxxh5Qza88IL46Y8fz/tzzYre4JO4OGl8tnEjFCtm
+7bW+/lr6dv30kwz11saWLdC9O+zbB59+Cvfea891t2+XHcXWrS4acGuwgoceEi/jc8+dfcy4bgwB
+0bat5PC++aZ11xg7VgpAf/pJYgPaUQqmTJFA7f33yz45p/rzYPDUU5Lb+vbb1l7HEPIsWiSjCRIS
+zvbsM64bQ0B8+KEUK/35pzXnHzcOXn9dsh4dYeRBghJt2sg76dJLJTg6bBikplpzvV274PvvpS+t
+wZALderIbNm5c/P2PLOiN+RI377SQW/ixOCed8IECS7Nnw9VqgT33EFlwwZ4/nk4dkzcOXfeGdzz
+P/88lCghvZcNBj/46it5P86eLd8b140hYI4fhxtvhG++kdVEMJg0SRaw8+bJgtnxKCV/gNdegxYt
+JHBaunTg592zR1qHbt4Ml1wS+PkMniApSVIt4+JkJ2xcN4aAKV5c3NRRUcHxXkyeLEZ+7twQMfIg
+7pxHH5XIdKFCsgUZNSrwOYzvvy+Ny4yRN+SBIkXETz94sP/PMSt6Q64oBXXrymzqp5/O/3mmTJEO
+BHPm6CnGChqrV0vaQ3i4uHNyGwHki7/+kt47CQkyINRgyAPffCPvpZ07oVQps6I3BIGwMGkN8+ab
+kl+fH77/Xl6Ys2eHuJEHqFpV5jB27QqRkbLdOXIkb+f48EPZJRgjb8gHzZrJS8ffMQtmRW/wm6ef
+FlfOxx/n7XlTp8pW88cfxUa6igMHpGVBbCx88AF06pR7OfG//4pzdf16fZW4hpAnLk7q/Y4dM8FY
+QxDZv1/c0/HxEqD1h+nTJU181iyoVs1afVpZulQyaEqWlHTMnFKJevaE//4Tt4/BEACDB0NUlHHd
+GILIJZdIBeuLL/rXG3vmTDHysbEuN/IAtWrJ4N2HHpKAxuuvS0pmVg4elM5tPXvar9HgKhITJWHL
+H4yhN+SJbt2kgCq3+R2xsZJQMnMmVK9ujzbtRERIC4X162XqepUqEoFWivjYWHpHRtKvalV6Fy1K
+/Pr1utUaQpjERFl0xcT4d7xx3RjyzJw5YvA3bPDdyv3HH6VPzowZwa8vCini4qBbN+KLFGHOgQPE
+ZCoxjq5UichBg2QgisGQR2JjpdlpyZKmYMpgIS1ayAvt9dfPfXzOHEkmmTZNvBme59Qpet98M+/8
+8cd5P+oTGUn/jPJGgyGfWF0w1RbYAKQCOeVSNAI2AX8Ar+dwnCGEGDhQkkz++uvsY3PnipGfOtUY
++TMUKkTEFVf4/FF4UpLNYgxeJRBDvx5oBcTncEw4MBQx9lWAjoCf+Rr6iYuL0y3hPJyiafNmGYjU
+s6domj8fOnaUyXx3361bneCUv1VKJv9WXKbHU4sUsV2LL5zyd8qM0RRcAjH0m4AtuRxTE9gK7ARO
+AxOBlgFc01ac+I91iqbateHECXHVxMTE0aGD9MIJpHI22Djlb9WwRw+i0+cixqU/1qtSJRp0765N
+U2ac8nfKjNEUXCIsPn85YHem7/cAXg7PuYaSJcV1s327jP5r3lymRJm5GeeTEXDtM2QIizdtos8N
+N9Coe3cTiDXYRm6Gfh7gq0a7F5BLgh0AJrrqYkqWhC++gGuukWpZY+Szp07TptRp2pR+/frRr18/
+3XIMHiMYWTcLgZeB1T5+dhfQD/HRA7wBpAHv+Th2K1ApCHoMBoPBS2wDLJ+0vBDIru4xIl1EBaAQ
+sJYQCsYaDAaD12mF+N9PAn8DP6Y/fgUQm+m4xsBmZMX+hp0CDQaDwWAwGAwGgw04saBqNPAPUivg
+FMojbrINwO9AD71yACgCLEdccgmAkwafhgNr8C9pwA52AusQTSv0SjlDSeA7YCPy/7tLrxwArkf+
+RhkfR3DGa/0N5L23HhgP+Gj+YTtRiJ7f0792LOGIS6cCUBDn+PDvBe7AWYb+MiBjlNEFiDvMCX+r
+YumfI4BlwD0atWTmJWAcMF23kHR2AKV0i8jC18Dj6V9HACU0avFFAeAvZJGjkwrAds4a90lAF21q
+hJsR+1QEsaPzyCGZRXf3SqcWVC0G8jlLyTL+Rm6EAMeQVZjv2np7OZH+uRDygjukUUsGVwJNgC9w
+Vj8nJ2kpgSxoRqd/n4Ksnp1EfSSZY3duB1rMf4h9KobcEIsBe7UqghuQ3XQS0oZmEfBQdgfrNvS+
+CqrMyJ3cqYDsOJZr1gHyGlqLuLoWIi4A3XwMvIqk8joFBcwHVgFPadYCUBHYD3yJpEaP5OzuzCl0
+QNwkujkEfAT8CewDEpH/pU5+R27UpZD/W1NkgeMT3YbeFFTlnQsQv2oUsrLXTRriUroSqAPU06oG
+mgH/Iv5dJ62gayM358ZAN+RNqpMIpBnhp+mfjwNOmoZSCGgOTNYtBHGJvIgssK5A3oMP6xSExDXf
+A+YiGY9ryGFho9vQ7+Vc/1t5ZFVv8E1BYArwDTBVs5asHEHSanWPGbkbaIH4xCcA9wNjtCoSMvp8
+7gd+QNyWOtmT/rEy/fvvyLkLrd00Bn5F/l66qQ78AhxEXFzfI68z3YxGtNVFdhl+zpuyHycXVFXA
+WcHYMMRg5XE0t6WUQTI3AIoinUwf0CfnPOrijKybYsCF6V8XB5YADfXJOUM8cF361/3wXbGui4no
+D3hmcBviKimKvA+/RnZlurk0/fNVSMzuIo1acsWJBVUTEF9cMhJD6KpXDiDZLGnIzTAj9axRjs+w
+nlsQ/+5aJHXwVb1yzqMuzsi6qYj8jdYiBsMpr/PbkBX9b8gq1SlZN8WBA5y9OTqB1zibXvk1srvW
+TTyiaS1wn2YtBoPBYDAYDAaDwWAwGAwGg8FgMBgMBoPBYDAYDAaDwWAwGAwGg8FgMBgMBoPBYA//
+D93zlThsY1pAAAAAAElFTkSuQmCC
+"
+>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># 将 Series 中的值转换成 numpy 数组</span>
+
+<span class="k">print</span> <span class="n">xs</span><span class="o">.</span><span class="n">values</span>
 </pre></div>
 
 </div>
@@ -12012,9 +12507,143 @@ div#notebook {
 <div class="prompt"></div>
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>6
+<pre>[0 1 2 3 4 5 6 7 8 9]
 </pre>
 </div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[11]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Series 这种数据类型还可以用来表示时间序列（time series）</span>
+
+<span class="kn">import</span> <span class="nn">datetime</span> <span class="kn">as</span> <span class="nn">dt</span>
+<span class="kn">from</span> <span class="nn">pandas</span> <span class="kn">import</span> <span class="n">date_range</span>
+
+<span class="n">today</span> <span class="o">=</span> <span class="n">dt</span><span class="o">.</span><span class="n">date</span><span class="o">.</span><span class="n">today</span><span class="p">()</span>
+<span class="k">print</span> <span class="n">today</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span>
+<span class="n">days</span> <span class="o">=</span> <span class="n">date_range</span><span class="p">(</span><span class="n">today</span><span class="p">,</span> <span class="n">periods</span><span class="o">=</span><span class="mi">35</span><span class="p">,</span> <span class="n">freq</span><span class="o">=</span><span class="s1">&#39;D&#39;</span><span class="p">)</span>
+<span class="n">ts</span> <span class="o">=</span> <span class="n">Series</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">days</span><span class="p">)),</span> <span class="n">index</span><span class="o">=</span><span class="n">days</span><span class="p">)</span>
+            
+<span class="c1"># 导出元素</span>
+<span class="k">print</span> <span class="n">ts</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">4</span><span class="p">],</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span>
+<span class="k">print</span> <span class="n">ts</span><span class="p">[</span><span class="s1">&#39;2014-06-02&#39;</span><span class="p">:</span><span class="s1">&#39;2014-06-05&#39;</span><span class="p">],</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span> <span class="c1"># Note - includes end time</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>2014-06-07 
+
+2014-06-07    10.264177
+2014-06-08     9.054976
+2014-06-09     9.172518
+2014-06-10     9.182699
+Freq: D, dtype: float64 
+
+Series([], dtype: float64) 
+
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[12]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># 对一个时间段，我们可以通过重新取样的方式生成统计信息</span>
+<span class="c1"># 比如, 假设我们对周平均(weekly means), 标准方差(standard deviations)和平方和(sum-of-squares)感兴趣</span>
+
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">ts</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="n">rule</span><span class="o">=</span><span class="s1">&#39;W&#39;</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;mean&#39;</span><span class="p">,</span> <span class="s1">&#39;std&#39;</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="nb">sum</span><span class="p">(</span><span class="n">x</span><span class="o">*</span><span class="n">x</span><span class="p">)))</span>
+<span class="n">df</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[12]:</div>
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div style="max-height:1000px;max-width:1500px;overflow:auto;">
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>mean</th>
+      <th>std</th>
+      <th>&lt;lambda&gt;</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2014-06-08</th>
+      <td>  9.659576</td>
+      <td> 0.855034</td>
+      <td> 187.345908</td>
+    </tr>
+    <tr>
+      <th>2014-06-15</th>
+      <td>  9.524510</td>
+      <td> 0.628514</td>
+      <td> 637.384239</td>
+    </tr>
+    <tr>
+      <th>2014-06-22</th>
+      <td> 10.384550</td>
+      <td> 0.632345</td>
+      <td> 757.271374</td>
+    </tr>
+    <tr>
+      <th>2014-06-29</th>
+      <td>  9.746513</td>
+      <td> 0.688663</td>
+      <td> 667.807156</td>
+    </tr>
+    <tr>
+      <th>2014-07-06</th>
+      <td>  9.255272</td>
+      <td> 1.075470</td>
+      <td> 606.560178</td>
+    </tr>
+    <tr>
+      <th>2014-07-13</th>
+      <td> 10.285790</td>
+      <td> 0.919888</td>
+      <td> 532.372157</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
 </div>
 
 </div>
@@ -12026,22 +12655,18 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>一定要注意类型是 <em>动态变化的</em>。也就是说，只要重新赋值一下，就可以把一个变量立即从整形编程其他类型，比如浮点数或者字符串等等都可以。</p>
+<h3 id="DataFrame">DataFrame<a class="anchor-link" href="#DataFrame">&#182;</a></h3><p>针对统计学家，Pandas 提供了一个类似 R 语言里面的 dataframe 对象的 DataFrame。对于其他人，比如可能需要简单处理一下表格之类的，也可以使用 DataFrame。DataFrame的每一列都是一个 Series 对象。</p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[15]:</div>
+<div class="prompt input_prompt">In&nbsp;[13]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="s2">&quot;1&quot;</span>
-<span class="nb">type</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">a</span><span class="p">))</span>
-
-<span class="n">a</span> <span class="o">=</span> <span class="mf">1.0</span>
-<span class="k">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">a</span><span class="p">))</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># 注意这里的 df 是之前已经定义好的一个 DataFrame</span>
+<span class="k">print</span> <span class="nb">type</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -12056,8 +12681,226 @@ div#notebook {
 <div class="prompt"></div>
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>&lt;type &#39;str&#39;&gt;
-&lt;type &#39;float&#39;&gt;
+<pre>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[14]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># 对列进行重命名</span>
+<span class="c1"># 使用 mean 和 std 就可能导致问题了，因为DataFrame里面内置了一些方法就用了这些名字</span>
+<span class="c1"># 此外 &lt;lambda&gt; 也是唯一的（unifnormative）</span>
+<span class="c1"># 所以我们就得给df中的各个列起一些更好的名字了：</span>
+
+<span class="n">df</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;mu&#39;</span><span class="p">,</span> <span class="s1">&#39;sigma&#39;</span><span class="p">,</span> <span class="s1">&#39;sum_of_sq&#39;</span><span class="p">)</span>
+<span class="k">print</span> <span class="n">df</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>                   mu     sigma   sum_of_sq
+2014-06-08   9.659576  0.855034  187.345908
+2014-06-15   9.524510  0.628514  637.384239
+2014-06-22  10.384550  0.632345  757.271374
+2014-06-29   9.746513  0.688663  667.807156
+2014-07-06   9.255272  1.075470  606.560178
+2014-07-13  10.285790  0.919888  532.372157
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[15]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># 从一个 DataFrame 中提取列</span>
+
+<span class="k">print</span> <span class="n">df</span><span class="o">.</span><span class="n">mu</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span> <span class="c1"># 通过属性的方式</span>
+<span class="k">print</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;sigma&#39;</span><span class="p">],</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span> <span class="c1"># 通过列名的方式</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>2014-06-08     9.659576
+2014-06-15     9.524510
+2014-06-22    10.384550
+2014-06-29     9.746513
+2014-07-06     9.255272
+2014-07-13    10.285790
+Freq: W-SUN, Name: mu, dtype: float64 
+
+2014-06-08    0.855034
+2014-06-15    0.628514
+2014-06-22    0.632345
+2014-06-29    0.688663
+2014-07-06    1.075470
+2014-07-13    0.919888
+Freq: W-SUN, Name: sigma, dtype: float64 
+
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[16]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># 从一个 DataFrame中提取行</span>
+
+<span class="k">print</span> <span class="n">df</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">],</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span>
+<span class="k">print</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;2014-06-15&#39;</span><span class="p">::</span><span class="mi">2</span><span class="p">]</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>                  mu     sigma   sum_of_sq
+2014-06-15   9.52451  0.628514  637.384239
+2014-06-22  10.38455  0.632345  757.271374 
+
+                   mu     sigma   sum_of_sq
+2014-06-15   9.524510  0.628514  637.384239
+2014-06-29   9.746513  0.688663  667.807156
+2014-07-13  10.285790  0.919888  532.372157
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[17]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># 提取块（blocks）和标量（scalars）</span>
+
+<span class="k">print</span> <span class="n">df</span><span class="o">.</span><span class="n">iat</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span> <span class="c1"># 使用 iat()来提取某个元素</span>
+<span class="k">print</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;2014-06-08&#39;</span><span class="p">:</span><span class="s1">&#39;2014-06-22&#39;</span><span class="p">,</span> <span class="s1">&#39;sum_of_sq&#39;</span><span class="p">],</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span> <span class="c1"># 通过 label 进行检索</span>
+<span class="k">print</span> <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span>  <span class="c1"># 通过位置检索</span>
+<span class="k">print</span> <span class="n">df</span><span class="o">.</span><span class="n">ix</span><span class="p">[:</span><span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;sum_of_sq&#39;</span><span class="p">],</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span> <span class="c1"># 使用标签（label） 或者位置 （position）</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>757.271373825 
+
+2014-06-08    187.345908
+2014-06-15    637.384239
+2014-06-22    757.271374
+Freq: W-SUN, Name: sum_of_sq, dtype: float64 
+
+2014-06-08    187.345908
+2014-06-15    637.384239
+2014-06-22    757.271374
+Freq: W-SUN, Name: sum_of_sq, dtype: float64 
+
+2014-06-08    187.345908
+2014-06-15    637.384239
+2014-06-22    757.271374
+Freq: W-SUN, Name: sum_of_sq, dtype: float64 
+
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[18]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># 使用布尔条件（Boolean conditions）来选择元素</span>
+
+<span class="k">print</span> <span class="n">df</span><span class="p">[(</span><span class="n">df</span><span class="o">.</span><span class="n">sigma</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">sum_of_sq</span> <span class="o">&lt;</span> <span class="mi">700</span><span class="p">)],</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span> <span class="c1"># 这里加括号是为了保证运算顺序，否则就要优先运算其他运算符了</span>
+<span class="k">print</span> <span class="n">df</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;sigma &lt; 1 and sum_of_sq &lt; 700&#39;</span><span class="p">)</span> <span class="c1"># 这里的 query() 方法允许使用可读性更好的查询字符串</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>                   mu     sigma   sum_of_sq
+2014-06-08   9.659576  0.855034  187.345908
+2014-06-15   9.524510  0.628514  637.384239
+2014-06-29   9.746513  0.688663  667.807156
+2014-07-13  10.285790  0.919888  532.372157 
+
+                   mu     sigma   sum_of_sq
+2014-06-08   9.659576  0.855034  187.345908
+2014-06-15   9.524510  0.628514  637.384239
+2014-06-29   9.746513  0.688663  667.807156
+2014-07-13  10.285790  0.919888  532.372157
 </pre>
 </div>
 </div>
@@ -12071,28 +12914,222 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Python 还有一些其他的特别的数据类型，比如列表、元组和字典等等，后面会提到的。</p>
+<h3 id="Panels">Panels<a class="anchor-link" href="#Panels">&#182;</a></h3><p>Panels 类似三维数组 3D arrays - 可以理解成由 DataFrame 构成的字典</p>
 
 </div>
 </div>
 </div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[20]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">df</span><span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">binomial</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mf">0.95</span><span class="p">,</span> <span class="p">(</span><span class="mi">9</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+<span class="n">dm</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">binomial</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">,</span> <span class="p">[</span><span class="mi">12</span><span class="p">,</span><span class="mi">2</span><span class="p">])</span>
+<span class="n">dff</span> <span class="o">=</span> <span class="n">DataFrame</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Physics&#39;</span><span class="p">,</span> <span class="s1">&#39;Math&#39;</span><span class="p">])</span>
+<span class="n">dfm</span> <span class="o">=</span> <span class="n">DataFrame</span><span class="p">(</span><span class="n">dm</span><span class="p">,</span> <span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Physics&#39;</span><span class="p">,</span> <span class="s1">&#39;Math&#39;</span><span class="p">])</span>
+<span class="n">score_panel</span> <span class="o">=</span> <span class="n">Panel</span><span class="p">({</span><span class="s1">&#39;Girls&#39;</span><span class="p">:</span> <span class="n">dff</span><span class="p">,</span> <span class="s1">&#39;Boys&#39;</span><span class="p">:</span> <span class="n">dfm</span><span class="p">})</span>
+<span class="k">print</span> <span class="n">score_panel</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>&lt;class &#39;pandas.core.panel.Panel&#39;&gt;
+Dimensions: 2 (items) x 12 (major_axis) x 2 (minor_axis)
+Items axis: Boys to Girls
+Major_axis axis: 0 to 11
+Minor_axis axis: Physics to Math 
+
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[21]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">score_panel</span><span class="p">[</span><span class="s1">&#39;Girls&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[21]:</div>
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div style="max-height:1000px;max-width:1500px;overflow:auto;">
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>0</th>
+      <th>1</th>
+      <th>2</th>
+      <th>3</th>
+      <th>4</th>
+      <th>5</th>
+      <th>6</th>
+      <th>7</th>
+      <th>8</th>
+      <th>9</th>
+      <th>10</th>
+      <th>11</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Physics</th>
+      <td> 97</td>
+      <td> 94</td>
+      <td> 91</td>
+      <td> 95</td>
+      <td> 93</td>
+      <td> 94</td>
+      <td> 92</td>
+      <td> 95</td>
+      <td> 95</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>Math</th>
+      <td> 93</td>
+      <td> 94</td>
+      <td> 96</td>
+      <td> 95</td>
+      <td> 90</td>
+      <td> 96</td>
+      <td> 94</td>
+      <td> 95</td>
+      <td> 98</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[22]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># 找出女生中数学的分数大于等于93的女孩的物理和数学分数</span>
+<span class="c1"># 返回的就是一个DataFrame</span>
+<span class="n">score_panel</span><span class="o">.</span><span class="n">ix</span><span class="p">[</span><span class="s1">&#39;Girls&#39;</span><span class="p">,</span> <span class="n">score_panel</span><span class="o">.</span><span class="n">Girls</span><span class="o">.</span><span class="n">Math</span> <span class="o">&gt;=</span> <span class="mi">93</span><span class="p">,</span> <span class="p">:]</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[22]:</div>
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div style="max-height:1000px;max-width:1500px;overflow:auto;">
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Physics</th>
+      <th>Math</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td> 97</td>
+      <td> 93</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td> 94</td>
+      <td> 94</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td> 91</td>
+      <td> 96</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td> 95</td>
+      <td> 95</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td> 94</td>
+      <td> 96</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td> 92</td>
+      <td> 94</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td> 95</td>
+      <td> 95</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td> 95</td>
+      <td> 98</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="&#36816;&#31639;-Operators">&#36816;&#31639; Operators<a class="anchor-link" href="#&#36816;&#31639;-Operators">&#182;</a></h2>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Python 支持常见的各种运算，比如 +,-,/,*,=,&gt;,&lt;,==,!=,&amp;,|, 
-(求和, 做差, 相除, 乘积, 赋值, 大于, 小于, 双等号表示判断相等关系, 等号前面加叹号表示不等于, 并且（表示两个条件都要满足） , 或者（表示两个条件满足其一即可).<br>
-此外还有%,// 以及 ** (相除取余数, 地板除法，以及乘方运算')。 注意一些细节:</p>
+<h3 id="&#25286;&#20998;-&#24212;&#29992;-&#21512;&#24182;&#65288;Split-Apply-Combine&#65289;">&#25286;&#20998;-&#24212;&#29992;-&#21512;&#24182;&#65288;Split-Apply-Combine&#65289;<a class="anchor-link" href="#&#25286;&#20998;-&#24212;&#29992;-&#21512;&#24182;&#65288;Split-Apply-Combine&#65289;">&#182;</a></h3><p>很多统计摘要信息（statistical summaries）都是根据某些性质进行拆分，然后对各个子组应用某个函数，最终把结果组合成某种形式。这就叫做 拆分-应用-合并模型，在 Pandas 中可以通过 groupby() 以及可以用于每个子组的函数来实现。</p>
 
 </div>
 </div>
@@ -12102,406 +13139,25 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[23]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="k">print</span><span class="p">(</span><span class="mi">3</span><span class="o">/</span><span class="mi">4</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="mf">3.0</span> <span class="o">/</span> <span class="mf">4.0</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="mi">3</span><span class="o">%</span><span class="k">4</span>)
-<span class="k">print</span><span class="p">(</span><span class="mi">3</span><span class="o">//</span><span class="mi">4</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="mi">3</span><span class="o">**</span><span class="mi">4</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-<div class="prompt"></div>
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>0
-0.75
-3
-0
-81
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>注意一下这里对整形值的除法！这个运算和其他强类型语言比如 C/C++ 很相似。整数除法的运算结果和地板除法 // 是一样的。所以如果你要想得到一个浮点数的结果，那用于进行除法运算的参数也都必须是浮点数（或者你要转换他们成浮点数）。</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[21]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">3</span>
-<span class="n">b</span> <span class="o">=</span> <span class="mi">4</span>
-<span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="o">/</span><span class="n">b</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="o">/</span><span class="nb">float</span><span class="p">(</span><span class="n">b</span><span class="p">))</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-<div class="prompt"></div>
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>0
-0.75
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="&#24490;&#29615;">&#24490;&#29615;<a class="anchor-link" href="#&#24490;&#29615;">&#182;</a></h2>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Python 支持各种常见的循环，while , for, 以及其他的一些结构等等，后面再细说。下面是一些样例：</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[29]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">10</span><span class="p">):</span>
-     <span class="k">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-<div class="prompt"></div>
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>这里一定要注意，在上面的这个循环里面，range 函数给出的值不包含右端的设定终点的值。也就是 range(1,10) 其实是从 1 到 9 ，以此类推，range(m,m+n)其实也就是从 m 到 m+n-1，而不是到 m+n。</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[34]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">i</span> <span class="o">=</span> <span class="mi">1</span>
-<span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">:</span>
-    <span class="k">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
-    <span class="n">i</span><span class="o">+=</span><span class="mi">1</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-<div class="prompt"></div>
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>这个 while 循环 就简单的不得了了，没啥可额外讲解的。</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="&#26465;&#20214;&#35821;&#21477;">&#26465;&#20214;&#35821;&#21477;<a class="anchor-link" href="#&#26465;&#20214;&#35821;&#21477;">&#182;</a></h2>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[37]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">20</span>
-<span class="k">if</span> <span class="n">a</span> <span class="o">&gt;=</span> <span class="mi">22</span><span class="p">:</span>
-   <span class="k">print</span><span class="p">(</span><span class="s2">&quot;if&quot;</span><span class="p">)</span>
-<span class="k">elif</span> <span class="n">a</span> <span class="o">&gt;=</span> <span class="mi">21</span><span class="p">:</span>
-    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;elif&quot;</span><span class="p">)</span>
-<span class="k">else</span><span class="p">:</span>
-    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;else&quot;</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-<div class="prompt"></div>
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>else
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>这里也很简单，没啥可说的，就注意一下语法格式就行了。另外这里我们要说下空格。Python对缩进有严格的要求：在每个条件分支语句之后，必须新起一行（上面的循环其实也是这样），然后每一个条件语句都要和同层次的条件语句有一样的缩进，这些缩进的空格数必须都是一样的。</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[42]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">23</span>
-<span class="k">if</span> <span class="n">a</span> <span class="o">&gt;=</span> <span class="mi">22</span><span class="p">:</span>
-   <span class="k">print</span><span class="p">(</span><span class="s2">&quot;if&quot;</span><span class="p">)</span>
-    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;greater than or equal 22&quot;</span><span class="p">)</span>
-<span class="k">elif</span> <span class="n">a</span> <span class="o">&gt;=</span> <span class="mi">21</span><span class="p">:</span>
-    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;elif&quot;</span><span class="p">)</span>
-<span class="k">else</span><span class="p">:</span>
-    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;else&quot;</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-<div class="prompt"></div>
-
-<div class="output_subarea output_text output_error">
-<pre>
-<span class="ansi-red-fg">IndentationError</span><span class="ansi-red-fg">:</span> unexpected indent
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[43]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">23</span>
-<span class="k">if</span> <span class="n">a</span> <span class="o">&gt;=</span> <span class="mi">22</span><span class="p">:</span>
-   <span class="k">print</span><span class="p">(</span><span class="s2">&quot;if&quot;</span><span class="p">)</span>
-   <span class="k">print</span><span class="p">(</span><span class="s2">&quot;greater than or equal 22&quot;</span><span class="p">)</span>
-<span class="k">elif</span> <span class="n">a</span> <span class="o">&gt;=</span> <span class="mi">21</span><span class="p">:</span>
-    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;elif&quot;</span><span class="p">)</span>
-<span class="k">else</span><span class="p">:</span>
-    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;else&quot;</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-<div class="prompt"></div>
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>if
-greater than or equal 22
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>一般情况大家都是用四个空格作为一层缩进，当然你也可以自己随便设置自己喜欢的。但一定要保持某一种风格，不要乱改，要不然你前后缩进千奇百怪就会各种报错各种狗带，你说悲催不？</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="&#24322;&#24120;&#22788;&#29702;-Exceptions">&#24322;&#24120;&#22788;&#29702; Exceptions<a class="anchor-link" href="#&#24322;&#24120;&#22788;&#29702;-Exceptions">&#182;</a></h4>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Python 还有另一个功能，也是关于条件处理的，这个功能超级有用。加入你的程序正在处理用户输入的数据或者从文件读取数据。你不一定能保证每次程序接收到的输入是什么，这有时候就会导致一些问题。所以这时候就可以用 'try/except' 语句来搞定这个问题：</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[47]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="s2">&quot;1&quot;</span>
-
+<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># 首先导入一个 DataFrame</span>
 <span class="k">try</span><span class="p">:</span>
-  <span class="n">b</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="mi">2</span> 
+    <span class="n">tips</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_pickle</span><span class="p">(</span><span class="s1">&#39;tips.pic&#39;</span><span class="p">)</span>
 <span class="k">except</span><span class="p">:</span>
-  <span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="s2">&quot; is not a number&quot;</span><span class="p">)</span> 
+    <span class="n">tips</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;https://raw.github.com/vincentarelbundock/Rdatasets/master/csv/reshape2/tips.csv&#39;</span><span class="p">)</span>
+    <span class="n">tips</span><span class="o">.</span><span class="n">to_pickle</span><span class="p">(</span><span class="s1">&#39;tips.pic&#39;</span><span class="p">)</span>
 </pre></div>
 
 </div>
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-<div class="prompt"></div>
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>(&#39;1&#39;, &#39; is not a number&#39;)
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>上面这个代码里面，就是尝试给字符串 a 加上一个数值。这就会产生一个异常，不过我们已经捕获了这个异常了，希望通知用户这个问题产生的原因。这个就比下面这种程序莫名其妙反正就是崩溃要好得多：</p>
-
-</div>
-</div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[49]:</div>
+<div class="prompt input_prompt">In&nbsp;[24]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="s2">&quot;1&quot;</span>
-<span class="n">b</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="mi">2</span> 
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">tips</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -12513,401 +13169,75 @@ greater than or equal 22
 
 
 <div class="output_area">
-<div class="prompt"></div>
-
-<div class="output_subarea output_text output_error">
-<pre>
-<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">TypeError</span>                                 Traceback (most recent call last)
-<span class="ansi-green-fg">&lt;ipython-input-49-1b1ef016a6b2&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
-<span class="ansi-green-intense-fg ansi-bold">      1</span> a <span class="ansi-blue-fg">=</span> <span class="ansi-blue-fg">&#34;1&#34;</span>
-<span class="ansi-green-fg">----&gt; 2</span><span class="ansi-red-fg"> </span>b <span class="ansi-blue-fg">=</span> a <span class="ansi-blue-fg">+</span> <span class="ansi-cyan-fg">2</span>
-
-<span class="ansi-red-fg">TypeError</span>: cannot concatenate &#39;str&#39; and &#39;int&#39; objects</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="&#20989;&#25968;">&#20989;&#25968;<a class="anchor-link" href="#&#20989;&#25968;">&#182;</a></h2>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[55]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="k">def</span> <span class="nf">Division</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
-    <span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="o">/</span><span class="n">b</span><span class="p">)</span>
-<span class="n">Division</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
-<span class="n">Division</span><span class="p">(</span><span class="mf">3.0</span><span class="p">,</span><span class="mf">4.0</span><span class="p">)</span>
-<span class="n">Division</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mf">4.0</span><span class="p">)</span>
-<span class="n">Division</span><span class="p">(</span><span class="mf">3.0</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-<div class="prompt"></div>
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>0
-0.75
-0.75
-0.75
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>要注意刚刚上面那个函数并没有指定变量类型，所以上面输入的几种类型都可以。不过这个是好用却也挺危险的。比如下面这个情况：</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[56]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="k">def</span> <span class="nf">Division</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
-    <span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="o">/</span><span class="n">b</span><span class="p">)</span>
-<span class="n">Division</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="s2">&quot;2&quot;</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-<div class="prompt"></div>
-
-<div class="output_subarea output_text output_error">
-<pre>
-<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">TypeError</span>                                 Traceback (most recent call last)
-<span class="ansi-green-fg">&lt;ipython-input-56-663c15047357&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
-<span class="ansi-green-intense-fg ansi-bold">      1</span> <span class="ansi-green-fg">def</span> Division<span class="ansi-blue-fg">(</span>a<span class="ansi-blue-fg">,</span> b<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
-<span class="ansi-green-intense-fg ansi-bold">      2</span>     <span class="ansi-green-fg">print</span><span class="ansi-blue-fg">(</span>a<span class="ansi-blue-fg">/</span>b<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-fg">----&gt; 3</span><span class="ansi-red-fg"> </span>Division<span class="ansi-blue-fg">(</span><span class="ansi-cyan-fg">2</span><span class="ansi-blue-fg">,</span><span class="ansi-blue-fg">&#34;2&#34;</span><span class="ansi-blue-fg">)</span>
-
-<span class="ansi-green-fg">&lt;ipython-input-56-663c15047357&gt;</span> in <span class="ansi-cyan-fg">Division</span><span class="ansi-blue-fg">(a, b)</span>
-<span class="ansi-green-intense-fg ansi-bold">      1</span> <span class="ansi-green-fg">def</span> Division<span class="ansi-blue-fg">(</span>a<span class="ansi-blue-fg">,</span> b<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
-<span class="ansi-green-fg">----&gt; 2</span><span class="ansi-red-fg">     </span><span class="ansi-green-fg">print</span><span class="ansi-blue-fg">(</span>a<span class="ansi-blue-fg">/</span>b<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">      3</span> Division<span class="ansi-blue-fg">(</span><span class="ansi-cyan-fg">2</span><span class="ansi-blue-fg">,</span><span class="ansi-blue-fg">&#34;2&#34;</span><span class="ansi-blue-fg">)</span>
-
-<span class="ansi-red-fg">TypeError</span>: unsupported operand type(s) for /: &#39;int&#39; and &#39;str&#39;</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>在固定类型的编程语言中，程序员就必须要指定每个变量的类型，比如上面例子中的 a 和 b，要指定他们是浮点数还是整数等等，然后编译器在编译的时候就会提示说传入函数的变量类型不正确。在 Python 里，就不会这样，所以我们需要使用刚刚提到的 'try/except' 语句来处理异常。</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[58]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="k">def</span> <span class="nf">Division</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
-    <span class="k">try</span><span class="p">:</span>
-        <span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="o">/</span><span class="n">b</span><span class="p">)</span>
-    <span class="k">except</span><span class="p">:</span>
-        <span class="k">if</span> <span class="n">b</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-           <span class="k">print</span><span class="p">(</span><span class="s2">&quot;cannot divide by zero&quot;</span><span class="p">)</span>
-        <span class="k">else</span><span class="p">:</span>
-           <span class="k">print</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="o">/</span><span class="nb">float</span><span class="p">(</span><span class="n">b</span><span class="p">))</span>
-<span class="n">Division</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="s2">&quot;2&quot;</span><span class="p">)</span>
-<span class="n">Division</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-<div class="prompt"></div>
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>1.0
-cannot divide by zero
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="&#23383;&#31526;&#20018;&#21644;&#23383;&#31526;&#20018;&#30340;&#22788;&#29702;">&#23383;&#31526;&#20018;&#21644;&#23383;&#31526;&#20018;&#30340;&#22788;&#29702;<a class="anchor-link" href="#&#23383;&#31526;&#20018;&#21644;&#23383;&#31526;&#20018;&#30340;&#22788;&#29702;">&#182;</a></h1>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Python 最重要的一个特征就是对字符串的处理，既功能强大，有非常简单。在 Python 里面，定义字符串就和其他大多属于盐一样简单。但 Python 更厉害的是对字符串的查找、替换、大小写转换、缩减以及读取字符串元素。本小节只会涉及其中的一小部分。更多完整的与字符串相关的 Python 功能，可以参考 <a href="http://www.tutorialspoint.com/python/python_strings.htm">http://www.tutorialspoint.com/python/python_strings.htm</a></p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[60]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="s2">&quot;A string of characters, with newline </span><span class="se">\n</span><span class="s2"> CAPITALS, etc.&quot;</span>
-<span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
-<span class="n">b</span><span class="o">=</span><span class="mf">5.0</span>
-<span class="n">newstring</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2"> We can format strings for printing </span><span class="si">%.2f</span><span class="s2">&quot;</span>
-<span class="k">print</span><span class="p">(</span><span class="n">newstring</span> <span class="o">%</span><span class="k">b</span>)
-</pre></div>
-
-</div>
-</div>
+<div class="prompt output_prompt">Out[24]:</div>
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div style="max-height:1000px;max-width:1500px;overflow:auto;">
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Unnamed: 0</th>
+      <th>total_bill</th>
+      <th>tip</th>
+      <th>sex</th>
+      <th>smoker</th>
+      <th>day</th>
+      <th>time</th>
+      <th>size</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td> 1</td>
+      <td> 16.99</td>
+      <td> 1.01</td>
+      <td> Female</td>
+      <td> No</td>
+      <td> Sun</td>
+      <td> Dinner</td>
+      <td> 2</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td> 2</td>
+      <td> 10.34</td>
+      <td> 1.66</td>
+      <td>   Male</td>
+      <td> No</td>
+      <td> Sun</td>
+      <td> Dinner</td>
+      <td> 3</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td> 3</td>
+      <td> 21.01</td>
+      <td> 3.50</td>
+      <td>   Male</td>
+      <td> No</td>
+      <td> Sun</td>
+      <td> Dinner</td>
+      <td> 3</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td> 4</td>
+      <td> 23.68</td>
+      <td> 3.31</td>
+      <td>   Male</td>
+      <td> No</td>
+      <td> Sun</td>
+      <td> Dinner</td>
+      <td> 2</td>
+    </tr>
+  </tbody>
+</table>
 </div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-<div class="prompt"></div>
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>A string of characters, with newline 
- CAPITALS, etc.
-A string of characters, with newline 
- CAPITALS, etc.
- We can format strings for printing 5.00
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>接下来试试其他的字符串操作吧：</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[2]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="s2">&quot;ABC DEFG&quot;</span>
-<span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">])</span>
-<span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">5</span><span class="p">])</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-<div class="prompt"></div>
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>BC
-ABC D
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>上面这写代码中有好几处需要学习。首先， Python 给字符串设定了一个索引。其次，就是这个索引是从 0 开始数的。最后，右侧的值依然是不包含终点。（a[0:5] 包含了元素从 0 到4，不包含 5，也就是 0,1,2,3,4，可以理解成一个左闭右开区间。</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[72]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="s2">&quot;ABC defg&quot;</span>
-<span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">lower</span><span class="p">())</span>
-<span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">upper</span><span class="p">())</span>
-<span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;d&#39;</span><span class="p">))</span>
-<span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;de&#39;</span><span class="p">,</span><span class="s1">&#39;a&#39;</span><span class="p">))</span>
-<span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
-<span class="n">b</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;def&#39;</span><span class="p">,</span><span class="s1">&#39;aaa&#39;</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
-<span class="n">b</span> <span class="o">=</span> <span class="n">b</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="s1">&#39;c&#39;</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
-<span class="n">b</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s1">&#39;c&#39;</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-<div class="prompt"></div>
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>abc defg
-ABC DEFG
-4
-ABC afg
-ABC defg
-ABC aaag
-ABC cccg
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-<div class="prompt output_prompt">Out[72]:</div>
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>3</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>是不是挺有意思的？用 Python 还能对字符串进行哪些操作呢？你可以发挥想象力然后动手试试，挺有意思的！</p>
-
-</div>
-</div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="&#21015;&#34920;-Lists,-&#20803;&#32452;-Tuples,-&#23383;&#20856;-Dictionaries">&#21015;&#34920; Lists, &#20803;&#32452; Tuples, &#23383;&#20856; Dictionaries<a class="anchor-link" href="#&#21015;&#34920;-Lists,-&#20803;&#32452;-Tuples,-&#23383;&#20856;-Dictionaries">&#182;</a></h1>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="&#21015;&#34920;-Lists">&#21015;&#34920; Lists<a class="anchor-link" href="#&#21015;&#34920;-Lists">&#182;</a></h2>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>列表 list 这个就跟他的名字的意思一样，就是一个列元素组成的表。他是由对象组成的列表。作为列表的元素，这些对象可以是任何的数据类型（也包括列表本身），而且在列表中是可以使用各种不同的元素类型来作为列表元素的。所以这就比数组要灵活多了。对列表还可以进行很多操作，比如增加元素、删除元素、插入元素，以及查元素个数和排序反转等等。</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[76]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">a_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="s2">&quot;this is a string&quot;</span><span class="p">,</span><span class="mf">5.3</span><span class="p">]</span>
-<span class="n">b_list</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;A&quot;</span><span class="p">,</span><span class="s2">&quot;B&quot;</span><span class="p">,</span><span class="s2">&quot;F&quot;</span><span class="p">,</span><span class="s2">&quot;G&quot;</span><span class="p">,</span><span class="s2">&quot;d&quot;</span><span class="p">,</span><span class="s2">&quot;x&quot;</span><span class="p">,</span><span class="s2">&quot;c&quot;</span><span class="p">,</span><span class="n">Alist</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
-<span class="k">print</span><span class="p">(</span><span class="n">b_list</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">b_list</span><span class="p">[</span><span class="mi">7</span><span class="p">:</span><span class="mi">9</span><span class="p">])</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
 
-
-<div class="output_area">
-<div class="prompt"></div>
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>[&#39;A&#39;, &#39;B&#39;, &#39;F&#39;, &#39;G&#39;, &#39;d&#39;, &#39;x&#39;, &#39;c&#39;, [1, 2, 3, &#39;this is a string&#39;, 5.3], 3]
-[[1, 2, 3, &#39;this is a string&#39;, 5.3], 3]
-</pre>
-</div>
 </div>
 
 </div>
@@ -12916,24 +13246,13 @@ ABC cccg
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[92]:</div>
+<div class="prompt input_prompt">In&nbsp;[25]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">]</span>
-<span class="n">a</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
-<span class="n">a</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
-<span class="n">a</span><span class="o">.</span><span class="n">reverse</span><span class="p">()</span>
-<span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
-<span class="n">a</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
-<span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
-<span class="n">a</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
-<span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
-<span class="n">a</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
-<span class="n">a</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="mi">4</span><span class="p">])</span>
-<span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># 第一列多了额外的一个索引列，把它删掉</span>
+
+<span class="n">tips</span> <span class="o">=</span> <span class="n">tips</span><span class="o">.</span><span class="n">ix</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">:]</span>
+<span class="n">tips</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -12945,92 +13264,211 @@ ABC cccg
 
 
 <div class="output_area">
-<div class="prompt"></div>
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>[0, 1, 2, 3, 4, 5, 6, 7]
-[0, 1, 2, 3, 4, 5, 6, 7, 8]
-[8, 7, 6, 5, 4, 3, 2, 1, 0]
-[0, 1, 2, 3, 4, 5, 6, 7, 8]
-[0, 1, 2, 3, 4, 5, 6, 7]
-[0, 1, 2, 4, 5, 6, 7]
-[0, 1, 2, 4, 6, 7]
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>跟字符串一样，列表元素的索引也是从 0 开始的。（译者注：实际上这个在大多数编程语言里都是这样，数组、字符串、列表的索引都是从0开始，所以有人说程序员查数都是从 0 开始数。</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>列表可以用在 for 语句或者其他的一些条件判断语句中。这些也叫做列表表达式。例如下面这个：</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[22]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">even_numbers</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span> <span class="k">if</span> <span class="n">x</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">]</span>
-<span class="k">print</span><span class="p">(</span><span class="n">even_numbers</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
+<div class="prompt output_prompt">Out[25]:</div>
 
 
-<div class="output_area">
-<div class="prompt"></div>
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>[0, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52, 54, 56, 58, 60, 62, 64, 66, 68, 70, 72, 74, 76, 78, 80, 82, 84, 86, 88, 90, 92, 94, 96, 98]
-</pre>
-</div>
-</div>
-
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div style="max-height:1000px;max-width:1500px;overflow:auto;">
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>total_bill</th>
+      <th>tip</th>
+      <th>sex</th>
+      <th>smoker</th>
+      <th>day</th>
+      <th>time</th>
+      <th>size</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td> 16.99</td>
+      <td> 1.01</td>
+      <td> Female</td>
+      <td> No</td>
+      <td> Sun</td>
+      <td> Dinner</td>
+      <td> 2</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td> 10.34</td>
+      <td> 1.66</td>
+      <td>   Male</td>
+      <td> No</td>
+      <td> Sun</td>
+      <td> Dinner</td>
+      <td> 3</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td> 21.01</td>
+      <td> 3.50</td>
+      <td>   Male</td>
+      <td> No</td>
+      <td> Sun</td>
+      <td> Dinner</td>
+      <td> 3</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td> 23.68</td>
+      <td> 3.31</td>
+      <td>   Male</td>
+      <td> No</td>
+      <td> Sun</td>
+      <td> Dinner</td>
+      <td> 2</td>
+    </tr>
+  </tbody>
+</table>
 </div>
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>实际上列表表达式也可以用于字符串：</p>
 
 </div>
 </div>
+
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[26]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">first_sentence</span> <span class="o">=</span> <span class="s2">&quot;It was a dark and stormy night.&quot;</span>
-<span class="n">characters</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">first_sentence</span><span class="p">]</span>
-<span class="k">print</span><span class="p">(</span><span class="n">characters</span><span class="p">)</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># 要尝试 拆分-应用-合并模型，咱们可以试试看一下性别与是否吸烟的关系。</span>
+<span class="c1"># 换句话说，就是根据性别和是否吸烟，拆分成 2*2 的小组，然后针对每个组来使用 size 函数来统计其中成员的个数</span>
+<span class="c1"># 最后合并结果，成为一个新的多索引序列（multi-index Series）</span>
+
+<span class="n">grouped</span> <span class="o">=</span> <span class="n">tips</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;sex&#39;</span><span class="p">,</span> <span class="s1">&#39;smoker&#39;</span><span class="p">])</span>
+<span class="n">grouped</span><span class="o">.</span><span class="n">size</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[26]:</div>
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>sex     smoker
+Female  No        54
+        Yes       33
+Male    No        97
+        Yes       60
+dtype: int64</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[27]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># 如果生成的结果不只有一列，那就会返回一个 DataFrame了</span>
+
+<span class="n">grouped</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[27]:</div>
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div style="max-height:1000px;max-width:1500px;overflow:auto;">
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th></th>
+      <th>total_bill</th>
+      <th>tip</th>
+      <th>size</th>
+    </tr>
+    <tr>
+      <th>sex</th>
+      <th>smoker</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th rowspan="2" valign="top">Female</th>
+      <th>No</th>
+      <td> 18.105185</td>
+      <td> 2.773519</td>
+      <td> 2.592593</td>
+    </tr>
+    <tr>
+      <th>Yes</th>
+      <td> 17.977879</td>
+      <td> 2.931515</td>
+      <td> 2.242424</td>
+    </tr>
+    <tr>
+      <th rowspan="2" valign="top">Male</th>
+      <th>No</th>
+      <td> 19.791237</td>
+      <td> 3.113402</td>
+      <td> 2.711340</td>
+    </tr>
+    <tr>
+      <th>Yes</th>
+      <td> 22.284500</td>
+      <td> 3.051167</td>
+      <td> 2.500000</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[28]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># 返回来的结果还可以通过 apply() 来进行更多操作</span>
+<span class="c1"># 例如，假设账单和小费都是用美元的，但我们想转换成欧元</span>
+
+<span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">import</span> <span class="nn">urllib</span>
+
+<span class="c1"># get current conversion rate</span>
+<span class="n">converter</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">urllib</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="s1">&#39;http://rate-exchange.appspot.com/currency?from=USD&amp;to=EUR&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
+<span class="k">print</span> <span class="n">converter</span>
+<span class="n">grouped</span><span class="p">[</span><span class="s1">&#39;total_bill&#39;</span><span class="p">,</span> <span class="s1">&#39;tip&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">*</span><span class="n">converter</span><span class="p">[</span><span class="s1">&#39;rate&#39;</span><span class="p">])</span>
 </pre></div>
 
 </div>
@@ -13045,47 +13483,441 @@ ABC cccg
 <div class="prompt"></div>
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>[&#39;I&#39;, &#39;t&#39;, &#39; &#39;, &#39;w&#39;, &#39;a&#39;, &#39;s&#39;, &#39; &#39;, &#39;a&#39;, &#39; &#39;, &#39;d&#39;, &#39;a&#39;, &#39;r&#39;, &#39;k&#39;, &#39; &#39;, &#39;a&#39;, &#39;n&#39;, &#39;d&#39;, &#39; &#39;, &#39;s&#39;, &#39;t&#39;, &#39;o&#39;, &#39;r&#39;, &#39;m&#39;, &#39;y&#39;, &#39; &#39;, &#39;n&#39;, &#39;i&#39;, &#39;g&#39;, &#39;h&#39;, &#39;t&#39;, &#39;.&#39;]
+<pre>{u&#39;to&#39;: u&#39;EUR&#39;, u&#39;rate&#39;: 0.732896, u&#39;from&#39;: u&#39;USD&#39;}
 </pre>
 </div>
 </div>
 
+<div class="output_area">
+<div class="prompt output_prompt">Out[28]:</div>
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div style="max-height:1000px;max-width:1500px;overflow:auto;">
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th></th>
+      <th>total_bill</th>
+      <th>tip</th>
+    </tr>
+    <tr>
+      <th>sex</th>
+      <th>smoker</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th rowspan="2" valign="top">Female</th>
+      <th>No</th>
+      <td> 13.269218</td>
+      <td> 2.032701</td>
+    </tr>
+    <tr>
+      <th>Yes</th>
+      <td> 13.175915</td>
+      <td> 2.148496</td>
+    </tr>
+    <tr>
+      <th rowspan="2" valign="top">Male</th>
+      <th>No</th>
+      <td> 14.504919</td>
+      <td> 2.281800</td>
+    </tr>
+    <tr>
+      <th>Yes</th>
+      <td> 16.332221</td>
+      <td> 2.236188</td>
+    </tr>
+  </tbody>
+</table>
 </div>
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+
 </div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[29]:</div>
 <div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>关于列表表达式的更多内容可以参考官方文档:  <a href="https://docs.python.org/3/tutorial/datastructures.html?highlight=comprehensions">https://docs.python.org/3/tutorial/datastructures.html?highlight=comprehensions</a></p>
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># 此外还可以对原始数据进行变换，使之更加适用于做各种分析使用</span>
+<span class="c1"># 例如，假设我们想要对全部的账单和小费的单位进行标准化</span>
+
+<span class="n">zscore</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="n">x</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span><span class="o">/</span><span class="n">x</span><span class="o">.</span><span class="n">std</span><span class="p">()</span>
+
+<span class="n">std_grouped</span> <span class="o">=</span> <span class="n">grouped</span><span class="p">[</span><span class="s1">&#39;total_bill&#39;</span><span class="p">,</span> <span class="s1">&#39;tip&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">zscore</span><span class="p">)</span>
+<span class="n">std_grouped</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+</pre></div>
 
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[29]:</div>
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div style="max-height:1000px;max-width:1500px;overflow:auto;">
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>total_bill</th>
+      <th>tip</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>-0.153049</td>
+      <td>-1.562813</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>-1.083042</td>
+      <td>-0.975727</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td> 0.139661</td>
+      <td> 0.259539</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td> 0.445623</td>
+      <td> 0.131984</td>
+    </tr>
+  </tbody>
+</table>
 </div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>另外一个类似的功能是 'map' 映射。Map 是对一个列表进行一个函数操作。语法是map(aFunction, aSequence)。例如下面的例子：</p>
+</div>
+
+</div>
 
 </div>
 </div>
+
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[30]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="k">def</span> <span class="nf">sqr</span><span class="p">(</span><span class="n">x</span><span class="p">):</span> <span class="k">return</span> <span class="n">x</span> <span class="o">**</span> <span class="mi">2</span>
-<span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]</span>
-<span class="n">b</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
-<span class="n">c</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="n">sqr</span><span class="p">,</span><span class="n">a</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
-<span class="n">d</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="nb">pow</span><span class="p">,</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># 假如我们只想对其中某些列来应用某一系列的函数：</span>
+
+<span class="n">grouped</span><span class="p">[</span><span class="s1">&#39;total_bill&#39;</span><span class="p">,</span> <span class="s1">&#39;tip&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">agg</span><span class="p">([</span><span class="s1">&#39;mean&#39;</span><span class="p">,</span> <span class="s1">&#39;min&#39;</span><span class="p">,</span> <span class="s1">&#39;max&#39;</span><span class="p">])</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[30]:</div>
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div style="max-height:1000px;max-width:1500px;overflow:auto;">
+<table border="1" class="dataframe">
+  <thead>
+    <tr>
+      <th></th>
+      <th></th>
+      <th colspan="3" halign="left">total_bill</th>
+      <th colspan="3" halign="left">tip</th>
+    </tr>
+    <tr>
+      <th></th>
+      <th></th>
+      <th>mean</th>
+      <th>min</th>
+      <th>max</th>
+      <th>mean</th>
+      <th>min</th>
+      <th>max</th>
+    </tr>
+    <tr>
+      <th>sex</th>
+      <th>smoker</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th rowspan="2" valign="top">Female</th>
+      <th>No</th>
+      <td> 18.105185</td>
+      <td> 7.25</td>
+      <td> 35.83</td>
+      <td> 2.773519</td>
+      <td> 1.00</td>
+      <td>  5.2</td>
+    </tr>
+    <tr>
+      <th>Yes</th>
+      <td> 17.977879</td>
+      <td> 3.07</td>
+      <td> 44.30</td>
+      <td> 2.931515</td>
+      <td> 1.00</td>
+      <td>  6.5</td>
+    </tr>
+    <tr>
+      <th rowspan="2" valign="top">Male</th>
+      <th>No</th>
+      <td> 19.791237</td>
+      <td> 7.51</td>
+      <td> 48.33</td>
+      <td> 3.113402</td>
+      <td> 1.25</td>
+      <td>  9.0</td>
+    </tr>
+    <tr>
+      <th>Yes</th>
+      <td> 22.284500</td>
+      <td> 7.25</td>
+      <td> 50.81</td>
+      <td> 3.051167</td>
+      <td> 1.00</td>
+      <td> 10.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[31]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># 我们也可以在特定的列上应用特定的函数</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">grouped</span><span class="o">.</span><span class="n">agg</span><span class="p">({</span><span class="s1">&#39;total_bill&#39;</span><span class="p">:</span> <span class="p">(</span><span class="nb">min</span><span class="p">,</span> <span class="nb">max</span><span class="p">),</span> <span class="s1">&#39;tip&#39;</span><span class="p">:</span> <span class="nb">sum</span><span class="p">})</span>
+<span class="n">df</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[31]:</div>
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div style="max-height:1000px;max-width:1500px;overflow:auto;">
+<table border="1" class="dataframe">
+  <thead>
+    <tr>
+      <th></th>
+      <th></th>
+      <th>tip</th>
+      <th colspan="2" halign="left">total_bill</th>
+    </tr>
+    <tr>
+      <th></th>
+      <th></th>
+      <th>sum</th>
+      <th>min</th>
+      <th>max</th>
+    </tr>
+    <tr>
+      <th>sex</th>
+      <th>smoker</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th rowspan="2" valign="top">Female</th>
+      <th>No</th>
+      <td> 149.77</td>
+      <td> 7.25</td>
+      <td> 35.83</td>
+    </tr>
+    <tr>
+      <th>Yes</th>
+      <td>  96.74</td>
+      <td> 3.07</td>
+      <td> 44.30</td>
+    </tr>
+    <tr>
+      <th rowspan="2" valign="top">Male</th>
+      <th>No</th>
+      <td> 302.00</td>
+      <td> 7.51</td>
+      <td> 48.33</td>
+    </tr>
+    <tr>
+      <th>Yes</th>
+      <td> 183.07</td>
+      <td> 7.25</td>
+      <td> 50.81</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="&#20351;&#29992;statsmodels">&#20351;&#29992;<code>statsmodels</code><a class="anchor-link" href="#&#20351;&#29992;statsmodels">&#182;</a></h3><p>在 R 语言中提供的很多基本的统计学工具都有替代版本，位于<code>statsmodels</code>这个包中。这里我们只给出一个例子。</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[32]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># 在使用加性遗传模型（additive genetic model）的对照研究（case-control study）中模拟4 SNP的基因型（genotype）</span>
+
+<span class="n">n</span> <span class="o">=</span> <span class="mi">1000</span>
+<span class="n">status</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span> <span class="n">n</span> <span class="p">)</span>
+<span class="n">genotype</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">],</span> <span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+<span class="n">genotype</span><span class="p">[</span><span class="n">status</span><span class="o">==</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">],</span> <span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">status</span><span class="o">==</span><span class="mi">0</span><span class="p">),</span> <span class="mi">4</span><span class="p">),</span> <span class="n">p</span><span class="o">=</span><span class="p">[</span><span class="mf">0.33</span><span class="p">,</span> <span class="mf">0.33</span><span class="p">,</span> <span class="mf">0.34</span><span class="p">])</span>
+<span class="n">genotype</span><span class="p">[</span><span class="n">status</span><span class="o">==</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">],</span> <span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">status</span><span class="o">==</span><span class="mi">1</span><span class="p">),</span> <span class="mi">4</span><span class="p">),</span> <span class="n">p</span><span class="o">=</span><span class="p">[</span><span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">])</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">DataFrame</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">([</span><span class="n">status</span><span class="p">[:,</span> <span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">],</span> <span class="n">genotype</span><span class="p">]),</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;status&#39;</span><span class="p">,</span> <span class="s1">&#39;SNP1&#39;</span><span class="p">,</span> <span class="s1">&#39;SNP2&#39;</span><span class="p">,</span> <span class="s1">&#39;SNP3&#39;</span><span class="p">,</span> <span class="s1">&#39;SNP4&#39;</span><span class="p">])</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[32]:</div>
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div style="max-height:1000px;max-width:1500px;overflow:auto;">
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>status</th>
+      <th>SNP1</th>
+      <th>SNP2</th>
+      <th>SNP3</th>
+      <th>SNP4</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td> 1</td>
+      <td> 2</td>
+      <td> 1</td>
+      <td> 2</td>
+      <td> 0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td> 0</td>
+      <td> 1</td>
+      <td> 0</td>
+      <td> 2</td>
+      <td> 1</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td> 0</td>
+      <td> 1</td>
+      <td> 1</td>
+      <td> 0</td>
+      <td> 0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td> 0</td>
+      <td> 0</td>
+      <td> 0</td>
+      <td> 2</td>
+      <td> 0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td> 1</td>
+      <td> 2</td>
+      <td> 2</td>
+      <td> 2</td>
+      <td> 2</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td> 0</td>
+      <td> 2</td>
+      <td> 1</td>
+      <td> 2</td>
+      <td> 1</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[33]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># 使用 statsmodels 来对数据进行逻辑回归拟合</span>
+<span class="n">fit1</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">Logit</span><span class="o">.</span><span class="n">from_formula</span><span class="p">(</span><span class="s1">&#39;status ~ </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="s1">&#39;+&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">1</span><span class="p">:]),</span> <span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+<span class="n">fit1</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
 </pre></div>
 
 </div>
@@ -13100,53 +13932,80 @@ ABC cccg
 <div class="prompt"></div>
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>[4, 9, 16]
-[1024, 243, 64]
+<pre>Optimization terminated successfully.
+         Current function value: 0.642435
+         Iterations 5
 </pre>
 </div>
 </div>
 
-</div>
+<div class="output_area">
+<div class="prompt output_prompt">Out[33]:</div>
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<table class="simpletable">
+<caption>Logit Regression Results</caption>
+<tr>
+  <th>Dep. Variable:</th>      <td>status</td>      <th>  No. Observations:  </th>  <td>  1000</td>  
+</tr>
+<tr>
+  <th>Model:</th>               <td>Logit</td>      <th>  Df Residuals:      </th>  <td>   995</td>  
+</tr>
+<tr>
+  <th>Method:</th>               <td>MLE</td>       <th>  Df Model:          </th>  <td>     4</td>  
+</tr>
+<tr>
+  <th>Date:</th>          <td>Sat, 07 Jun 2014</td> <th>  Pseudo R-squ.:     </th>  <td>0.07198</td> 
+</tr>
+<tr>
+  <th>Time:</th>              <td>18:32:56</td>     <th>  Log-Likelihood:    </th> <td> -642.43</td> 
+</tr>
+<tr>
+  <th>converged:</th>           <td>True</td>       <th>  LL-Null:           </th> <td> -692.26</td> 
+</tr>
+<tr>
+  <th> </th>                      <td> </td>        <th>  LLR p-value:       </th> <td>1.162e-20</td>
+</tr>
+</table>
+<table class="simpletable">
+<tr>
+      <td></td>         <th>coef</th>     <th>std err</th>      <th>z</th>      <th>P>|z|</th> <th>[95.0% Conf. Int.]</th> 
+</tr>
+<tr>
+  <th>Intercept</th> <td>   -1.7260</td> <td>    0.205</td> <td>   -8.410</td> <td> 0.000</td> <td>   -2.128    -1.324</td>
+</tr>
+<tr>
+  <th>SNP1</th>      <td>    0.3180</td> <td>    0.084</td> <td>    3.773</td> <td> 0.000</td> <td>    0.153     0.483</td>
+</tr>
+<tr>
+  <th>SNP2</th>      <td>    0.4374</td> <td>    0.083</td> <td>    5.282</td> <td> 0.000</td> <td>    0.275     0.600</td>
+</tr>
+<tr>
+  <th>SNP3</th>      <td>    0.4106</td> <td>    0.082</td> <td>    4.983</td> <td> 0.000</td> <td>    0.249     0.572</td>
+</tr>
+<tr>
+  <th>SNP4</th>      <td>    0.4061</td> <td>    0.083</td> <td>    4.910</td> <td> 0.000</td> <td>    0.244     0.568</td>
+</tr>
+</table>
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>要注意，用 map 通常要比使用列表表达式或者循环语句要更高效。</p>
 
 </div>
 </div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="&#20803;&#32452;-Tuples">&#20803;&#32452; Tuples<a class="anchor-link" href="#&#20803;&#32452;-Tuples">&#182;</a></h3>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>元组跟列表在各方面都基本是一样的，除了一点特别不一样：元组不能被修改。</p>
 
-</div>
-</div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[94]:</div>
+<div class="prompt input_prompt">In&nbsp;[34]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
-<span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># 改用广义线性模型（GLM） - 跟 R 很相似</span>
+<span class="n">fit2</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">GLM</span><span class="o">.</span><span class="n">from_formula</span><span class="p">(</span><span class="s1">&#39;status ~ SNP1 + SNP2 + SNP3 + SNP4&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">,</span> <span class="n">family</span><span class="o">=</span><span class="n">sm</span><span class="o">.</span><span class="n">families</span><span class="o">.</span><span class="n">Binomial</span><span class="p">())</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+<span class="k">print</span> <span class="n">fit2</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+<span class="k">print</span> <span class="n">chisqprob</span><span class="p">(</span><span class="n">fit2</span><span class="o">.</span><span class="n">null_deviance</span> <span class="o">-</span> <span class="n">fit2</span><span class="o">.</span><span class="n">deviance</span><span class="p">,</span> <span class="n">fit2</span><span class="o">.</span><span class="n">df_model</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">fit2</span><span class="o">.</span><span class="n">null_deviance</span> <span class="o">-</span> <span class="n">fit2</span><span class="o">.</span><span class="n">deviance</span><span class="p">,</span> <span class="n">fit2</span><span class="o">.</span><span class="n">df_model</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -13160,26 +14019,120 @@ ABC cccg
 <div class="output_area">
 <div class="prompt"></div>
 
-<div class="output_subarea output_text output_error">
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>                 Generalized Linear Model Regression Results                  
+==============================================================================
+Dep. Variable:                 status   No. Observations:                 1000
+Model:                            GLM   Df Residuals:                      995
+Model Family:                Binomial   Df Model:                            4
+Link Function:                  logit   Scale:                             1.0
+Method:                          IRLS   Log-Likelihood:                -642.43
+Date:                Sat, 07 Jun 2014   Deviance:                       1284.9
+Time:                        18:32:57   Pearson chi2:                     997.
+No. Iterations:                     5                                         
+==============================================================================
+                 coef    std err          t      P&gt;|t|      [95.0% Conf. Int.]
+------------------------------------------------------------------------------
+Intercept     -1.7260      0.205     -8.410      0.000        -2.128    -1.324
+SNP1           0.3180      0.084      3.773      0.000         0.153     0.483
+SNP2           0.4374      0.083      5.282      0.000         0.275     0.600
+SNP3           0.4106      0.082      4.983      0.000         0.249     0.572
+SNP4           0.4061      0.083      4.910      0.000         0.244     0.568
+==============================================================================
+1.16166631397e-20
+(99.660679649809936, 4)
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="&#22312;-IPython-&#20013;&#20351;&#29992;-R-&#35821;&#35328;">&#22312; IPython &#20013;&#20351;&#29992; R &#35821;&#35328;<a class="anchor-link" href="#&#22312;-IPython-&#20013;&#20351;&#29992;-R-&#35821;&#35328;">&#182;</a></h2><p>Python 对统计计算的支持正在迅速增强（尤其是有 pandas，statsmodels 和 scikit-learn 这些模块），但 R 语言的生态系统依然是更加巨大的。不过目前我们也能对R进行一些利用，因为 IPython 里面可以允许几乎无缝地运行 R 语言，这里要借助的是Rmagic (rpy2.ipython) 扩展。</p>
+<p>有两种使用 Rmagic 的方式，一种是%R ，针对单行；另一种是%%R，针对整个 cell。Python 的对象可以通过加上 -i 的标识参数传递给 R语言，而R 语言对象可以使用 -o 的标识参数来传出。</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[35]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="o">%</span><span class="k">load_ext</span> rpy2.ipython
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[36]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="o">%%</span>R <span class="o">-</span>i df <span class="o">-</span>o fit
+
+fit <span class="o">&lt;-</span> glm<span class="p">(</span>status <span class="o">~</span> <span class="m">.</span><span class="p">,</span> data<span class="o">=</span>df<span class="p">)</span>
+<span class="kp">print</span><span class="p">(</span><span class="kp">summary</span><span class="p">(</span>fit<span class="p">))</span>
+<span class="kp">print</span><span class="p">(</span>fit<span class="o">$</span>null.deviance <span class="o">-</span> fit<span class="o">$</span>deviance<span class="p">)</span>
+<span class="kp">print</span><span class="p">(</span>fit<span class="o">$</span>df.null <span class="o">-</span> fit<span class="o">$</span>df.residual<span class="p">)</span>
+<span class="kp">with</span><span class="p">(</span>fit<span class="p">,</span> pchisq<span class="p">(</span>null.deviance <span class="o">-</span> deviance<span class="p">,</span> df.null <span class="o">-</span> df.residual<span class="p">,</span> lower.tail <span class="o">=</span> <span class="kc">FALSE</span><span class="p">))</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+
+
+
+<div class="output_text output_subarea ">
 <pre>
-<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">TypeError</span>                                 Traceback (most recent call last)
-<span class="ansi-green-fg">&lt;ipython-input-94-3f7ee3924a64&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
-<span class="ansi-green-intense-fg ansi-bold">      1</span> a<span class="ansi-blue-fg">=</span><span class="ansi-blue-fg">(</span><span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">,</span><span class="ansi-cyan-fg">2</span><span class="ansi-blue-fg">,</span><span class="ansi-cyan-fg">3</span><span class="ansi-blue-fg">,</span><span class="ansi-cyan-fg">4</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">      2</span> <span class="ansi-green-fg">print</span><span class="ansi-blue-fg">(</span>a<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-fg">----&gt; 3</span><span class="ansi-red-fg"> </span>a<span class="ansi-blue-fg">[</span><span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">=</span><span class="ansi-cyan-fg">2</span>
+Call:
+glm(formula = status ~ ., data = df)
 
-<span class="ansi-red-fg">TypeError</span>: &#39;tuple&#39; object does not support item assignment</pre>
-</div>
-</div>
+Deviance Residuals: 
+    Min       1Q   Median       3Q      Max  
+-0.8252  -0.4641   0.1748   0.4420   0.8228  
 
-<div class="output_area">
-<div class="prompt"></div>
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)  0.10446    0.04370   2.390 0.017026 *  
+SNP1         0.07275    0.01907   3.814 0.000145 ***
+SNP2         0.10046    0.01864   5.389 8.83e-08 ***
+SNP3         0.09394    0.01851   5.075 4.63e-07 ***
+SNP4         0.09320    0.01866   4.996 6.92e-07 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>(1, 2, 3, 4)
+(Dispersion parameter for gaussian family taken to be 0.2268342)
+
+    Null deviance: 249.56  on 999  degrees of freedom
+Residual deviance: 225.70  on 995  degrees of freedom
+AIC: 1361.3
+
+Number of Fisher Scoring iterations: 2
+
+[1] 23.85901
+[1] 4
+[1] 8.524408e-05
 </pre>
 </div>
+
 </div>
 
 </div>
@@ -13188,677 +14141,12 @@ ABC cccg
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[96]:</div>
+<div class="prompt input_prompt">In&nbsp;[36]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="s2">&quot;string in a tuple&quot;</span><span class="p">,</span><span class="mf">5.3</span><span class="p">)</span>
-<span class="n">b</span> <span class="o">=</span> <span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
-</pre></div>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="o">%</span><span class="k">load_ext</span> version_information
 
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-<div class="prompt"></div>
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>(1, &#39;string in a tuple&#39;, 5.3)
-((1, &#39;string in a tuple&#39;, 5.3), 1, 2, 3)
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>看，上面的代码就很明显了把，所有列表的灵活性都还保留了，又不会被改变。所以当你不希望一个列表被修改的时候，就可以使用元组了。</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>元组有另一个吊炸天的功能，就是 元组拆包（'tuple unpacking'）。这个可以用来把一个列表中的一系列值作为值来赋值给另一序列的变量名，例如下面的例子：</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[19]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">my_pets</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;Chestnut&quot;</span><span class="p">,</span> <span class="s2">&quot;Tibbs&quot;</span><span class="p">,</span> <span class="s2">&quot;Dash&quot;</span><span class="p">,</span> <span class="s2">&quot;Bast&quot;</span><span class="p">)</span>
-<span class="p">(</span><span class="n">aussie</span><span class="p">,</span><span class="n">b_collie</span><span class="p">,</span><span class="n">indoor_cat</span><span class="p">,</span><span class="n">outdoor_cat</span><span class="p">)</span> <span class="o">=</span> <span class="n">my_pets</span>
-<span class="k">print</span><span class="p">(</span><span class="n">aussie</span><span class="p">)</span>
-<span class="n">cats</span><span class="o">=</span><span class="p">(</span><span class="n">indoor_cat</span><span class="p">,</span><span class="n">outdoor_cat</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">cats</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-<div class="prompt"></div>
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Chestnut
-(&#39;Dash&#39;, &#39;Bast&#39;)
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="&#23383;&#20856;-Dictionaries">&#23383;&#20856; Dictionaries<a class="anchor-link" href="#&#23383;&#20856;-Dictionaries">&#182;</a></h2>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>字典本来是无序的，但是自从 Python 3.6 开始，字典也是有序的了。本来字典可以当做无序的由键和值组成的。在字典中，可以用键来进行索引。</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[99]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;A&quot;</span><span class="p">,</span><span class="s2">&quot;B&quot;</span><span class="p">,</span><span class="s2">&quot;C&quot;</span><span class="p">,</span><span class="s2">&quot;D&quot;</span><span class="p">]</span> <span class="c1">#list example</span>
-<span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-<div class="prompt"></div>
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>B
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;anItem&#39;</span><span class="p">:</span> <span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="s1">&#39;anotherItem&#39;</span><span class="p">:</span> <span class="s2">&quot;B&quot;</span><span class="p">,</span><span class="s1">&#39;athirdItem&#39;</span><span class="p">:</span><span class="s2">&quot;C&quot;</span><span class="p">,</span><span class="s1">&#39;afourthItem&#39;</span><span class="p">:</span><span class="s2">&quot;D&quot;</span><span class="p">}</span> <span class="c1"># dictionary example</span>
-<span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-<div class="prompt"></div>
-
-<div class="output_subarea output_text output_error">
-<pre>
-<span class="ansi-red-intense-fg ansi-bold">---------------------------------------------------------------------------</span>
-<span class="ansi-red-intense-fg ansi-bold">KeyError</span>                                  Traceback (most recent call last)
-<span class="ansi-green-intense-fg ansi-bold">&lt;ipython-input-3-d314b6c47c6e&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-intense-fg ansi-bold">()</span>
-<span class="ansi-green-fg">      1</span> a <span class="ansi-yellow-intense-fg ansi-bold">=</span> <span class="ansi-yellow-intense-fg ansi-bold">{</span><span class="ansi-blue-intense-fg ansi-bold">&#39;anItem&#39;</span><span class="ansi-yellow-intense-fg ansi-bold">:</span> <span class="ansi-blue-intense-fg ansi-bold">&#34;A&#34;</span><span class="ansi-yellow-intense-fg ansi-bold">,</span> <span class="ansi-blue-intense-fg ansi-bold">&#39;anotherItem&#39;</span><span class="ansi-yellow-intense-fg ansi-bold">:</span> <span class="ansi-blue-intense-fg ansi-bold">&#34;B&#34;</span><span class="ansi-yellow-intense-fg ansi-bold">,</span><span class="ansi-blue-intense-fg ansi-bold">&#39;athirdItem&#39;</span><span class="ansi-yellow-intense-fg ansi-bold">:</span><span class="ansi-blue-intense-fg ansi-bold">&#34;C&#34;</span><span class="ansi-yellow-intense-fg ansi-bold">,</span><span class="ansi-blue-intense-fg ansi-bold">&#39;afourthItem&#39;</span><span class="ansi-yellow-intense-fg ansi-bold">:</span><span class="ansi-blue-intense-fg ansi-bold">&#34;D&#34;</span><span class="ansi-yellow-intense-fg ansi-bold">}</span> <span class="ansi-red-intense-fg ansi-bold"># dictionary example</span>
-<span class="ansi-green-intense-fg ansi-bold">----&gt; 2</span><span class="ansi-yellow-intense-fg ansi-bold"> </span><span class="ansi-green-intense-fg ansi-bold">print</span><span class="ansi-yellow-intense-fg ansi-bold">(</span>a<span class="ansi-yellow-intense-fg ansi-bold">[</span><span class="ansi-cyan-intense-fg ansi-bold">1</span><span class="ansi-yellow-intense-fg ansi-bold">]</span><span class="ansi-yellow-intense-fg ansi-bold">)</span>
-
-<span class="ansi-red-intense-fg ansi-bold">KeyError</span>: 1</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[104]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;anItem&#39;</span><span class="p">:</span> <span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="s1">&#39;anotherItem&#39;</span><span class="p">:</span> <span class="s2">&quot;B&quot;</span><span class="p">,</span><span class="s1">&#39;athirdItem&#39;</span><span class="p">:</span><span class="s2">&quot;C&quot;</span><span class="p">,</span><span class="s1">&#39;afourthItem&#39;</span><span class="p">:</span><span class="s2">&quot;D&quot;</span><span class="p">}</span> <span class="c1"># dictionary example</span>
-<span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="s1">&#39;anItem&#39;</span><span class="p">])</span>
-<span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-<div class="prompt"></div>
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>A
-{&#39;athirdItem&#39;: &#39;C&#39;, &#39;afourthItem&#39;: &#39;D&#39;, &#39;anItem&#39;: &#39;A&#39;, &#39;anotherItem&#39;: &#39;B&#39;}
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>在 3.6 之前的 Python 中，字典不具有排序性，所以不对字典元素进行排列，所以你不能按照某个顺序来读取（也就是不能顺序来索引），所以早先的版本中你只能靠 key（键）来读取元素。
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="&#38598;&#21512;-Sets">&#38598;&#21512; Sets<a class="anchor-link" href="#&#38598;&#21512;-Sets">&#182;</a></h3>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>集合是无序的，对一系列'不重复'的元素的集合。集合支持的运算有交集、并集以及集合对比（Intersections, unions and set differences ）。所以可以用集合来移除一个数据集中的重复元素，或者测试某个元素是否属于某个集合。例如下面的代码：</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[11]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="kn">from</span> <span class="nn">sets</span> <span class="kn">import</span> <span class="n">Set</span>
-<span class="n">fruits</span> <span class="o">=</span> <span class="n">Set</span><span class="p">([</span><span class="s2">&quot;apples&quot;</span><span class="p">,</span><span class="s2">&quot;oranges&quot;</span><span class="p">,</span><span class="s2">&quot;grapes&quot;</span><span class="p">,</span><span class="s2">&quot;bananas&quot;</span><span class="p">])</span>
-<span class="n">citrus</span> <span class="o">=</span> <span class="n">Set</span><span class="p">([</span><span class="s2">&quot;lemons&quot;</span><span class="p">,</span><span class="s2">&quot;oranges&quot;</span><span class="p">,</span><span class="s2">&quot;limes&quot;</span><span class="p">,</span><span class="s2">&quot;grapefruits&quot;</span><span class="p">,</span><span class="s2">&quot;clementines&quot;</span><span class="p">])</span>
-<span class="n">citrus_in_fruits</span> <span class="o">=</span> <span class="n">fruits</span> <span class="o">&amp;</span> <span class="n">citrus</span>   <span class="c1">#intersection</span>
-<span class="k">print</span><span class="p">(</span><span class="n">citrus_in_fruits</span><span class="p">)</span>
-<span class="n">diff_fruits</span> <span class="o">=</span> <span class="n">fruits</span> <span class="o">-</span> <span class="n">citrus</span>        <span class="c1"># set difference</span>
-<span class="k">print</span><span class="p">(</span><span class="n">diff_fruits</span><span class="p">)</span>
-<span class="n">diff_fruits_reverse</span> <span class="o">=</span> <span class="n">citrus</span> <span class="o">-</span> <span class="n">fruits</span>  <span class="c1"># set difference</span>
-<span class="k">print</span><span class="p">(</span><span class="n">diff_fruits_reverse</span><span class="p">)</span>
-<span class="n">citrus_or_fruits</span> <span class="o">=</span> <span class="n">citrus</span> <span class="o">|</span> <span class="n">fruits</span>     <span class="c1"># set union</span>
-<span class="k">print</span><span class="p">(</span><span class="n">citrus_or_fruits</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-<div class="prompt"></div>
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Set([&#39;oranges&#39;])
-Set([&#39;apples&#39;, &#39;grapes&#39;, &#39;bananas&#39;])
-Set([&#39;grapefruits&#39;, &#39;clementines&#39;, &#39;lemons&#39;, &#39;limes&#39;])
-Set([&#39;clementines&#39;, &#39;grapes&#39;, &#39;limes&#39;, &#39;oranges&#39;, &#39;grapefruits&#39;, &#39;apples&#39;, &#39;lemons&#39;, &#39;bananas&#39;])
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[15]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">a_list</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;a&quot;</span><span class="p">,</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="s2">&quot;d&quot;</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span>
-<span class="k">print</span><span class="p">(</span><span class="n">a_list</span><span class="p">)</span>
-<span class="n">a_set</span> <span class="o">=</span> <span class="n">Set</span><span class="p">(</span><span class="n">a_list</span><span class="p">)</span>  <span class="c1"># Convert list to set</span>
-<span class="k">print</span><span class="p">(</span><span class="n">a_set</span><span class="p">)</span>         <span class="c1"># Creates a set with unique elements</span>
-<span class="n">new_list</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">a_set</span><span class="p">)</span> <span class="c1"># Convert set to list</span>
-<span class="k">print</span><span class="p">(</span><span class="n">new_list</span><span class="p">)</span>        <span class="c1"># Obtain a list with unique elements </span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-<div class="prompt"></div>
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>[&#39;a&#39;, &#39;a&#39;, &#39;a&#39;, &#39;b&#39;, 1, 2, 3, &#39;d&#39;, 1]
-Set([&#39;a&#39;, 1, 2, &#39;b&#39;, &#39;d&#39;, 3])
-[&#39;a&#39;, 1, 2, &#39;b&#39;, &#39;d&#39;, 3]
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>更多样例以及详细的关于集合的内容可以参考官方文档：<a href="https://docs.python.org/3/library/sets.html">https://docs.python.org/3/library/sets.html</a></p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="&#31867;-Classes">&#31867; Classes<a class="anchor-link" href="#&#31867;-Classes">&#182;</a></h2><p>类（或者类的对象）是对一系列数据（作为类的属性 attribute ）和函数（作为类的方法 method ）的打包。可以用'.'这个点号来读取类中的属性或者使用类的方法。例如，当我们调用<code>'hello'.upper()</code>的时候，就是用到了<code>'hello'</code>这个属于字符串 <code>string</code>类的实例的 <code>upper</code> 方法。</p>
-<p>本章节不会涉及关于自定义累的创建等更多内容。</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="&#27169;&#22359;-Modules">&#27169;&#22359; Modules<a class="anchor-link" href="#&#27169;&#22359;-Modules">&#182;</a></h2><p>随着代码规模越来越大，就应该把代码拆分成多个 <em>module</em> 模块或者包，这样组织起来也更方便。最简单的情况下，模块可以就是普通的 python 文件。我们常常要先用 <code>import</code> 导入模块，然后在后面的代码中就能使用这些模块中的内容：</p>
-<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span> <span class="c1"># 这是设置用 np 作为别名</span>
-<span class="kn">import</span> <span class="nn">numpy.linalg</span> <span class="kn">as</span> <span class="nn">la</span> <span class="c1"># 模块下面还可以有子模块</span>
-<span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">sin</span><span class="p">,</span> <span class="n">cos</span><span class="p">,</span> <span class="n">tan</span> <span class="c1"># 这里是把三角函数的名字引入到了全局的命名空间，这样就不用加模块名前缀了</span>
-<span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="o">*</span> <span class="c1"># 尽量别这么做，因为这样可能就污染了命名空间</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="&#26631;&#20934;&#24211;-The-standard-library">&#26631;&#20934;&#24211; The standard library<a class="anchor-link" href="#&#26631;&#20934;&#24211;-The-standard-library">&#182;</a></h2><p>Python 已经自带了很赞的一些标准库，其中有各种各样的函数都包含在了标准库中。</p>
-<p><strong>参考</strong></p>
-<ul>
-<li><a href="https://docs.python.org/3/library/">Python 官方标准库文档</a></li>
-<li><a href="http://pymotw.com/3/contents.html">Python 模块示例</a> 给出了各种对标准库进行使用的样例。</li>
-</ul>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="&#23433;&#35013;&#39069;&#22806;&#30340;&#27169;&#22359;">&#23433;&#35013;&#39069;&#22806;&#30340;&#27169;&#22359;<a class="anchor-link" href="#&#23433;&#35013;&#39069;&#22806;&#30340;&#27169;&#22359;">&#182;</a></h3><p>多数情况下，咱们都要用<code>pip</code>这个包管理器来安装或者卸载模块。实际上，只要输入命令就可以了：</p>
-<div class="highlight"><pre><span></span>pip install &lt;要安装的包的名字&gt;
-</pre></div>
-<p>在命令行中或者在 IPython notebook 中输入：</p>
-<div class="highlight"><pre><span></span><span class="err">!</span> <span class="n">pip</span> <span class="n">install</span> <span class="o">&lt;</span><span class="err">要安装的包的名字</span><span class="o">&gt;</span>
-</pre></div>
-<p>有哪些包能用 <code>pip</code>安装呢？可以参考<a href="https://pypi.python.org/pypi">Python Package Index (PyPI)</a>。</p>
-<p>Pip 的官方文档在 <a href="https://pip.pypa.io/en/latest/">https://pip.pypa.io/en/latest/</a>.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="&#26356;&#26032;-Anaconda-&#21457;&#34892;&#29256;&#21040;&#26368;&#26032;&#30340;&#29256;&#26412;">&#26356;&#26032; Anaconda &#21457;&#34892;&#29256;&#21040;&#26368;&#26032;&#30340;&#29256;&#26412;<a class="anchor-link" href="#&#26356;&#26032;-Anaconda-&#21457;&#34892;&#29256;&#21040;&#26368;&#26032;&#30340;&#29256;&#26412;">&#182;</a></h2><p>在命令行中输入下面的命令就行了：</p>
-<div class="highlight"><pre><span></span>conda update conda
-conda update anaconda
-</pre></div>
-<p>这里要注意， <code>conda</code> 能做的事情还有 <a href="http://conda.pydata.org/docs/index.html">很多很多哦</a>.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="&lt;font-color=red&gt;&#32451;&#20064;-Exercises&lt;/font&gt;">&lt;font color=red&gt;&#32451;&#20064; Exercises&lt;/font&gt;<a class="anchor-link" href="#&lt;font-color=red&gt;&#32451;&#20064;-Exercises&lt;/font&gt;">&#182;</a></h2>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>1</strong>. 解决 FizzBuzz 问题</p>
-<p>写一个程序，输出从 1 到 100 的数字。但当数字是 3 的倍数的时候，就不输出数字，而是输出'Fizz';当数字是 5 的倍数的时候，就不输出数字，而是输出'Buzz'；当数字同时是 3 和 5 的倍数的时候，就不输出数字，而是输出'FizzBuzz';</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># YOUR CODE HERE</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>2</strong>. 给定 x=3 y=4，交换两个变量的值</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">3</span>
-<span class="n">y</span> <span class="o">=</span> <span class="mi">4</span>
-<span class="c1"># YOUR CODE HERE</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>3</strong>. 写一个程序，在平面直角坐标系中计算并返回两个点的距离，假设两个点为 $u$ 和 $v$, 这两个都是一个含有两个元素的元组，各自都有自己的坐标值 $(x, y)$。例如, 假如 $u = (3,0)$ 然后 $v = (0,4)$， 函数就会计算并返回这两个点的距离 $5$.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># YOUR CODE HERE</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>使用字典，来写一个程序，计算每个字母在给定字符串 s 中出现的次数。忽略大小写。例如 'a' 和 'A' 就都当作同样的一个键。下面的这个 s 中， a 就似乎是出现了 7 次。</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[6]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">s</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
-<span class="s2">Write a program that prints the numbers from 1 to 100. </span>
-<span class="s2">But for multiples of three print &#39;Fizz&#39; instead of the number and f</span>
-<span class="s2">or the multiples of five print &#39;Buzz&#39;. For numbers which are </span>
-<span class="s2">multiples of both three and five print &#39;FizzBuzz&#39;</span>
-<span class="s2">&quot;&quot;&quot;</span>
-
-<span class="c1"># YOUR CODE HERE</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>5</strong>. Write a program that finds the percentage of sliding windows of length 5 for the sentence s that contain at least one 'a'. Ignore case, spaces and punctuation. For example, the first sliding window is 'write' which contains 0 'a's, and the second is 'ritea' which contains 1 'a'.</p>
-<p>写一个程序，在一段句子中，找出长度为 5 的子串且至少含有一个字母 'a' 的比例。忽略大小写、空格以及标点符号。例如下面这个字符串 s 中， 'write' 就包含了 0 个 'a'，第二个就是'ritea' 包含了一个 'a'。（这个我翻译得很差，所以提供了原文作为对比。）</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">s</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
-<span class="s2">Write a program that prints the numbers from 1 to 100. </span>
-<span class="s2">But for multiples of three print &#39;Fizz&#39; instead of the number and f</span>
-<span class="s2">or the multiples of five print &#39;Buzz&#39;. For numbers which are </span>
-<span class="s2">multiples of both three and five print &#39;FizzBuzz&#39;</span>
-<span class="s2">&quot;&quot;&quot;</span>
-
-<span class="c1"># YOUR CODE HERE</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>6</strong>. 从下面的列表中查找只出现过一次的数字：</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[15]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">36</span><span class="p">,</span> <span class="mi">45</span><span class="p">,</span> <span class="mi">58</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">74</span><span class="p">,</span> <span class="mi">96</span><span class="p">,</span> <span class="mi">64</span><span class="p">,</span> <span class="mi">45</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">19</span><span class="p">,</span> <span class="mi">33</span><span class="p">,</span> <span class="mi">86</span><span class="p">,</span> <span class="mi">99</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="mi">63</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="mi">85</span><span class="p">,</span>
- <span class="mi">85</span><span class="p">,</span> <span class="mi">63</span><span class="p">,</span> <span class="mi">47</span><span class="p">,</span> <span class="mi">56</span><span class="p">,</span> <span class="mi">42</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="mi">84</span><span class="p">,</span> <span class="mi">88</span><span class="p">,</span> <span class="mi">55</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">54</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">56</span><span class="p">,</span> <span class="mi">51</span><span class="p">,</span> <span class="mi">79</span><span class="p">,</span> <span class="mi">81</span><span class="p">,</span> <span class="mi">57</span><span class="p">,</span> <span class="mi">37</span><span class="p">,</span> <span class="mi">91</span><span class="p">,</span>
- <span class="mi">1</span><span class="p">,</span> <span class="mi">84</span><span class="p">,</span> <span class="mi">84</span><span class="p">,</span> <span class="mi">36</span><span class="p">,</span> <span class="mi">66</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">89</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">42</span><span class="p">,</span> <span class="mi">91</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">95</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="mi">98</span><span class="p">,</span> <span class="mi">39</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">82</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="mi">92</span><span class="p">,</span> <span class="mi">41</span><span class="p">,</span>
- <span class="mi">45</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">66</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="mi">34</span><span class="p">,</span> <span class="mi">85</span><span class="p">,</span> <span class="mi">94</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">36</span><span class="p">,</span> <span class="mi">72</span><span class="p">,</span> <span class="mi">91</span><span class="p">,</span> <span class="mi">84</span><span class="p">,</span> <span class="mi">34</span><span class="p">,</span> <span class="mi">87</span><span class="p">,</span> <span class="mi">75</span><span class="p">,</span> <span class="mi">53</span><span class="p">,</span> <span class="mi">51</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">89</span><span class="p">,</span> <span class="mi">51</span><span class="p">,</span> <span class="mi">20</span><span class="p">]</span>
-
-<span class="c1"># YOUR CODE HERE</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>7</strong>. 写两个函数，一个返回一个数值的平方，另一返回立方。然后利用这两个函数再来写第三个函数，来求一个数值的 $6^{th}$ ，即六次方。</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[16]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># YOUR CODE HERE</span>
-
-<span class="k">def</span> <span class="nf">square</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-    <span class="k">pass</span>
-
-<span class="k">def</span> <span class="nf">cube</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-    <span class="k">pass</span>
-
-<span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-    <span class="k">pass</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>8</strong>. 创建一个新列表，列表内容是 x for x in [0, 10] 的立方，分别使用以下方法：</p>
-<ul>
-<li>for 循环</li>
-<li>列表表达式推导</li>
-<li>map 函数</li>
-</ul>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># YOUR CODE HERE</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>9</strong>. 毕达哥拉斯三角（Pythagorean triple），也就是中国的勾股定理啦，$a^2 + b^2 = c^2$，比如第一组就是(3,4,5)，写个程序找出来 100 以内的所有符合勾股定理的三角形组合吧。</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># YOUR CODE HERE</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>10</strong>. 解决下面这个函数的 bug，这个函数式接收一个数值列表，然后返回归一化的列表（a list of normalized numbers）。</p>
-<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">xs</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Retrun normalized list summing to 1.&quot;&quot;&quot;</span>
-    <span class="n">s</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">xs</span><span class="p">:</span>
-        <span class="n">s</span> <span class="o">+=</span> <span class="n">x</span>
-    <span class="k">return</span> <span class="p">[</span><span class="n">x</span><span class="o">/</span><span class="n">s</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">xs</span><span class="p">]</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[2]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># YOUR CODE HERE</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span> 
+<span class="o">%</span><span class="k">version_information</span> numpy, matplotlib, pandas, statsmodels
 </pre></div>
 
 </div>
