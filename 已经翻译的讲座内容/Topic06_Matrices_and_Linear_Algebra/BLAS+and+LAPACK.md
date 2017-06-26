@@ -246,7 +246,7 @@ alpha * np.dot(A, B)
 
 ## LAPACK
 
-LAPACK 提供的方法要比 BLAS 更高级，可以用于用于求解线性方程组（simultaneous linear equations），求线性方程组的最小二乘解（least-squares solutions of linear systems of equations），特征值问题（eigenvalue problems），奇异值问题（singular value problems）以及各种矩阵因式分解（matrix factorizations）。 LAPACK 中的大部分方法都利用了 BLAS 中提供的低级方法 。所以 LAPACK 里面的命名规则（naming convention）也都跟 BLAS 相似。LAPACK 的用户指南就是它的官方文档了，可以在下面这个链接里面找到：<http://www.netlib.org/lapack/lug/>.
+LAPACK 提供的方法要比 BLAS 更高级，可以用于求解线性方程组（simultaneous linear equations），求线性方程组的最小二乘解（least-squares solutions of linear systems of equations），特征值问题（eigenvalue problems），奇异值问题（singular value problems）以及各种矩阵因式分解（matrix factorizations）。 LAPACK 中的大部分方法都利用了 BLAS 中提供的低级方法 。所以 LAPACK 里面的命名规则（naming convention）也都跟 BLAS 相似。LAPACK 的用户指南就是它的官方文档了，可以在下面这个链接里面找到：<http://www.netlib.org/lapack/lug/>.
 
 The list of routines avaiable in `scipy.linalg.lapack` are listed at <http://docs.scipy.org/doc/scipy/reference/linalg.lapack.html>
 

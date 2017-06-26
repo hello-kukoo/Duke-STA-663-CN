@@ -85,7 +85,8 @@ $$ Ax = b$$
 如果 $m>n$，也就是说方程的个数多于未知数的个数了，那么这个线性方程组就是超定方程组（*overdetermined*）。也就是说方程数比未知数多了。那么这个方程组也已是不协调的(*insistent*)，或者其中某些方程式是多余的（redundant）。
 
 分析和解线性方程组都有很多技术性的方法。我们的目标是让大家理解在各种内置函数背后的原理，以及这些函数解线性方程组的*效率*如何。
-是哦续i安，来回顾一下线性代数的基本内容：
+
+先来回顾一下线性代数的基本内容：
 
 ### 线性无关（Linear Independence）
 
@@ -278,7 +279,7 @@ w.dot(w.T)/(n - 1)
 
 $$\left|\begin{matrix}a_{11} & a_{12}\\a_{21} & a_{22}\end{matrix}\right| = a_{11}a_{22} - a_{12}a_{21}$$
 
-稍作扩展（minor expansion），就可以推广到 $n \times n 的矩阵上去了。这部分内容自己查去吧。咱们用 Python 中的 numpy 来计算行列式都有现成的工具，如下所示：
+稍作扩展（minor expansion），就可以推广到 $n \times n$ 的矩阵上去了。这部分内容自己查去吧。咱们用 Python 中的 numpy 来计算行列式都有现成的工具，如下所示：
 
 ``np.linalg.det(A)``
 
@@ -392,7 +393,7 @@ print("Compare to Av1: ", coeffs[0]*v1 + coeffs[1]*v2)
     [[  1.00000000e+00  -5.55111512e-17]
      [  5.55111512e-17   1.00000000e+00]]
     ('Compare to Av1: ', array([ 5.,  6.]))
-    
+
 
 
 ```python
@@ -446,11 +447,11 @@ plt.tight_layout()
 
 Some matrices have interesting properties that allow us either simplify the underlying linear system or to understand more about it. 
 
-有的矩阵有一些很有趣的性质，这样的一些性质有时候就可以简化对应的线性方程组以及对其的理解等等。
+有的矩阵有一些很有趣的性质，这些性质有时候可以简化对应的线性方程组以及增加对其的理解等等。
 
 #### 正方形矩阵
 
-正方形矩阵，简称方阵，就是行和列的数目$n$相同。对于任意的一个正方形矩阵，都可以说成是$n\times n$矩阵，或者说他是一个“维度为$n$的方阵”。如果一个$n\times n$ 方阵 $A$ 有 *满秩（full rank）*（ye'jiu'shi也就是说该矩阵的秩为$n$），那么这个矩阵$A$就是可逆的（invertible），而且逆矩阵（inverse）是唯一的。这种情况下对应的线性方程组就有唯一解了。
+正方形矩阵，简称方阵，就是行和列的数目$n$相同。对于任意的一个正方形矩阵，都可以说成是$n\times n$矩阵，或者说他是一个“维度为$n$的方阵”。如果一个$n\times n$ 方阵 $A$ 有 *满秩（full rank）*（也就是说该矩阵的秩为$n$），那么这个矩阵$A$就是可逆的（invertible），而且逆矩阵（inverse）是唯一的。这种情况下对应的线性方程组就有唯一解了。
 
 #### 对角矩阵
 
