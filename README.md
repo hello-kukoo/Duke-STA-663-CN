@@ -27,7 +27,7 @@
 
 另外我会逐步翻译 Duke 大学的 STA 633 课程的课件、纲要、教案 等等全部内容
 
-他们的这个课程和之前 [我翻译ThinkPython](https://zhuanlan.zhihu.com/p/24644499) 正好能衔接
+他们的这个课程和之前 [我翻译的 ThinkPython](https://zhuanlan.zhihu.com/p/24644499) 正好能衔接
 
 这个课程之后，又正好有足够的知识储备来尝试 斯坦福的 CS229 ：[Machine Learning (Course handouts)](http://cs229.stanford.edu/materials.html)
 
